@@ -30,11 +30,21 @@ $users_info = "CREATE TABLE users_info (
     chat_history INT(8),
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
-$blog_history = "CREATE TABLE blog_history (
-    id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    blog_title VARCHAR(50) NOT NULL, 
-    blog_body VARCHAR(600) NOT NULL
-    )";
+$sql = "CREATE TABLE POST(
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+owner VARCHAR(30) NOT NULL,
+tile VARCHAR(600) NOT NULL,
+image_ID INT(6),
+comments_ID INT(6) NOT NULL,
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP    
+)";
+
+$sql ="CREATE TABLE Comments(
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
+comments_ID INT(6) NOT NULL,  
+comments_body VARCHAR(600) NOT NULL,
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP   
+)";
 if ($conn->query($users_info) === TRUE) {
     echo "Table users_info created successfully";
 } else {
