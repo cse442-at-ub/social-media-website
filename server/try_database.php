@@ -33,17 +33,30 @@ $users_info = "CREATE TABLE users_info (
     blog_history_id INT(8),
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
-$blog_history = "CREATE TABLE blog_history (
-    blog_history_id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    blog_title VARCHAR(50) NOT NULL, 
-    blog_content VARCHAR(600) NOT NULL, 
-    created_at TIME,
-    user_id INT(8)
-    )";
-$follows = "CREATE TABLE follows (
-    follows_id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    user_id INT(8)
-    
+$sql = "CREATE TABLE POST(
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+owner VARCHAR(30) NOT NULL,
+tile VARCHAR(600) NOT NULL,
+like_count int(6) NOT NULL,
+like_id  int(6) NOT NULL,
+image_ID INT(6),
+comments_ID INT(6) NOT NULL,
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP    
+)";
+
+$sql ="CREATE TABLE Comments(
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
+commenter_ID INT(6) NOT NULL,  
+comments_ID INT(6) NOT NULL,  
+comments_body VARCHAR(600) NOT NULL,
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP   
+)";
+
+$sql = "CREATE TABLE liker_record(
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
+like_id INT(6) NOT NULL,  
+liker_id INT(6) NOT NULL, 
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP   
 )";
 if ($conn->query($users_info) === TRUE) {
     echo "Table users_info created successfully";
