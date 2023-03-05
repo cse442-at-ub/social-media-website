@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test_page</title>
+</head>
+<body>
+<br/><br/>
+<form action="spring2_phpserver.php" id="post_comment" method="post" enctype="multipart/form-data">
+
+  <label for="post_comment">Comment: </label>
+  <textarea id="comment" name="comment" cols="40" rows="6"></textarea>
+  <br/>
+  <input type="submit" value="Post">
+</form>
+<form action="spring2_phpserver.php" id="get_comment" method="get" enctype="multipart/form-data">
+
+  <label for="get_comment">comment_ID: </label>
+  <input type="number" name="id" >
+  <input type="submit" value="GET">
+</form>
+
+</body>
+</html>
