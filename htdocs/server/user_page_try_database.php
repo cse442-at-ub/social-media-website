@@ -17,9 +17,9 @@ if ($conn->connect_error) {
 // Create database (when does not specify which database to connect)
 $sql = "CREATE DATABASE blogDB";
 if ($conn->query($sql) === TRUE) {
-    echo "Database created ";
+    echo "Database created successfully. ";
 } else {
-    echo "fail ";
+    echo "Error creating table: " . $conn->error;
 }
 
 // sql to create table
@@ -31,8 +31,8 @@ $sql = "CREATE TABLE users_info (
     password VARCHAR(20), 
     user_profile_photo_filename VARCHAR(10), 
     follows INT(8),
+    fans INT(8), 
     blog_history_id INT(8),
-
 )";
 if ($conn->query($sql) === TRUE) {
     echo "users_info created";
@@ -78,5 +78,52 @@ if ($conn->query($sql) === TRUE) {
     echo "fail";
 }
 
+$sql ="CREATE TABLE follows(
+id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
+user_id INT(8) NOT NULL,  
+follow_id INT(8) NOT NULL 
+)";
+if ($conn->query($sql) === TRUE) {
+    echo "follows created";
+} else {
+    echo "follows create fail";
+}
+
+$sql ="CREATE TABLE fans(
+id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
+user_id INT(8) NOT NULL,  
+fans_id INT(8) NOT NULL 
+)";
+if ($conn->query($sql) === TRUE) {
+    echo "fans created";
+} else {
+    echo "fans create fail";
+}
+
+$sql = "INSERT INTO users_info (id, firstname, lastname, email, password, user_profile_photo_filename, 
+                        follows, fans, blog_history_id) VALUES (1, 'Doe', 'john','john@example.com', 'password', 'image1.jpg', 1, 1, 1)";
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$sql = "INSERT INTO users_info (id, firstname, lastname, email, password, user_profile_photo_filename, 
+                        follows, fans, blog_history_id) VALUES (2, 'Bob', 'andy','andy@example.com', 'password2', 'image2.jpg', 2, 2, 2)";
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$sql = "INSERT INTO follows (id, user_id, follow_id) VALUES (1, 1, 2)";
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
 $conn->close();
+
 ?>
+
