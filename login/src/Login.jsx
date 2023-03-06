@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 
+
+import {useNavigate} from "react-router-dom"
+
+
 export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
@@ -10,6 +14,10 @@ export const Login = (props) => {
         e.preventDefault();
         console.log(email);
     }
+
+
+
+    const navigate = useNavigate();
 
     return (
         <div className="auth-form-container">
@@ -24,7 +32,11 @@ export const Login = (props) => {
                 {/*asdf*/}
                 <button type="submit">Log In</button>
             </form>
-            <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here.</button>
+            <button className="link-btn" onClick={()=>navigate("/register")}>Don't have an account? Register here.</button>
+
+            {/*<button onClick={()=>navigate("/")}>About</button>*/}
+
+
         </div>
     )
 }
