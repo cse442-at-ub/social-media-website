@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import './App.css';
 import { Login } from "./Login";
 import { Register } from "./Register";
-import  {Test} from "./Test"
+
 // blow is for the using navigate
 import {BrowserRouter,Routes,Route} from "react-router-dom";
-import Home from "./Home";
-import About from "./About";
+
 
 function App() {
     // // modify from Login to Register

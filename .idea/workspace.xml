@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daec5c10-a440-45aa-933f-6b5286d47727" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/3.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/5.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/6.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/7.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/login/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/login/src/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/login/src/Register.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,24 +27,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/happy&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs.protractor.protractor_package&quot;: &quot;&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "C:/Users/happy",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs.protractor.protractor_package": "",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
-  <component name="RunManager" selected="npm.run">
+}]]></component>
+  <component name="RunManager" selected="npm.npm run">
     <configuration name="Unnamed" type="JavaScriptTestRunnerProtractor" nameIsGenerated="true">
       <config-file value="" />
       <node-interpreter value="project" />
@@ -54,18 +55,19 @@
       <scope-kind value="ALL" />
       <method v="2" />
     </configuration>
-    <configuration name="run" type="js.build_tools.npm">
+    <configuration name="npm run" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/login/package.json" />
       <command value="run" />
       <scripts>
         <script value="start" />
       </scripts>
       <node-interpreter value="$APPLICATION_CONFIG_DIR$/node/node-v16.16.0-win-x64/node" />
+      <package-manager value="npm" />
       <envs />
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="npm.run" />
+      <item itemvalue="npm.npm run" />
       <item itemvalue="Protractor.Unnamed" />
     </list>
   </component>

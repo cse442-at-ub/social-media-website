@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 
 import {useNavigate} from "react-router-dom"
@@ -12,7 +13,22 @@ export const Login = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(pass)
         console.log(email);
+        // sending the post request
+        axios.post('http://localhost:3000/login', {
+
+            user_email: email,
+            user_password: pass
+        })
+            .then((response) => {
+                console.log(response);
+            }, (error) => {
+                console.log(error);
+            });
+
+
+
     }
 
 
@@ -29,7 +45,6 @@ export const Login = (props) => {
                 <label htmlFor="password">Password</label>
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
 
-                {/*asdf*/}
                 <button type="submit">Log In</button>
             </form>
             <button className="link-btn" onClick={()=>navigate("/register")}>Don't have an account? Register here.</button>
