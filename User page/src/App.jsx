@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import "./RightColumn.css";
+// import {BrowserRouter as Router, Route, Link} from 'react-route-dom';
 
 function App() {
   return (
@@ -34,7 +36,12 @@ function App() {
           <p8>Name</p8>
         </div>
       </div>
+      <div className="right-column">
+        <div className="right-column-content">
+        </div>
+      </div>
     </div>
+
   );
 }
 
