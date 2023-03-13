@@ -5,13 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daec5c10-a440-45aa-933f-6b5286d47727" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/0.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/1.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/2.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/3.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/4.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/5.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/6.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/7.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/login/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/login/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/public/test.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/login/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +29,9 @@
   <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.20" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2MbjweynqazL0ezhgv714o3kAk1" />
   <component name="ProjectViewState">
@@ -41,10 +52,17 @@
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs.protractor.protractor_package&quot;: &quot;&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+    &quot;nodejs_interpreter_path&quot;: &quot;C:/Users/happy/AppData/Roaming/JetBrains/GoLand2022.3/node/node-v16.16.0-win-x64/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;
   }
 }</component>
-  <component name="RunManager" selected="npm.run">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\happy\Documents\UB\ub2023\cse 442\project_s23-chat-union\login\public" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.npm run">
     <configuration name="Unnamed" type="JavaScriptTestRunnerProtractor" nameIsGenerated="true">
       <config-file value="" />
       <node-interpreter value="project" />
@@ -54,24 +72,36 @@
       <scope-kind value="ALL" />
       <method v="2" />
     </configuration>
-    <configuration name="run" type="js.build_tools.npm">
+    <configuration name="npm run" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/login/package.json" />
       <command value="run" />
       <scripts>
         <script value="start" />
       </scripts>
       <node-interpreter value="$APPLICATION_CONFIG_DIR$/node/node-v16.16.0-win-x64/node" />
+      <package-manager value="npm" />
       <envs />
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="npm.run" />
+      <item itemvalue="npm.npm run" />
       <item itemvalue="Protractor.Unnamed" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
