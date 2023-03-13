@@ -4,7 +4,7 @@ import { Login } from "./Login";
 import { Register } from "./Register";
 
 // blow is for the using navigate
-import {BrowserRouter,Routes,Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route, HashRouter} from "react-router-dom";
 
 
 function App() {
@@ -22,21 +22,30 @@ function App() {
         <div className="App">
             {
 
-                <>
+                <HashRouter>
+                    <Routes>
 
-                    <BrowserRouter>
+                        <Route exact path="/" element={<Login/>}/>
 
-                        <Routes>
+                        <Route exact path="/register" element={<Register/>}/>
 
-                            <Route exact path="/" element={<Login/>}/>
+                    </Routes>
+                </HashRouter>
 
-                            <Route exact path="/register" element={<Register/>}/>
 
-                        </Routes>
+                // <BrowserRouter>
+                //
+                //     <Routes>
+                //
+                //         <Route exact path="/" element={<Login/>}/>
+                //
+                //         <Route exact path="/register" element={<Register/>}/>
+                //
+                //     </Routes>
+                //
+                // </BrowserRouter>
 
-                    </BrowserRouter>
 
-                </>
 
                 // <Login></Login>
                 // <Test></Test>
