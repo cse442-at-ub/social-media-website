@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import './App.css';
-import { Login } from "./Login";
-import { Register } from "./Register";
+import { Login } from "./components/user_login/Login";
+import { Register } from "./components/user_login/Register";
 
 // blow is for the using navigate
-import {BrowserRouter, Routes, Route, HashRouter} from "react-router-dom";
+import { Routes, Route, HashRouter} from "react-router-dom";
+import LeftColumn from "./components/homepage/LeftColumn";
+import MiddleColumn from "./components/homepage/MiddleColumn";
+import RightColumn from "./components/homepage/RightColumn";
 
 
 function App() {
@@ -17,39 +20,36 @@ function App() {
     //     setCurrentForm(formName);
     // }
 
+    const leftButtons = ["Home", "Profile", "Messages", "Post"];
 
     return (
         <div className="App">
             {
 
+                // <div>
+                //     <LeftColumn buttons={leftButtons} />
+                //     <MiddleColumn />
+                //     <RightColumn />
+                // </div>
                 <HashRouter>
                     <Routes>
 
-                        <Route exact path="/" element={<Login/>}/>
+                        <Route exact path="/login" element={<Login/>}/>
 
                         <Route exact path="/register" element={<Register/>}/>
 
+                        <Route exact path="/" element={
+                        <div className={"homepage"}    >
+
+                                    <LeftColumn buttons={leftButtons} />
+                                    <MiddleColumn />
+                                    <RightColumn />
+
+                        </div>
+                        }/>
+
                     </Routes>
                 </HashRouter>
-
-
-                // <BrowserRouter>
-                //
-                //     <Routes>
-                //
-                //         <Route exact path="/" element={<Login/>}/>
-                //
-                //         <Route exact path="/register" element={<Register/>}/>
-                //
-                //     </Routes>
-                //
-                // </BrowserRouter>
-
-
-
-                // <Login></Login>
-                // <Test></Test>
-                // currentForm === "Login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />
 
             }
         </div>

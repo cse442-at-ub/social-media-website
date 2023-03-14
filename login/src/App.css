@@ -1,54 +1,112 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
+  /*display: flex;*/
+  /*min-height: 100vh;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  /*color: white;*/
+  /*background-image: url("background_image.jpg");*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+
+
+
+}
+/*// for the homepage*!*!*/
+.homepage{
   display: flex;
-  min-height: 100vh;
-  align-items: center;
   justify-content: center;
-  color: white;
-  background-image: url("background_image.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  align-items: flex-start;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.auth-form-container, .login-form, .register-form {
-  display: flex;
-  flex-direction: column;
+.left-column-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
 }
 
-@media screen and (min-width: 600px) {
-  .auth-form-container {
-    padding: 5rem;
-    /*border: 1px solid white;*/
-    /*border-radius: 10px;*/
-    margin: 0.5rem;
-  }
+.middle-column-container {
+  flex-grow: 1;
+  overflow: auto;
 }
 
-label {
-  text-align: left;
-  padding: 0.25rem 0;
+.right-column-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
 }
 
-input {
-  margin: 0.5rem 0;
-  padding: 1rem;
-  border: none;
-  border-radius: 10px;
-}
+/*// for the login and register page*!*!*/
 
-button {
-  border: none;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  color: #7439db;
-}
+/*.auth-form-container, .login-form, .register-form {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*}*/
 
-.link-btn {
-  background: none;
-  color: white;
-  text-decoration: underline;
-}
+/*@media screen and (min-width: 600px) {*/
+/*  .auth-form-container {*/
+/*    padding: 5rem;*/
+/*    !*border: 1px solid white;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    margin: 0.5rem;*/
+/*  }*/
+/*}*/
+
+/*label {*/
+/*  text-align: left;*/
+/*  padding: 0.25rem 0;*/
+/*}*/
+
+/*input {*/
+/*  margin: 0.5rem 0;*/
+/*  padding: 1rem;*/
+/*  border: none;*/
+/*  border-radius: 10px;*/
+/*}*/
+
+/*button {*/
+/*  border: none;*/
+/*  background-color: white;*/
+/*  padding: 20px;*/
+/*  border-radius: 10px;*/
+/*  cursor: pointer;*/
+/*  color: #7439db;*/
+/*}*/
+
+/*.link-btn {*/
+/*  background: none;*/
+/*  color: white;*/
+/*  text-decoration: underline;*/
+/*}*/
 
 
+/*.app {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: flex-start;*/
+/*  height: 100vh;*/
+/*  overflow: hidden;*/
+/*}*/
+
+/*.left-column-container {*/
+/*  position: fixed;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  height: 100vh;*/
+/*}*/
+
+/*.middle-column-container {*/
+/*  flex-grow: 1;*/
+/*  overflow: auto;*/
+/*}*/
+
+/*.right-column-container {*/
+/*  position: fixed;*/
+/*  top: 0;*/
+/*  right: 0;*/
+/*  height: 100vh;*/
+/*}*/
