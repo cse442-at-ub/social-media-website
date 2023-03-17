@@ -16,7 +16,6 @@ const PostModal = ({ onClose }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
         console.log("Text:", text);
         console.log("Image:", image);
         axios.post('post.php', {
