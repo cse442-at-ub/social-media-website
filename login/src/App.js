@@ -9,6 +9,8 @@ import LeftColumn from "./components/homepage/LeftColumn";
 import MiddleColumn from "./components/homepage/MiddleColumn";
 import RightColumn from "./components/homepage/RightColumn";
 
+import Userpage from "./components/userpage/Userpage"
+
 
 function App() {
     // // modify from Login to Register
@@ -38,6 +40,7 @@ function App() {
 
                         <Route exact path="/register" element={<Register/>}/>
 
+
                         <Route exact path="/" element={
                         <div className={"homepage"}    >
 
@@ -47,6 +50,8 @@ function App() {
 
                         </div>
                         }/>
+
+                        <Route exact path="/userpage" element={<Userpage/>}/>
 
                     </Routes>
                 </HashRouter>
