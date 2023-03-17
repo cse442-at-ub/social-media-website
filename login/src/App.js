@@ -47,7 +47,7 @@ function App() {
 
                         </div>
                         }/>
-
+                        <Route exact path="/userpage" element={<Userpage/>}/>
                     </Routes>
                 </HashRouter>
 

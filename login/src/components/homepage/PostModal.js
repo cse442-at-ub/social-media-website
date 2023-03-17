@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./PostModal.css";
+import axios from "axios";
 
 const PostModal = ({ onClose }) => {
     const [text, setText] = useState("");
@@ -18,8 +19,15 @@ const PostModal = ({ onClose }) => {
 
         console.log("Text:", text);
         console.log("Image:", image);
-
-        onClose();
+        axios.post('post.php', {
+            Text: text,
+            Image: image
+        })
+            .then((response) => {
+                console.log(response);
+            }, (error) => {
+                console.log(error);
+            });
     };
 
     return (
