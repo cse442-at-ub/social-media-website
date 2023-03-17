@@ -8,7 +8,7 @@ const LeftColumn = ({ buttons }) => {
     const [isPostModalOpen, setIsPostModalOpen] = useState(false);
 
     const handleProfileClick = () => {
-        navigate("/profile");
+        navigate("/userpage");
     };
     const handlePostClick = () => {
         setIsPostModalOpen(true);
