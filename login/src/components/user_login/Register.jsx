@@ -17,7 +17,7 @@ export const Register = (props) => {
         console.log(name);
         console.log(age)
         // sending the post request
-        axios.post('http://localhost:3000/register', {
+        axios.post('handle_register.php', {
 
             user_email: email,
             user_password: pass,
