@@ -17,10 +17,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $age = $b ["user_age"];
     echo $age;
 }
-$sql = "INSERT INTO users_info (
-    id, firstname, lastname,age, email, password, 
-    user_profile_photo_filename, follows, fans, 
-    blog_history_id
-    ) VALUES (
-              1, $name, 'none', $age, $user_email, 
-              $user_password, 'none', 1, 1, 1)";
+
+
+$servername = "localhost";
+$username = "root";
+$password = null;
+$dbname = "spring3_database";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+$sql = "INSERT INTO users_info (id, firstname, lastname, email, password, user_profile_photo_filename, 
+                        follows, fans, blog_history_id
+                        ) VALUES (
+                                  1, 'Doe', 'john','john@example.com', 'password', 'image1.jpg', 1, 1, 1)";
+
+
+
+
+
+
+
+
+
+// defer
+$conn->close();
