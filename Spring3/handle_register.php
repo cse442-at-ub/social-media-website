@@ -17,3 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $age = $b ["user_age"];
     echo $age;
 }
+$sql = "INSERT INTO users_info (
+    id, firstname, lastname,age, email, password, 
+    user_profile_photo_filename, follows, fans, 
+    blog_history_id
+    ) VALUES (
+              1, $name, 'none', $age, $user_email, 
+              $user_password, 'none', 1, 1, 1)";
