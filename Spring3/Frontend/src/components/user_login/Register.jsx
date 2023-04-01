@@ -9,6 +9,12 @@ export const Register = (props) => {
     const [name, setName] = useState('');
     // add additional field for more information
     const [age, setAge] = useState('')
+    const navigate = useNavigate();
+
+    function goBack(){
+        navigate("/")
+
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,7 +38,7 @@ export const Register = (props) => {
 
     }
 
-    const navigate = useNavigate();
+
 
     return (
         <div className="user_login">
@@ -40,7 +46,7 @@ export const Register = (props) => {
                 <h2>Register</h2>
                 <form className="register-form" onSubmit={handleSubmit}>
                     <label htmlFor="name">Full name</label>
-                    <input value={name} onChange={(e) => setName(e.target.value)}type="text" placeholder="your name" id="name" name="name" />
+                    <input value={name} onChange={(e) => setName(e.target.value)} placeholder="your name" id="name" name="name" />
 
                     <label htmlFor="age">Age</label>
                     <input value={age} onChange={(e) => setAge(e.target.value)}type="number" placeholder="18" id="age" name="age" />
@@ -51,6 +57,7 @@ export const Register = (props) => {
                     <button type="submit">Register your account</button>
                 </form>
                 <button className="link-btn" onClick={() => navigate("/login")}>Already have an account? Login here.</button>
+                <button type="button" onClick={goBack}>Back Home</button>
 
                 {/*<button onClick={()=>navigate(-1)}>Go Back Home</button>*/}
             </div>

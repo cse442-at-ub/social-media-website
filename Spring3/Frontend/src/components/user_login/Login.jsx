@@ -11,6 +11,15 @@ export const Login = (props) => {
     const [pass, setPass] = useState('');
     // changed
 
+    const navigate = useNavigate();
+
+    function goBack(){
+        navigate("/")
+
+    }
+
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -34,7 +43,6 @@ export const Login = (props) => {
 
 
 
-    const navigate = useNavigate();
 
     return (
     <div className="user_login">
@@ -48,8 +56,11 @@ export const Login = (props) => {
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
 
                 <button type="submit">Log In</button>
+
             </form>
             <button className="link-btn" onClick={()=>navigate("/register")}>Don't have an account? Register here.</button>
+            <button type="button" onClick={goBack}>Back Home</button>
+
 
             {/*<button onClick={()=>navigate("/")}>About</button>*/}
 
