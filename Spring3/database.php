@@ -17,19 +17,17 @@ if (mysqli_connect_errno()) {
 }
 
 // Create table
-$sql = "CREATE TABLE users (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(30) NOT NULL,
-    userpass VARCHAR(30) NOT NULL
-)";
-
-
-
+// $sql = "CREATE TABLE users (
+//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     username VARCHAR(30) NOT NULL,
+//     userpass VARCHAR(30) NOT NULL
+// )";
 
 $sql = "CREATE TABLE users_info (
     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    firstname VARCHAR(10) NOT NULL, 
-    lastname VARCHAR(10) NOT NULL, 
+    firstname VARCHAR(30) NOT NULL, 
+    lastname VARCHAR(30) NOT NULL, 
+    age VARCHAR(10) NOT NULL,
     email VARCHAR(20) NOT NULL, 
     password VARCHAR(255) NOT NULL, 
     user_profile_photo_filename VARCHAR(10) NOT NULL, 
@@ -37,19 +35,6 @@ $sql = "CREATE TABLE users_info (
     fans INT(8) NOT NULL, 
     blog_history_id INT(8) NOT NULL
 )";
-
-
-
-
-$sql = "INSERT INTO users_info (
-                        id, firstname, lastname, email, password, 
-                        user_profile_photo_filename, follows, fans, 
-                        blog_history_id
-                        ) VALUES (
-                                  1, 'Doe', 'john','john@example.com', 
-                                  'password', 'image1.jpg', 1, 1, 1)";
-
-
 
 
 if (mysqli_query($conn, $sql)) {
