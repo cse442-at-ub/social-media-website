@@ -6,15 +6,14 @@ $username = $postdata->user_email;
 $password = $postdata->user_password;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // collect value of input field
-    $user_email = $_POST['user_email'];
-    $user_password = $_POST['user_password'];
-    $response = array('status' => 'success',
-        "user_email" => $user_email, "user_password" => $user_password,
-        "useremail" => $username, "password" => $password);
-    echo json_encode($response);
-
-    echo " It is connected! Account registers successfully! ";
-    header('Content-Type: application/json');
-
+    $b = file_get_contents('php://input');
+    $b = json_decode($b, true);
+    $user_email = $b ["user_email"];
+    echo $user_email;
+    $user_password = $b ["user_password"];
+    echo $user_password;
+    $name = $b ["user_full_name"];
+    echo $name;
+    $age = $b ["user_age"];
+    echo $age;
 }

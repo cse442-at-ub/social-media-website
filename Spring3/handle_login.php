@@ -12,7 +12,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // echo $user_email;
     $user_password = $b ["user_password"];
     // echo $user_password;
-  
-   
-  
 }
