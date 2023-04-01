@@ -16,17 +16,17 @@ if (mysqli_connect_errno()) {
 echo "Connected";
 
 // Create table
-$sql = "CREATE TABLE user (
+$sql = "CREATE TABLE users (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
-    userpass VARCHAR(30) NOT NULL,
-    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    userpass VARCHAR(30) NOT NULL
 )";
+
+// Delete table
+// $sql = "DROP TABLE user";
+
 
 if (!mysqli_query($conn, $sql)) {
     echo "Table created failed";
 } 
 echo "Table created successfully";
-
-// Delete table
-// $sql = "DROP TABLE user";
