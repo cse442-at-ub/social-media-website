@@ -21,18 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     $info = $conn->query("SELECT email, userpassword FROM users_info");
     $correct="not found";
-    if ($info->num_rows > 0){
-        while ($each_row = $info->fetch_assoc()) {
-            // user password can't compare, but if only compare email will work
-            $hashed = password_hash($each_row["userpassword"], PASSWORD_DEFAULT);
-            if($user_email==$each_row["email"] && $user_password ==$hashed ){
-                $correct= "found";
-                break;
-            }
+    
+    while ($each_row = $info->fetch_assoc()) {
+        // user password can't compare, but if only compare email will work
+        $hashed = password_hash($each_row["userpassword"], PASSWORD_DEFAULT);
+        if($user_email==$each_row["email"] && $user_password ==$hashed ){
+            $correct= "found";
+            break;
         }
-    }else{
-        echo "table is empty";
     }
+    
     echo $correct;
     
     // echo $user_password;
