@@ -3,30 +3,21 @@ import './userpage.css';
 import "./RightColumn.css";
 
 import {useNavigate} from "react-router-dom"
+import LeftColumn from "../homepage/LeftColumn";
+import RightColumn from "./RightColumn";
+
 
 const Userpage = () => {
+    const leftButtons = ["Home", "Profile", "Messages", "Post"];
+    const navigate = useNavigate();
+
     return (
         <div className="App">
             <div className='UserPage'>
-                <p>User Page</p>
-                <button type='button' className='MyPage'>
-                    <p1>My Page</p1>
-                    <br/></button>
-                <button type='button' className='MyFans'>
-                    <p2>My Fans</p2>
-                    <br/></button>
-                <button type='button' className='MyFollowing'>
-                    <p3>My Following</p3>
-                    <br/></button>
-                <button type='button' className='MyBlog'>
-                    <p6>My Blog</p6>
-                    <br/></button>
-                <button type='button' className='MyAlbum'>
-                    <p7>My Album</p7>
-                    <br/></button>
+            <LeftColumn  buttons={leftButtons} />
             </div>
             <div className='User'>
-                <button type='button' className='Back'>
+                <button type='button' className='Back' onClick={()=>navigate("/")}>
                     <p4>Back</p4>
                     <br/></button>
                 <div className='username'>
@@ -36,9 +27,8 @@ const Userpage = () => {
                     <p8>Name</p8>
                 </div>
             </div>
-            <div className="right-column">
-                <div className="right-column-content">
-                </div>
+            <div className = 'Right'>
+                <RightColumn />
             </div>
         </div>
 
