@@ -25,18 +25,20 @@ $dbname = "spring3_database";
 // Create connection
 // REMINDER : ID SHALL INCREMENT !!!!
 $conn = mysqli_connect($servername, $username, $password, $dbname);
+$user_password = password_hash($user_password, PASSWORD_DEFAULT);
 $sql = "INSERT INTO users_info (
-    id, firstname, lastname,age, email, userpassword, 
+    firstname, lastname,age, email, userpassword, 
     user_profile_photo_filename, follows, fans, 
     blog_history_id
-    ) VALUES (
-              3, '$name', 'none', $age, '$user_email', 
+    ) VALUES ('$name', 'none', $age, '$user_email', 
               '$user_password', 'none', 1, 1, 1)";
 
 // $sql = "INSERT INTO users_info (id, firstname, lastname,age, email, userpassword, user_profile_photo_filename, 
 // follows, fans, blog_history_id
 // ) VALUES (
 //           2, 'aaa', 'john',1,'john@example.com', 'password', 'image1.jpg', 1, 1, 1)";
+
+
 
 mysqli_query($conn, $sql);
 
