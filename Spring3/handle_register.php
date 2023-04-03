@@ -9,13 +9,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $b = file_get_contents('php://input');
     $b = json_decode($b, true);
     $user_email = $b ["user_email"];
-    echo $user_email;
+    echo '$user_email = ' . $user_email . "\r\n";
     $user_password = $b ["user_password"];
-    echo $user_password;
+    echo '$user_password = ' . $user_password . "\r\n";
     $name = $b ["user_full_name"];
-    echo $name;
+    echo '$name = ' . $name . "\r\n";
     $age = $b ["user_age"];
-    echo $age;
+    echo '$age = ' . $age . "\r\n";
 }
 $servername = "localhost";
 $username = "root";

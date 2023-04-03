@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $b = file_get_contents('php://input');
     $b = json_decode($b, true);
     $input_user_email = $b ["user_email"];
-    // echo $input_user_email;
+    // echo '$input_user_email = ' . $input_user_email . "\r\n";
     $input_user_password = $b ["user_password"];
 
     $servername = "localhost";
