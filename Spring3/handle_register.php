@@ -27,7 +27,7 @@ $dbname = "spring3_database";
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 $user_password = password_hash($user_password, PASSWORD_DEFAULT);
 $sql = "INSERT INTO users_info (
-    firstname, lastname,age, email, userpassword, 
+    firstname, lastname,age, email, user_password, 
     user_profile_photo_filename, follows, fans, 
     blog_history_id
     ) VALUES ('$name', 'none', $age, '$user_email', 

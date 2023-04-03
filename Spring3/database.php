@@ -29,7 +29,7 @@ $sql = "CREATE TABLE users_info (
     lastname VARCHAR(30) NOT NULL, 
     age VARCHAR(10) NOT NULL,
     email VARCHAR(200) NOT NULL, 
-    userpassword VARCHAR(255) NOT NULL, 
+    user_password VARCHAR(255) NOT NULL, 
     user_profile_photo_filename VARCHAR(10) NOT NULL, 
     follows INT(8) NOT NULL,
     fans INT(8) NOT NULL, 
