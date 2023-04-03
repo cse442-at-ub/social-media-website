@@ -31,7 +31,12 @@ export const Register = (props) => {
             user_age : age
         })
             .then((response) => {
+                console.log("this is the response itself")
                 console.log(response);
+                console.log("this is the data part in the response")
+                console.log(response.data)
+                console.log("this is the type of data")
+                console.log(typeof response.data)
             }, (error) => {
                 console.log(error);
             });

@@ -32,7 +32,30 @@ export const Login = (props) => {
             user_password: pass
         })
             .then((response) => {
-                console.log(response);
+                console.log("this is the data part in the response")
+                console.log(response.data)
+
+                const content = response.data
+                if (content.includes("user found")){
+                    navigate("/")
+                }
+                else if (content.includes("invalid user password")){
+                    console.log("the password is not correct")
+
+                }
+                else if (content.includes("invalid user email")){
+                    console.log("user email is incorrect")
+                }
+
+                // console.log("this is the response itself")
+                // console.log(response);
+                // console.log("this is the data part in the response")
+                // console.log(response.data)
+                // console.log("this is the type of data")
+                // console.log(typeof response.data)
+                // console.log("this is the response type")
+                // console.log(typeof (response))
+
             }, (error) => {
                 console.log(error);
             });
