@@ -23,7 +23,7 @@ function App() {
     // }
 
     const leftButtons = ["Home", "Profile", //"Messages", 
-    // "Post"];
+     "Post"];
 
     return (
         <div className="App">
