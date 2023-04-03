@@ -27,7 +27,8 @@ function App() {
     //     setCurrentForm(formName);
     // }
 
-    const leftButtons = ["Home", "Profile", "Messages", "Post"];
+    const leftButtons = ["Home", "Profile", //"Messages", 
+     "Post"];
 
     return (
         <div className="App">
