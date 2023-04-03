@@ -28,22 +28,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_stmt_bind_param($stmt, 's', $input_user_email);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
-    $correct="not found";
+    $correct="not found \r\n";
 
     if (mysqli_num_rows($result) > 0){
         $user_info = mysqli_fetch_assoc($result);
         if (password_verify($input_user_password, $user_info['user_password'])){
-            session_start();
-            $_SESSION['user_email'] = $user_info['email'];
+//            session_start();
+//            $_SESSION['user_email'] = $user_info['email'];
+//            echo $_SESSION['user_email'] . "\r\n";
 
-            echo "user found";
+            echo "user found" . "\r\n";
         }
         else {
-            echo "invalid user password ";
+            echo "invalid user password \r\n";
         }
     }
     else {
-        echo "invalid user email ";
+        echo "invalid user email \r\n";
     }
 
     
