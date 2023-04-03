@@ -17,7 +17,7 @@ export const Login = (props) => {
         console.log(pass)
         console.log(email);
         // sending the post request
-        axios.post('http://localhost:3000/login', {
+        axios.post('handle_login.php', {
 
             user_email: email,
             user_password: pass
