@@ -45,21 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else {
         echo "invalid user email ";
     }
-//    $info = $conn->query("SELECT email, user_password FROM users_info WHERE email = input_user_email");
-//    $correct="not found";
-//
-//    if (mysqli_num_rows())
-//    while ($each_row = $info->fetch_assoc()) {
-//        // user password can't compare, but if only compare email will work
-//        $hashed = password_hash($each_row["userpassword"], PASSWORD_DEFAULT);
-//        if($input_user_email==$each_row["email"] && $input_user_password ==$hashed ){
-//            $correct= "found";
-//            break;
-//        }
-//    }
-//
-//    echo $correct;
+
     
-    // echo $user_password;
     $conn->close();
 }
