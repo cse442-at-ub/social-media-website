@@ -23,6 +23,17 @@ if (mysqli_connect_errno()) {
 //     userpass VARCHAR(30) NOT NULL
 // )";
 
+// for post
+$sql = "CREATE TABLE post_history(
+    id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(200) NOT NULL,
+    tile VARCHAR(600) NOT NULL,
+    like_count int(8),
+    like_id  int(8),
+    image_ID INT(8),
+    comments_ID INT(8)  
+    )";
+
 $sql = "CREATE TABLE users_info (
     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(30) NOT NULL, 
@@ -37,15 +48,8 @@ $sql = "CREATE TABLE users_info (
     blog_history_id INT(8) NOT NULL
 )";
 
-$sql = "CREATE TABLE post_history(
-    id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(200) NOT NULL,
-    tile VARCHAR(600) NOT NULL,
-    like_count int(8),
-    like_id  int(8),
-    image_ID INT(8),
-    comments_ID INT(8)  
-    )";
+
+
 
 if (mysqli_query($conn, $sql)) {
     echo "Table created successfully";
