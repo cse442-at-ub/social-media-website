@@ -47,14 +47,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_execute($stmt);
 
             echo json_encode(['status' => 'success', 'token' => $cookie_value]);
-
             echo "user found" . "\r\n";
         }
         else {
+            echo json_encode(['status' => 'invalid user password']);
             echo "invalid user password \r\n";
         }
     }
     else {
+        echo json_encode(['status' => 'invalid user email']);
         echo "invalid user email \r\n";
     }
 

@@ -40,15 +40,14 @@ if ($conn->query($sql) === TRUE) {
     echo "fail";
 }
 
-$sql = "CREATE TABLE POST(
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-owner VARCHAR(30) NOT NULL,
+$sql = "CREATE TABLE post_history(
+id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+email VARCHAR(200) NOT NULL,
 tile VARCHAR(600) NOT NULL,
-like_count int(6) NOT NULL,
-like_id  int(6) NOT NULL,
-image_ID INT(6),
-comments_ID INT(6) NOT NULL
-   
+like_count int(8),
+like_id  int(8),
+image_ID INT(8),
+comments_ID INT(8)  
 )";
 if ($conn->query($sql) === TRUE) {
     echo "POST created";
