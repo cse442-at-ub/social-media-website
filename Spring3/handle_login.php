@@ -33,9 +33,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_num_rows($result) > 0){
         $user_info = mysqli_fetch_assoc($result);
         if (password_verify($input_user_password, $user_info['user_password'])){
-//            session_start();
-//            $_SESSION['user_email'] = $user_info['email'];
-//            echo $_SESSION['user_email'] . "\r\n";
+            $cookie_name = 'auth_token';
+            $cookie_value = bin2hex(random_bytes(16));
+//            echo '$cookie_value: ' . $cookie_value;
+            $expiration = time() + (60 * 60 * 24 * 7);
+            setcookie($cookie_name, $cookie_value, $expiration);
+
+//            update the auth_token in the users_info table
+            $sql = 'UPDATE users_info SET auth_token = ? WHERE email = ? AND user_password = ?';
+            $stmt = mysqli_prepare($conn, $sql);
+//    mysqli_stmt_bind_param forced the bind var must be string type
+            mysqli_stmt_bind_param($stmt, 'sss', $cookie_value, $user_info['email'], $user_info['user_password']);
+            mysqli_stmt_execute($stmt);
+
+            echo json_encode(['status' => 'success', 'token' => $cookie_value]);
 
             echo "user found" . "\r\n";
         }
@@ -50,3 +61,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $conn->close();
 }
+
+
+
+
+

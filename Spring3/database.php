@@ -30,6 +30,7 @@ $sql = "CREATE TABLE users_info (
     age VARCHAR(10) NOT NULL,
     email VARCHAR(200) NOT NULL, 
     user_password VARCHAR(255) NOT NULL, 
+    auth_token VARCHAR(255),
     user_profile_photo_filename VARCHAR(10) NOT NULL, 
     follows INT(8) NOT NULL,
     fans INT(8) NOT NULL, 

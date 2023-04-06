@@ -1,7 +1,10 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-$mypost = $GLOBALS['HTTP_RAW_POST_DATA'];
-$postdata = json_decode($mypost);
+
+//use file_get_contents('php://input') for better compatibility
+//$mypost = $GLOBALS['HTTP_RAW_POST_DATA'];
+//$postdata = json_decode($mypost);
+$postdata = file_get_contents('php://input');
 $username = $postdata->user_email;
 $password = $postdata->user_password;
 
@@ -19,27 +22,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 $servername = "localhost";
 $username = "root";
-$password = null;
+$db_password = null;
 $dbname = "spring3_database";
 
 // Create connection
 // REMINDER : ID SHALL INCREMENT !!!!
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $db_password, $dbname);
 $user_password = password_hash($user_password, PASSWORD_DEFAULT);
-$sql = "INSERT INTO users_info (
-    firstname, lastname,age, email, user_password, 
-    user_profile_photo_filename, follows, fans, 
-    blog_history_id
-    ) VALUES ('$name', 'none', $age, '$user_email', 
-              '$user_password', 'none', 1, 1, 1)";
+$stmt = $conn->prepare(
+    "INSERT INTO users_info (
+    firstname, lastname,age, email, user_password, auth_token, 
+    user_profile_photo_filename, follows, fans, blog_history_id
+    ) VALUES (
+              ?, 'none', ?, ?, ?, NULL, 
+              'none', 1, 1, 1)"
+);
+$stmt->bind_param('ssis', $name, $age, $user_email, $user_password);
+$stmt->execute();
 
-// $sql = "INSERT INTO users_info (id, firstname, lastname,age, email, userpassword, user_profile_photo_filename, 
-// follows, fans, blog_history_id
-// ) VALUES (
-//           2, 'aaa', 'john',1,'john@example.com', 'password', 'image1.jpg', 1, 1, 1)";
-
-
-
-mysqli_query($conn, $sql);
 
 $conn->close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
