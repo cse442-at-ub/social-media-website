@@ -1,13 +1,16 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-$mypost = $GLOBALS['HTTP_RAW_POST_DATA'];
-$postdata = json_decode($mypost);
+
+//use file_get_contents('php://input') for better compatibility
+//$mypost = $GLOBALS['HTTP_RAW_POST_DATA'];
+//$postdata = json_decode($mypost);
+$postdata = file_get_contents('php://input');
+$postdata = json_decode($postdata);
 $username = $postdata->user_email;
 $password = $postdata->user_password;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $b = file_get_contents('php://input');
-    $b = json_decode($b, true);
+    $b = json_decode(file_get_contents('php://input'), true);
     $input_user_email = $b ["user_email"];
     // echo '$input_user_email = ' . $input_user_email . "\r\n";
     $input_user_password = $b ["user_password"];
@@ -28,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_stmt_bind_param($stmt, 's', $input_user_email);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
-    $correct="not found \r\n";
 
     if (mysqli_num_rows($result) > 0){
         $user_info = mysqli_fetch_assoc($result);
@@ -47,16 +49,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_execute($stmt);
 
             echo json_encode(['status' => 'success', 'token' => $cookie_value]);
+
             echo "user found" . "\r\n";
         }
         else {
             echo json_encode(['status' => 'invalid user password']);
-            echo "invalid user password \r\n";
+//            echo "invalid user password \r\n";
         }
     }
     else {
         echo json_encode(['status' => 'invalid user email']);
-        echo "invalid user email \r\n";
+//        echo "invalid user email \r\n";
     }
 
     
