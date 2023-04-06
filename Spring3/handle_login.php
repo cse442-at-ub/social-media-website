@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dbname = "spring3_database";
 
     // Create connection
-    // REMINDER : ID SHALL INCREMENT !!!!
     $conn = mysqli_connect($servername, $username, $password, $dbname);
 //    $sql = "SELECT ... FROM ... WHERE email = $input_user_email";
 //    $input_user_email may results a sql injection
@@ -49,8 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_execute($stmt);
 
             echo json_encode(['status' => 'success', 'token' => $cookie_value]);
-
-            echo "user found" . "\r\n";
         }
         else {
             echo json_encode(['status' => 'invalid user password']);
