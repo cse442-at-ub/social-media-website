@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const checkSession = async () => {
     try {
-        const response = await axios.get('/handle_auth.php');
+        const response = await axios.get('handle_auth.php');
         const data = response.data;
 
         if (data.cookie_is_set) {
