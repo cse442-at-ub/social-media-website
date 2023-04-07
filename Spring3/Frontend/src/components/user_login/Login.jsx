@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import "./user_login.css"
+import {toast, ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 
 import {useNavigate} from "react-router-dom"
@@ -9,7 +12,6 @@ import {useNavigate} from "react-router-dom"
 export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-    const [errorMessage, setErrorMessage] = useState(''); // new state variable for error message
     const navigate = useNavigate();
 
     function goBack(){
@@ -32,52 +34,46 @@ export const Login = (props) => {
                 console.log(response.data)
                 const { status, token } = response.data;
 
-                console.log("following is the status and token")
-                console.log(status)
-                console.log(token)
-
                 if (status === 'success'){
                     console.log("this is the data part in the response")
                     console.log(response.data)
                     navigate('/')
                 }
                 else if (status === 'invalid user password'){
-                    setErrorMessage('The password is not correct'); // set the error message
+                    toast.error("your password is incorrect")
+                    // window.alert("invalid user password")
                 }
                 else if (status === 'invalid user email'){
-                    setErrorMessage('User email is incorrect'); // set the error message
+                    toast.error("your email is incorrect")
                 }
             }, (error) => {
                 console.log(error);
+                toast.error("login failed")
             });
     }
 
     return (
-        <div className="user_login">
-            <div className="auth-form-container">
-                <h1>Welcome to chat union</h1>
-                <form className="login-form" onSubmit={handleSubmit}>
-                    <label htmlFor="email">Email</label>
-                    <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
-                    <label htmlFor="password">Password</label>
-                    <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
+        <div>
+            <ToastContainer
+                position="top-center"
+                reverseOrder={false}
+            />
+            <div className="user_login">
+                <div className="auth-form-container">
+                    <h1>Welcome to chat union</h1>
+                    <form className="login-form" onSubmit={handleSubmit}>
+                        <label htmlFor="email">Email</label>
+                        <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
+                        <label htmlFor="password">Password</label>
+                        <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
 
-                    <button type="submit">Log In</button>
-                </form>
+                        <button type="submit">Log In</button>
+                    </form>
 
-                {/* conditional rendering of error message */}
-                {errorMessage &&
-                    <div className="popup">
-                        <div className="popup-inner">
-                            <p>{errorMessage}</p>
-                            <button onClick={() => setErrorMessage('')}>OK</button>
-                        </div>
-                    </div>
-                }
-
-                <button className="link-btn" onClick={()=>navigate("/register")}>Don't have an account? Register here.</button>
-                <button type="button" onClick={goBack}>Back Home</button>
+                    <button className="link-btn" onClick={()=>navigate("/register")}>Don't have an account? Register here.</button>
+                    <button type="button" onClick={goBack}>Back Home</button>
+                </div>
             </div>
         </div>
-    )
+    );
 }
