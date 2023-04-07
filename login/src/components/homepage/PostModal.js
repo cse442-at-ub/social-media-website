@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./PostModal.css";
 import axios from "axios";
+import withAuth from '../../auth.js';
 
-const PostModal = ({ onClose }) => {
+const PostModal = ({ onClose, isLoggedIn }) => {
     const [text, setText] = useState("");
     const [image, setImage] = useState(null);
 
@@ -16,6 +17,12 @@ const PostModal = ({ onClose }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        if (!isLoggedIn) {
+            alert("Please log in to create a post.");
+            return;
+        }
+
         console.log("Text:", text);
         console.log("Image:", image);
         axios.post('post.php', {
@@ -28,7 +35,6 @@ const PostModal = ({ onClose }) => {
                 console.log(error);
             });
     };
-
     return (
         <div className="post-modal-overlay">
             <div className="post-modal">
@@ -51,4 +57,4 @@ const PostModal = ({ onClose }) => {
     );
 };
 
-export default PostModal;
+export default withAuth(PostModal);
