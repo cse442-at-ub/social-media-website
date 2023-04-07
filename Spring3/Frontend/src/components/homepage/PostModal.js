@@ -18,7 +18,7 @@ const PostModal = ({ onClose }) => {
         event.preventDefault();
         console.log("Text:", text);
         console.log("Image:", image);
-        axios.post('post.php', {
+        axios.post('handle_Homepage.php', {
             Text: text,
             Image: image
         })
