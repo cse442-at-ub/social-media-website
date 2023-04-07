@@ -22,6 +22,7 @@ $sql = "CREATE TABLE post_history(
     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(200) NOT NULL,
     title VARCHAR(600) NOT NULL,
+    post_datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     like_count INT(8),
     like_id  INT(8),
     image_id INT(8),
