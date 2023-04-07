@@ -3,11 +3,11 @@ import axios from 'axios';
 
 const checkSession = async () => {
     try {
-        const response = await axios.get('/check_cookie.php');
+        const response = await axios.get('/handle_auth.php');
         const data = response.data;
 
-        if (data.isLoggedIn) {
-            return { isLoggedIn: true, user: data.user };
+        if (data.cookie_is_set) {
+            return { isLoggedIn: true, userFirstName: data.user_first_name, userEmail: data.user_email, userLastName: data.user_last_name, userAge: data.user_age, userFullName: data.user_full_name};
         } else {
             return { isLoggedIn: false };
         }
@@ -20,13 +20,21 @@ const checkSession = async () => {
 const withAuth = (WrappedComponent) => {
     return (props) => {
         const [isLoggedIn, setIsLoggedIn] = useState(false);
-        const [user, setUser] = useState(null);
+        const [userFullName, setUserFullName] = useState(null);
+        const [userFirstName, setUserFirstName] = useState(null)
+        const [userLastName, setUserLastName] = useState(null)
+        const [userEmail, setUserEmail] = useState(null)
+        const [userAge, setUserAge] = useState(null)
 
         useEffect(() => {
             const fetchSession = async () => {
                 const sessionInfo = await checkSession();
                 setIsLoggedIn(sessionInfo.isLoggedIn);
-                setUser(sessionInfo.user);
+                setUserFullName(sessionInfo.userFullName);
+                setUserFirstName(sessionInfo.userFirstName);
+                setUserLastName(sessionInfo.userLastName);
+                setUserEmail(sessionInfo.userEmail);
+                setUserAge(sessionInfo.userAge);
             };
 
             fetchSession();
@@ -36,7 +44,11 @@ const withAuth = (WrappedComponent) => {
             <WrappedComponent
                 {...props}
                 isLoggedIn={isLoggedIn}
-                user={user}
+                userFullName={userFullName}
+                userLastName={userLastName}
+                userEmail={userEmail}
+                userAge={userAge}
+                userFirstName={userFirstName}
             />
         );
     };
