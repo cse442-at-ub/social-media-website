@@ -6,7 +6,8 @@ import "./user_login.css"
 export const Register = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-    const [name, setName] = useState('');
+    const [firstname, setFirstname] = useState('');
+    const [lastname, setLastname] = useState('');
     // add additional field for more information
     const [age, setAge] = useState('')
     const navigate = useNavigate();
@@ -18,25 +19,25 @@ export const Register = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("here is input data sending to backend")
         console.log(email)
         console.log(pass);
-        console.log(name);
+        console.log(firstname);
+        console.log(lastname)
         console.log(age)
+        console.log("end of input data")
         // sending the post request
         axios.post('handle_register.php', {
 
             user_email: email,
             user_password: pass,
-            user_full_name: name,
+            user_first_name: firstname,
+            user_last_name: lastname,
             user_age : age
         })
             .then((response) => {
                 console.log("this is the response itself")
                 console.log(response);
-                console.log("this is the data part in the response")
-                console.log(response.data)
-                console.log("this is the type of data")
-                console.log(typeof response.data)
             }, (error) => {
                 console.log(error);
             });
@@ -50,8 +51,11 @@ export const Register = (props) => {
             <div className="auth-form-container">
                 <h2>Register</h2>
                 <form className="register-form" onSubmit={handleSubmit}>
-                    <label htmlFor="name">Full name</label>
-                    <input value={name} onChange={(e) => setName(e.target.value)} placeholder="your name" id="name" name="name" />
+                    <label htmlFor="firstname">First name</label>
+                    <input value={firstname} onChange={(e) => setFirstname(e.target.value)} placeholder="your first name" id="first name" name="firstname" />
+                    <label htmlFor="lastname">Last name</label>
+                    <input value={lastname} onChange={(e) => setLastname(e.target.value)} placeholder="your last name" id="last name" name="lastname" />
+
 
                     <label htmlFor="age">Age</label>
                     <input value={age} onChange={(e) => setAge(e.target.value)}type="number" placeholder="18" id="age" name="age" />
