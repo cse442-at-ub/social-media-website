@@ -4,16 +4,16 @@ header('Access-Control-Allow-Origin: *');
 //use file_get_contents('php://input') for better compatibility
 //$mypost = $GLOBALS['HTTP_RAW_POST_DATA'];
 //$postdata = json_decode($mypost);
-$postdata = file_get_contents('php://input');
-$postdata = json_decode($postdata);
-$username = $postdata->user_email;
-$password = $postdata->user_password;
+//$postdata = file_get_contents('php://input');
+//$postdata = json_decode($postdata);
+//$username = $postdata->user_email;
+//$password = $postdata->user_password;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $b = json_decode(file_get_contents('php://input'), true);
-    $input_user_email = $b ["user_email"];
+    $received_data = json_decode(file_get_contents('php://input'), true);
+    $input_user_email = $received_data ["user_email"];
     // echo '$input_user_email = ' . $input_user_email . "\r\n";
-    $input_user_password = $b ["user_password"];
+    $input_user_password = $received_data ["user_password"];
 
     $servername = "localhost";
     $username = "root";
@@ -51,12 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else {
             echo json_encode(['status' => 'invalid user password']);
-//            echo "invalid user password \r\n";
         }
     }
     else {
         echo json_encode(['status' => 'invalid user email']);
-//        echo "invalid user email \r\n";
     }
 
     
