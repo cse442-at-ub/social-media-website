@@ -9,7 +9,7 @@ import {useNavigate} from "react-router-dom"
 export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-    const [errorMessage, setErrorMessage] = useState(''); // new state variable for error message
+    // const [errorMessage, setErrorMessage] = useState(''); // new state variable for error message
     const navigate = useNavigate();
 
     function goBack(){
@@ -42,10 +42,12 @@ export const Login = (props) => {
                     navigate('/')
                 }
                 else if (status === 'invalid user password'){
-                    setErrorMessage('The password is not correct'); // set the error message
+                    // setErrorMessage('The password is not correct'); // set the error message
+                    window.alert("invalid user password")
                 }
                 else if (status === 'invalid user email'){
-                    setErrorMessage('User email is incorrect'); // set the error message
+                    // setErrorMessage('User email is incorrect'); // set the error message
+                    window.alert("invalid user email")
                 }
             }, (error) => {
                 console.log(error);
@@ -66,14 +68,7 @@ export const Login = (props) => {
                 </form>
 
                 {/* conditional rendering of error message */}
-                {errorMessage &&
-                    <div className="popup">
-                        <div className="popup-inner">
-                            <p>{errorMessage}</p>
-                            <button onClick={() => setErrorMessage('')}>OK</button>
-                        </div>
-                    </div>
-                }
+
 
                 <button className="link-btn" onClick={()=>navigate("/register")}>Don't have an account? Register here.</button>
                 <button type="button" onClick={goBack}>Back Home</button>
