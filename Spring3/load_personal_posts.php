@@ -27,15 +27,40 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $email = $row['email'];
 
 
-    $sql = "SELECT title, image_id FROM post_history ORDER BY post_date DESC";
-    $stmt = mysqli_prepare($conn, $sql);
+    $stmt = $conn->prepare("
+SELECT firstname AS first_name, lastname AS last_name, email, title, image_id, post_datetime 
+FROM post_history 
+JOIN users_info ON users_info.email = post_history.email
+WHERE post_history.email = ?
+ORDER BY post_datetime DESC
+");
+
+    $stmt->bind_param('s', $email);
+
     $stmt->execute();
 
 
     $result = $stmt->get_result();
+//    $posts is an associative array containing the data for a single post,
+//    each post contains keys 'post_title', 'post_image', and 'post_datetime'.
+//    $posts = array(
+//        array(
+//            'post_title' => 'Post 1',
+//            'post_image' => 101,
+//            'post_datetime' => '2023-04-01 12:00:00'
+//        ),
+//        array(
+//            'post_title' => 'Post 2',
+//            'post_image' => 102,
+//            'post_datetime' => '2023-04-02 15:30:00'
+//        ),
+//    );
     $posts = array();
     while ($row = $result->fetch_assoc()) {
         $posts[] = array(
+            'first_name' => $row['first_name'],
+            'last_name' => $row['last_name'],
+            'email' => $row['email'],
             'post_title' => $row['title'],
             'post_image' => $row['image_id'],
             'post_datetime' => $row['post_datetime']
