@@ -43,15 +43,11 @@ function App() {
                     <Routes>
 
                         <Route exact path="/login" element={<Login/>}/>
-
                         <Route exact path="/register" element={<Register/>}/>
-
                         <Route exact path="/Fans" element={<Fans/>}/>
-
                         <Route exact path="/Following" element={<Following/>}/>
-
                         <Route exact path="/Blogs" element={<Blogs/>}/>
-                        
+
                         <Route exact path="/Album" element={<Album/>}/>
 
 
