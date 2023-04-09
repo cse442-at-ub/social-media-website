@@ -5,9 +5,10 @@ import "./RightColumn.css";
 import {useNavigate} from "react-router-dom"
 import LeftColumn from "../homepage/LeftColumn";
 import RightColumn from "./RightColumn";
+import withAuth from '../../auth.js';
 
 
-const Userpage = () => {
+const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, userFirstName}) => {
     const leftButtons = ["Home", "Profile", "Messages", "Post"];
     const navigate = useNavigate();
 
@@ -24,8 +25,14 @@ const Userpage = () => {
                     <button type='button' className='Image'>
                         <p5>Image</p5>
                         <br/></button>
-                    <p8>Name</p8>
+                    <p8>{userFullName}</p8>
                 </div>
+            </div>
+            <div className = 'Age'>
+                <p20>Age:{userAge}</p20>
+            </div>
+            <div className= 'Email'>
+                <p21>Email:{userEmail}</p21>
             </div>
             <div className = 'Right'>
                 <RightColumn />
@@ -35,4 +42,4 @@ const Userpage = () => {
     );
 
 }
-export default Userpage;
+export default withAuth(Userpage);
