@@ -56,13 +56,15 @@ const Blogs = ({isLoggedIn}) => {
                 <LeftColumn  buttons={leftButtons} />
             </div>
             <div className='Blog'>
-                <p15>You did not put any Blogs !</p15>
-                <ul>
-                    {postTitles.map((title, index) => (
-                        <li key={index}>{title}</li>
-                    ))}
-                </ul>
-
+                {postTitles.length === 0 ? (
+                    <p>You did not put any Blogs!</p>
+                ) : (
+                    <ul>
+                        {postTitles.map((title, index) => (
+                            <li key={index}>{title}</li>
+                        ))}
+                    </ul>
+                )}
 
             </div>
             <div className = 'Right'>
