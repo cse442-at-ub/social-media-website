@@ -9,7 +9,12 @@ const LeftColumn = ({ isLoggedIn, userFullName, userEmail, userAge }) => {
     const leftButtons = isLoggedIn
         ? ["Home", "Profile", "Post"]
         : ["Home", "Profile", "Post", "Login"];
-    const handleProfileClick = () => {
+    const handleProfileClick = () =>
+    {
+        if (!isLoggedIn) {
+            alert("Please log in to create a post.");
+            return;
+        }
         navigate("/userpage");
     };
     const handlePostClick = () => {
