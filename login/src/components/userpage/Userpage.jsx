@@ -29,10 +29,10 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                 </div>
             </div>
             <div className = 'Age'>
-                <p20>Age:</p20>
+                <p20>Age:{userAge}</p20>
             </div>
             <div className= 'Email'>
-                <p21>Email:</p21>
+                <p21>Email:{userEmail}</p21>
             </div>
             <div className = 'Right'>
                 <RightColumn />
