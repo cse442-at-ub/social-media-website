@@ -25,8 +25,11 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                     <button type='button' className='Image'>
                         <p5>Image</p5>
                         <br/></button>
-                    <p8>{userFullName}</p8>
+                    <p8>{userFirstName}</p8>
                 </div>
+            </div>
+            <div className= 'Fullname'>
+                <p22>FullName:{userFullName}</p22>
             </div>
             <div className = 'Age'>
                 <p20>Age:{userAge}</p20>

@@ -188,8 +188,8 @@ p20{
     position: absolute;
     width: 70px;
     height: 50px;
-    left: 30%;
-    top: 20%;
+    left: 34%;
+    top: 30%;
 
     font-family: 'Inter';
     font-style: normal;
@@ -204,8 +204,24 @@ p21{
     position: absolute;
     width: 70px;
     height: 50px;
+    left: 33.4%;
+    top: 40%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 109px;
+
+    color: #000000;
+}
+
+p22{
+    position: absolute;
+    width: 70px;
+    height: 50px;
     left: 29.7%;
-    top: 30%;
+    top: 20%;
 
     font-family: 'Inter';
     font-style: normal;
