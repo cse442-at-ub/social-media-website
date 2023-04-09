@@ -168,6 +168,16 @@ p{
     border-radius:50%;
 }
 
+.Fullname{
+    position: absolute;
+    width: 500px;
+    height: 80px;
+    left: 20%;
+    top: 18%;
+
+}
+
+
 p8{
     position: absolute;
     width: 70px;
