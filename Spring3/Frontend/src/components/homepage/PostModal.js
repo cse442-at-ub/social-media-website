@@ -3,7 +3,7 @@ import "./PostModal.css";
 import axios from "axios";
 import withAuth from '../../auth.js';
 
-const PostModal = ({ onClose, isLoggedIn, }) => {
+const PostModal = ({ onClose, isLoggedIn }) => {
     const [text, setText] = useState("");
     const [image, setImage] = useState(null);
 
