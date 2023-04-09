@@ -13,7 +13,7 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
     const navigate = useNavigate();
 
     return (
-        <div className="App">
+        <div className="App123">
             <div className='UserPage'>
             <LeftColumn  buttons={leftButtons} />
             </div>
