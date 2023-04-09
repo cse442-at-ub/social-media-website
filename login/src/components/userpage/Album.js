@@ -5,7 +5,7 @@ import RightColumn from "./RightColumn";
 
 
 const Album = () => {
-    const leftButtons = ["Home", "Profile", "Messages", "Post"];
+    const leftButtons = ["Home", "Profile", "Post"];
 
     return (
         <div className="App">

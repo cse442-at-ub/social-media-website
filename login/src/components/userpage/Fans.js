@@ -8,7 +8,7 @@ import RightColumn from "./RightColumn";
 
 
 const Fans = () => {
-    const leftButtons = ["Home", "Profile", "Messages", "Post"];
+    const leftButtons = ["Home", "Profile", "Post"];
 
     return (
         <div className="App">
