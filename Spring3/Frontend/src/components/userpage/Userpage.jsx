@@ -9,7 +9,7 @@ import withAuth from '../../auth.js';
 
 
 const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, userFirstName}) => {
-    const leftButtons = ["Home", "Profile", "Messages", "Post"];
+    const leftButtons = ["Home", "Profile", "Post"];
     const navigate = useNavigate();
 
     return (
