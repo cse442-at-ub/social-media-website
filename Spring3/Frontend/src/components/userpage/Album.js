@@ -5,12 +5,11 @@ import RightColumn from "./RightColumn";
 
 
 const Album = () => {
-    const leftButtons = ["Home", "Profile", "Post"];
 
     return (
-        <div className="App">
+        <div className="App23">
             <div className='UserPage'>
-                <LeftColumn  buttons={leftButtons} />
+                <LeftColumn />
             </div>
             <div className='Blog'>
                 <p16>You did not put any photos !</p16>
