@@ -16,10 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 
     $sql = "
-SELECT firstname AS first_name, lastname AS last_name, email, title, image_id, post_datetime 
+SELECT users_info.firstname AS first_name, users_info.lastname AS last_name, 
+       users_info.email, title, image_id, post_datetime 
 FROM post_history 
 JOIN users_info ON users_info.email = post_history.email
-ORDER BY post_date DESC";
+ORDER BY post_datetime DESC";
     $stmt = mysqli_prepare($conn, $sql);
     $stmt->execute();
 
