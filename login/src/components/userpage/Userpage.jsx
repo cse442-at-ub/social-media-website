@@ -28,8 +28,11 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                     <p8>{userFirstName}</p8>
                 </div>
             </div>
-            <div className= 'Fullname'>
-                <p22>FullName:{userFullName}</p22>
+            <div className= 'FirstName'>
+                <p22>FirstName:{userFirstName}</p22>
+            </div>
+            <div className='LastName'>
+                <p23>LastName:{userLastName}</p23>
             </div>
             <div className = 'Age'>
                 <p20>Age:{userAge}</p20>
