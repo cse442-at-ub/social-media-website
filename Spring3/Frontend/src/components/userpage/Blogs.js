@@ -6,7 +6,15 @@ import withAuth from '../../auth.js';
 import axios from 'axios';
 
 
-
+const checkblogs = async()  => {
+    try {
+       const response = await axios.get('load_personal_posts.php');
+       const data = response.data
+    }catch (error) {
+        console.error('Error checking session:', error);
+        return {isLoggedIn: false};
+    }
+} ;
 
 
 const Blogs = ({isLoggedIn}) => {

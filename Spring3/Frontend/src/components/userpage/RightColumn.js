@@ -5,8 +5,8 @@ import {useNavigate} from "react-router-dom"
 const RightColumn = () => {
     const navigate = useNavigate();
     return (
-        <div className="right-column">
-            <div className="right-column-content">
+        <div className="right-column2">
+            <div className="right-column-content2">
                 <div className='UserPage'>
                     <button type='button' className='MyPage' onClick={()=>navigate("/userpage")}>
                         <p1>My Page</p1>
