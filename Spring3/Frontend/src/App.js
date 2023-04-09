@@ -8,7 +8,13 @@ import { Routes, Route, HashRouter} from "react-router-dom";
 import LeftColumn from "./components/homepage/LeftColumn";
 import MiddleColumn from "./components/homepage/MiddleColumn";
 import RightColumn from "./components/homepage/RightColumn";
-import Userpage from "./components/userpage/Userpage"
+import Userpage from "./components/userpage/Userpage";
+
+import Fans from "./components/userpage/Fans";
+import Following from "./components/userpage/Following";
+import Blogs from "./components/userpage/Blogs";
+import Album from "./components/userpage/Album";
+
 
 
 function App() {
@@ -21,6 +27,8 @@ function App() {
     //     setCurrentForm(formName);
     // }
 
+    const leftButtons = ["Home", "Profile", //"Messages", 
+     "Post"];
 
     return (
         <div className="App">
@@ -36,16 +44,14 @@ function App() {
 
                         <Route exact path="/login" element={<Login/>}/>
                         <Route exact path="/register" element={<Register/>}/>
-
                         <Route exact path="/Fans" element={<Fans/>}/>
                         <Route exact path="/Following" element={<Following/>}/>
                         <Route exact path="/Blogs" element={<Blogs/>}/>
                         <Route exact path="/Album" element={<Album/>}/>
-
                         <Route exact path="/" element={
                         <div className={"homepage"}    >
 
-                                    <LeftColumn/>
+                                    <LeftColumn  buttons={leftButtons} />
                                     <MiddleColumn />
                                     <RightColumn />
 
