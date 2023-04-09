@@ -18,27 +18,10 @@
   justify-content: center;
   align-items: flex-start;
   height: 100vh;
-  overflow: hidden;
-}
-
-.left-column-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-}
-
-.middle-column-container {
-  flex-grow: 1;
   overflow: auto;
+  position: relative;
 }
 
-.right-column-container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-}
 
 /*// for the login and register page*!*!*/
 

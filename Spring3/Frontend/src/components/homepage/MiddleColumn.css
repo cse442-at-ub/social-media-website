@@ -1,6 +1,13 @@
 .middle-column {
     flex: 1 1 auto;
+    position: relative;
 }
+
+.scrollable-area {
+    height: calc(100% - 40px);
+    overflow-y: auto;
+}
+
 
 .middle-column-buttons {
     display: flex;
