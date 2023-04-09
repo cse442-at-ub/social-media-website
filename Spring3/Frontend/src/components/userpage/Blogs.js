@@ -4,6 +4,7 @@ import LeftColumn from "../homepage/LeftColumn";
 import RightColumn from "./RightColumn";
 import withAuth from '../../auth.js';
 import axios from 'axios';
+import Post from "../homepage/post";
 
 
 // const checkblogs = async()  => {
@@ -30,6 +31,7 @@ import axios from 'axios';
 const Blogs = ({isLoggedIn}) => {
     const [postTitles, setPostTitles] = useState([]);
 
+
     useEffect(() => {
         async function fetchData() {
             try {
@@ -40,7 +42,10 @@ const Blogs = ({isLoggedIn}) => {
 
                 if (data.cookie_is_set){
                     const postTitles = data.posts.map(post => post.post_title);
-                    setPostTitles(postTitles);
+                    const postDate = data.posts.map(post => post.post_datetime);
+                    const firstPostName = data.posts.map(post => post.first_name);
+                    const lastPostName = data.posts.map(post => post.last_name);
+                    setPostTitles(data.posts);
                 }
             } catch (error) {
                 console.error(error);
@@ -49,21 +54,26 @@ const Blogs = ({isLoggedIn}) => {
         fetchData();
     }, []);
 
-    const leftButtons = ["Home", "Profile", "Post"];
+
     return (
-        <div className="App">
+        <div className="App13">
             <div className='UserPage'>
-                <LeftColumn  buttons={leftButtons} />
+                <LeftColumn   />
             </div>
             <div className='Blog'>
                 {postTitles.length === 0 ? (
                     <p>You did not put any Blogs!</p>
                 ) : (
-                    <ul>
-                        {postTitles.map((title, index) => (
-                            <li key={index}>{title}</li>
-                        ))}
-                    </ul>
+                    postTitles.map((post, index) => (
+                            <Post
+                                key={index}
+                                author={`${post.first_name} ${post.last_name}`}
+                                email={post.email}
+                                content={post.post_title}
+                                image={post.post_image}
+                                postDateTime={post.post_datetime}
+                            />
+                        ))
                 )}
 
             </div>

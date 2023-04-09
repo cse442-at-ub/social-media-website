@@ -5,12 +5,11 @@ import RightColumn from "./RightColumn";
 
 
 const Following = () => {
-    const leftButtons = ["Home", "Profile", "Post"];
 
     return (
-        <div className="App">
+        <div className="App45">
             <div className='UserPage'>
-                <LeftColumn  buttons={leftButtons} />
+                <LeftColumn />
             </div>
             <div className='Following'>
                 <p14>You did not follow any user !</p14>

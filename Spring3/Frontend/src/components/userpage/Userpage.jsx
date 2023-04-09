@@ -9,13 +9,12 @@ import withAuth from '../../auth.js';
 
 
 const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, userFirstName}) => {
-    const leftButtons = ["Home", "Profile", "Post"];
     const navigate = useNavigate();
 
     return (
         <div className="App123">
             <div className='UserPage'>
-            <LeftColumn  buttons={leftButtons} />
+            <LeftColumn />
             </div>
             <div className='User'>
                 <button type='button' className='Back' onClick={()=>navigate("/")}>

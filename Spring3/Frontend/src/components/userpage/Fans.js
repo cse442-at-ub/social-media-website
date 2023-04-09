@@ -8,12 +8,11 @@ import RightColumn from "./RightColumn";
 
 
 const Fans = () => {
-    const leftButtons = ["Home", "Profile", "Post"];
 
     return (
-        <div className="App">
+        <div className="App34">
             <div className='UserPage'>
-                <LeftColumn  buttons={leftButtons} />
+                <LeftColumn />
             </div>
             <div className='Fan'>
                 <p13>No one is following You !</p13>
