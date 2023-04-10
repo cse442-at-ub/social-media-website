@@ -22,8 +22,9 @@ p15{
 /*    text-align: center;*/
 /*}*/
 
-.Blog{
+.Blog {
     flex-direction: column;
-    left: -70%;
+    position: absolute;
+    left: 25%;
     width: 55%;
 }
