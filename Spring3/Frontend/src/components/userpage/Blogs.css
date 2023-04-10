@@ -24,6 +24,6 @@ p15{
 
 .Blog{
     flex-direction: column;
-    left: 70%;
+    left: -70%;
     width: 55%;
 }
