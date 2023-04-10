@@ -22,3 +22,6 @@ p15{
 /*    text-align: center;*/
 /*}*/
 
+.Blog{
+    flex-direction: column;
+}
