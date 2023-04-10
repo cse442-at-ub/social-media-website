@@ -45,14 +45,15 @@
 
 .UserPage{
     position: absolute;
-    //width: 17%;
+    /*width: 17%;
+    left: 0px
+    background: #f0f0f0;
+     */
     height: 100%;
-   // left: 0px;
     top: 0px;
 
-   // background: #f0f0f0;
-}
 
+}
 p{
     position: absolute;
     width: 410px;
