@@ -3,14 +3,14 @@ import "./LeftColumn.css";
 import PostModal from "./PostModal";
 import { useNavigate } from "react-router-dom";
 import withAuth from '../../auth.js';
-import axios from "axios";
-import {toast} from "react-toastify";
+// import axios from "axios";
+// import {toast} from "react-toastify";
 
 const LeftColumn = ({ isLoggedIn, userFullName, userEmail, userAge }) => {
     const [isPostModalOpen, setIsPostModalOpen] = useState(false);
     const leftButtons = isLoggedIn
-        ? ["Home", "Profile", "Post"]
-        : ["Home", "Profile", "Post", "Login", "Logout"];
+        ? ["Home", "Profile", "Post", "Logout"]
+        : ["Home", "Profile", "Post", "Login"];
     const handleProfileClick = () =>
     {
         if (!isLoggedIn) {
