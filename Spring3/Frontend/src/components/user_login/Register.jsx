@@ -12,6 +12,8 @@ export const Register = (props) => {
     const [lastname, setLastname] = useState('');
     // add additional field for more information
     const [age, setAge] = useState('')
+    const [date, setDate] = useState('')
+    // added for route
     const navigate = useNavigate();
 
     function goBack(){
@@ -27,6 +29,8 @@ export const Register = (props) => {
         console.log(firstname);
         console.log(lastname)
         console.log(age)
+        console.log("added date of birth but not sent")
+        console.log(date)
         console.log("end of input data")
         // sending the post request
         axios.post('handle_register.php', {
@@ -35,7 +39,8 @@ export const Register = (props) => {
             user_password: pass,
             user_first_name: firstname,
             user_last_name: lastname,
-            user_age : age
+            user_age : age,
+            user_date_of_birth: date
         })
             .then((response) => {
                 console.log("this is the response itself")
@@ -60,21 +65,26 @@ export const Register = (props) => {
             <div className="user_login">
                 <div className="auth-form-container">
                     <h2>Register</h2>
-                    <form className="register-form" onSubmit={handleSubmit}>
+                    < form className="register-form" onSubmit={handleSubmit}>
                         <label htmlFor="firstname">First name</label>
                         <input value={firstname} onChange={(e) => setFirstname(e.target.value)} placeholder="your first name" id="first name" name="firstname" />
                         <label htmlFor="lastname">Last name</label>
                         <input value={lastname} onChange={(e) => setLastname(e.target.value)} placeholder="your last name" id="last name" name="lastname" />
 
-
                         <label htmlFor="age">Age</label>
                         <input value={age} onChange={(e) => setAge(e.target.value)}type="number" placeholder="18" id="age" name="age" />
+                        <label htmlFor="date">Date of Birth</label>
+                        <input  value = {date}onChange={(e) => setDate(e.target.value)}type="date" placeholder="Enter BirthDate" id="date" name="birthdate" />
+
+
                         <label htmlFor="email">Email</label>
                         <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
                         <label htmlFor="password">Password</label>
                         <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
                         <button type="submit">Register your account</button>
                     </form>
+
+
                     <button className="link-btn" onClick={() => navigate("/login")}>Already have an account? Login here.</button>
                     <button type="button" onClick={goBack}>Back Home</button>
 
