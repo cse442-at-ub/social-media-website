@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
-    $sql = "SELECT email, firstname, lastname, age FROM users_info WHERE auth_token = ?";
+    $sql = "SELECT email, firstname, lastname, date_of_birth FROM users_info WHERE auth_token = ?";
     $stmt = mysqli_prepare($conn, $sql);
     $stmt->bind_param('s', $_COOKIE['auth_token']);
     $stmt->execute();
@@ -32,7 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $user_email = $row['email'];
     $user_first_name = $row['firstname'];
     $user_last_name = $row['lastname'];
-    $user_age = $row['age'];
+    // try calculate_age
+//    echo "Age: " . calculate_age('2005-01-01') . " years";
+    $user_age = calculate_age($row['date_of_birth']);
 
     $response['user_email'] = $user_email;
     $response['user_first_name'] = $user_first_name;
@@ -45,4 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 
     echo json_encode($response);
+}
+
+function calculate_age($date_of_birth) {
+    $dob = new DateTime($date_of_birth);
+    $now = new DateTime();
+    $interval = $now->diff($dob);
+    return $interval->r;
 }
