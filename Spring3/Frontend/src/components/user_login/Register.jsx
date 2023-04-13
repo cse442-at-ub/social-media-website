@@ -11,7 +11,6 @@ export const Register = (props) => {
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     // add additional field for more information
-    const [age, setAge] = useState('')
     const [date, setDate] = useState('')
     // added for route
     const navigate = useNavigate();
@@ -28,8 +27,7 @@ export const Register = (props) => {
         console.log(pass);
         console.log(firstname);
         console.log(lastname)
-        console.log(age)
-        console.log("added date of birth but not sent")
+        console.log("added date of birth ")
         console.log(date)
         console.log("end of input data")
         // sending the post request
@@ -39,7 +37,6 @@ export const Register = (props) => {
             user_password: pass,
             user_first_name: firstname,
             user_last_name: lastname,
-            user_age : age,
             user_date_of_birth: date
         })
             .then((response) => {
@@ -71,8 +68,7 @@ export const Register = (props) => {
                         <label htmlFor="lastname">Last name</label>
                         <input value={lastname} onChange={(e) => setLastname(e.target.value)} placeholder="your last name" id="last name" name="lastname" />
 
-                        <label htmlFor="age">Age</label>
-                        <input value={age} onChange={(e) => setAge(e.target.value)}type="number" placeholder="18" id="age" name="age" />
+                        {/*added date of birth */}
                         <label htmlFor="date">Date of Birth</label>
                         <input  value = {date}onChange={(e) => setDate(e.target.value)}type="date" placeholder="Enter BirthDate" id="date" name="birthdate" />
 
