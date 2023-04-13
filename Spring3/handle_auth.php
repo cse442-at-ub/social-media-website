@@ -34,12 +34,21 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $user_last_name = $row['lastname'];
     // try calculate_age
 //    echo "Age: " . calculate_age('2005-01-01') . " years";
+    $user_date_of_birth = $row['date_of_birth'];
     $user_age = calculate_age($row['date_of_birth']);
+//    echo "dob: " . $row['date_of_birth'];
+//    echo "Age of dob: " . calculate_age($row['date_of_birth']) . " years";
+//    echo "Age of 2023-04-01: " . calculate_age('2023-04-01') . " years";
+//    echo "Age of today: " . calculate_age('2023-04-13') . " years";
+//    echo "Age of next day: " . calculate_age('2023-04-14') . " years";
+//    echo "Age of next year: " . calculate_age('2024-04-13') . " years";
+
 
     $response['user_email'] = $user_email;
     $response['user_first_name'] = $user_first_name;
     $response['user_last_name'] = $user_last_name;
     $response['user_full_name'] = $user_first_name . ' ' . $user_last_name;
+    $response['user_date_of_birth'] = $user_date_of_birth;
     $response['user_age'] = $user_age;
 
     $stmt->close();
@@ -53,5 +62,5 @@ function calculate_age($date_of_birth) {
     $dob = new DateTime($date_of_birth);
     $now = new DateTime();
     $interval = $now->diff($dob);
-    return $interval->r;
+    return $interval->y;
 }
