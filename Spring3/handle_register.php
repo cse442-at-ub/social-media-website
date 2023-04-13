@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_password = password_hash($user_password, PASSWORD_DEFAULT);
     $stmt = $conn->prepare(
         "INSERT INTO users_info (
-    firstname, lastname, $date_of_birth, email, user_password, auth_token, 
+    firstname, lastname, date_of_birth, email, user_password, auth_token, 
     user_profile_photo_filename, follows, fans, blog_history_id
     ) VALUES (
               ?, ?, ?, ?, ?, NULL, 
