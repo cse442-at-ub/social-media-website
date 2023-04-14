@@ -22,12 +22,17 @@ const PostModal = ({ onClose, isLoggedIn }) => {
             alert("Please log in to create a post.");
             return;
         }
+        
+        const formData = new FormData();
+        formData.append("Text", text);
+        if (image) {
+            formData.append("Image", image);
+        }
 
-        console.log("Text:", text);
-        console.log("Image:", image);
-        axios.post('handle_homepage.php', {
-            Text: text,
-            Image: image
+        axios.post('handle_homepage.php', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
         })
             .then((response) => {
                 console.log(response);
@@ -35,6 +40,7 @@ const PostModal = ({ onClose, isLoggedIn }) => {
                 console.log(error);
             });
     };
+    
     return (
         <div className="post-modal-overlay">
             <div className="post-modal">
