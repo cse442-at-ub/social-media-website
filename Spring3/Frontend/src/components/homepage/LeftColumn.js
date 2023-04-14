@@ -3,7 +3,7 @@ import "./LeftColumn.css";
 import PostModal from "./PostModal";
 import { useNavigate } from "react-router-dom";
 import withAuth from '../../auth.js';
-// import axios from "axios";
+import axios from "axios";
 // import {toast} from "react-toastify";
 
 const LeftColumn = ({ isLoggedIn, userFullName, userEmail, userAge }) => {
@@ -25,26 +25,20 @@ const LeftColumn = ({ isLoggedIn, userFullName, userEmail, userAge }) => {
 
     // added for logout
     const handleLogoutClick= () => {
-        if (!isLoggedIn) {
-            alert("Please log in before log out");
-            return;
-        }
-        // suppose user has already log in, we will handle the logout
-        alert("not implemented");
         // here I will make a post request for the php to cancel logout
-        // axios.post('handle_logout.php', {
-        //     // do I need to send anything ?
-        //
-        //
-        // })
-        //     .then((response) => {
-        //         console.log("this is the response itself")
-        //         console.log(response);
-        //
-        //     }, (error) => {
-        //         console.log(error);
-        //     });
-    }
+        axios.post('handle_logout.php', {
+            // do I need to send anything ?
+        })
+            .then((response) => {
+                // change the login status into false
+                console.log("this is the response itself")
+                console.log(response);
+                window.location.reload();
+
+            }, (error) => {
+                console.log(error);
+            });
+    };
 
 
 
@@ -64,9 +58,11 @@ const LeftColumn = ({ isLoggedIn, userFullName, userEmail, userAge }) => {
                                 button === "Post" ? handlePostClick :
                                     button === "Profile" ? handleProfileClick :
                                         button ==="Home" ? () => navigate("/"):
-                                            button === "Login" ? () => navigate("/login"):
-                                                // added for logout button
-                                                button === "Logout" ? ()  => handleLogoutClick : undefined
+                                            // added for logout button
+                                            button === "Logout" ? handleLogoutClick :
+                                                button === "Login" ? () => navigate("/login"): undefined
+
+
                             }
                         >
                             {button}
