@@ -25,7 +25,7 @@ $sql = "CREATE TABLE post_history(
     post_datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     like_count INT(8),
     like_id  INT(8),
-    image_name VARCHAR(200), --image+id.jpg ?? NULL
+    image_name VARCHAR(200), 
     comments_id INT(8)
     )";
 
