@@ -7,27 +7,6 @@ import axios from 'axios';
 import Post from "../homepage/post";
 
 
-// const checkblogs = async()  => {
-//     try {
-//        const response = await axios.get('load_personal_posts.php');
-//        const data = response.data
-//
-//        if (data.cookie_is_set){
-//            const postTitles = response.data.posts.map(post => post.post_title);
-//            const firstPostFirstName = response.data.posts[0].first_name;
-//            const date_arr = response.data.posts.map(post => post.post_datetime);
-//
-//            console.log(postTitles);
-//
-//        }
-//
-//     }catch (error) {
-//         console.error(error);
-//     }
-// } ;
-
-
-
 const Blogs = ({isLoggedIn}) => {
     const [postTitles, setPostTitles] = useState([]);
 

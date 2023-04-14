@@ -33,6 +33,7 @@ const LeftColumn = ({ isLoggedIn, userFullName, userEmail, userAge }) => {
                 // change the login status into false
                 console.log("this is the response itself")
                 console.log(response);
+                navigate('/')
                 window.location.reload();
 
             }, (error) => {

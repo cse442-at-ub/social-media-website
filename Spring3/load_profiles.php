@@ -2,7 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $received_data = json_decode(file_get_contents('php://input'), true);
     $input_user_email = $received_data ["user_email"];
 
