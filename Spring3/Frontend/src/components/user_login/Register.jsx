@@ -40,9 +40,19 @@ export const Register = (props) => {
             user_date_of_birth: date
         })
             .then((response) => {
-                console.log("this is the response itself")
-                console.log(response);
-                toast.success("register success")
+                console.log("this is the response data")
+                console.log(response.data)
+
+                const {  repeated_email } = response.data;
+                console.log("here is the repeated email")
+                console.log(repeated_email)
+
+                if (repeated_email === true){
+                    toast.error("email repeated, please choose another email")
+                }
+                else{
+                    toast.success("register success")
+                }
 
             }, (error) => {
                 console.log(error);
