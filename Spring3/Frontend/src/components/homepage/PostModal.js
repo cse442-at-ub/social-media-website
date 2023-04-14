@@ -28,7 +28,8 @@ const PostModal = ({ onClose, isLoggedIn }) => {
         if (image) {
             formData.append("Image", image);
         }
-
+        console.log("Text:", text);
+        console.log("Image:", image);
         axios.post('handle_homepage.php', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',

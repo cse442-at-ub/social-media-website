@@ -17,7 +17,7 @@ const Post = ({ author, content, image, postDateTime }) => {
             </div>
             <div className="post-content">
                 <h3 className="post-title">{content}</h3>
-                <img src={`https://picsum.photos/200?random=${image}`} alt={content} />
+                <img src={`./uploads/${image}`}/>
             </div>
         </div>
     );
