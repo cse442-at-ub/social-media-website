@@ -25,7 +25,7 @@ $sql = "CREATE TABLE post_history(
     post_datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     like_count INT(8),
     like_id  INT(8),
-    image_id INT(8),
+    image_name VARCHAR(200), --image+id.jpg ?? NULL
     comments_id INT(8)
     )";
 
@@ -61,14 +61,14 @@ if (mysqli_query($conn, $sql)) {
 // $sql = "DROP TABLE users_info";
 
 // for image (zhexi)
-$sql = "CREATE TABLE images(
-    id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    post_id INT(8),
-    image_name VARCHAR(200)
-)";
+// $sql = "CREATE TABLE images(
+//     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     post_id INT(8),
+//     image_name VARCHAR(200)
+// )";
 
-if (mysqli_query($conn, $sql)) {
-    echo "Images table created successfully. " . "<br>";
-} else {
-    echo "Error creating images table: " . mysqli_error($conn) . "<br>";
-}
+// if (mysqli_query($conn, $sql)) {
+//     echo "Images table created successfully. " . "<br>";
+// } else {
+//     echo "Error creating images table: " . mysqli_error($conn) . "<br>";
+// }
