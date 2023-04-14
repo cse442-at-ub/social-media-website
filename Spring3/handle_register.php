@@ -19,9 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first_name = $received_data ["user_first_name"];
     $last_name = $received_data ["user_last_name"];
 
-    echo '$first_name = ' . $first_name . '  &&   $last_name = ' . $last_name . "\r\n";
     $date_of_birth = $received_data ["user_date_of_birth"];
-    echo '$date_of_birth = ' . $date_of_birth . "\r\n";
 //    $age = $received_data ["user_age"];
 //    echo '$age = ' . $age . "\r\n";
 
@@ -34,39 +32,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Create connection
     $conn = mysqli_connect($servername, $username, $db_password, $dbname);
     // checking if duplicated (zhexi)
-    $result = mysqli_query($conn, "SELECT * FROM users_info WHERE email= user_email LIMIT 1");
-    if (mysqli_num_rows($result) > 0) {
+    $result = mysqli_query($conn, "SELECT * FROM users_info WHERE email= '$user_email' LIMIT 1");
+
+    if (mysqli_num_rows($result) == 0) {
         $user_password = password_hash($user_password, PASSWORD_DEFAULT);
         $stmt = $conn->prepare(
             "INSERT INTO users_info (
-        firstname, lastname, date_of_birth, email, user_password, auth_token, 
+        firstname, lastname, date_of_birth, email, user_password, auth_token,
         user_profile_photo_filename, follows, fans, blog_history_id
         ) VALUES (
-                  ?, ?, ?, ?, ?, NULL, 
+                  ?, ?, ?, ?, ?, NULL,
                   NULL, NULL, NULL, NULL)"
         );
         $stmt->bind_param('sssss', $first_name, $last_name, $date_of_birth, $user_email, $user_password);
         $stmt->execute();
-        echo json_encode(['check_email' => true]);
-       
+        echo json_encode(['repeated_email' => false]);
+
     } else {
-        echo json_encode(['check_email' => false]);
+        echo json_encode(['repeated_email' => true]);
     }
 
     $conn->close();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
