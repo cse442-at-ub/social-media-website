@@ -68,9 +68,6 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                 </div>
             </div>
             <div className= 'FirstName'>
-                {/*added for display current user page user name*/}
-                {/*<p22>Welcome to {username}'s user page!</p22>*/}
-                {/*added for display current user page user name*/}
                 <p22>FirstName:{user_first_name}</p22>
             </div>
             <div className='LastName'>
