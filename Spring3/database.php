@@ -39,7 +39,7 @@ $sql = "CREATE TABLE users_info (
     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(30) NOT NULL, 
     lastname VARCHAR(30) NOT NULL, 
-    age INT(10) NOT NULL,
+    date_of_birth DATE NOT NULL, 
     email VARCHAR(200) NOT NULL, 
     user_password VARCHAR(255) NOT NULL, 
     auth_token VARCHAR(255),
