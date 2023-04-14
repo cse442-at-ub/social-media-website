@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     $stmt = $conn->prepare("
 SELECT users_info.firstname AS first_name, users_info.lastname AS last_name, 
-       users_info.email, title, image_id, post_datetime 
+       users_info.email, title, image_name, post_datetime 
 FROM post_history 
 JOIN users_info ON users_info.email = post_history.email
 WHERE post_history.email = ?
@@ -64,7 +64,7 @@ ORDER BY post_datetime DESC
             'last_name' => $row['last_name'],
             'email' => $row['email'],
             'post_title' => $row['title'],
-            'post_image' => $row['image_id'],
+            'post_image' => $row['image_name'],
             'post_datetime' => $row['post_datetime']
         );
     }
