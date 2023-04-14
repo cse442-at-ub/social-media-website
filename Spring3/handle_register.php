@@ -42,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         );
         $stmt->bind_param('ssiss', $first_name, $last_name, $age, $user_email, $user_password);
         $stmt->execute();
+        echo json_encode(['check_email' => true]);
        
     } else {
         echo json_encode(['check_email' => false]);
