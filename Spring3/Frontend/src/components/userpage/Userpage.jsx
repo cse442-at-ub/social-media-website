@@ -6,10 +6,12 @@ import {useNavigate} from "react-router-dom"
 import LeftColumn from "../homepage/LeftColumn";
 import RightColumn from "./RightColumn";
 import withAuth from '../../auth.js';
-
+import { useParams } from 'react-router-dom';
 
 const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, userFirstName}) => {
     const navigate = useNavigate();
+    // added for fetch user name url
+    const { username } = useParams()
 
     return (
         <div className="App123">
@@ -28,6 +30,9 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                 </div>
             </div>
             <div className= 'FirstName'>
+                {/*added for display current user page user name*/}
+                {/*<p22>Welcome to {username}'s user page!</p22>*/}
+                {/*added for display current user page user name*/}
                 <p22>FirstName:{userFirstName}</p22>
             </div>
             <div className='LastName'>

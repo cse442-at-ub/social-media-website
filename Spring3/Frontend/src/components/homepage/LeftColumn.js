@@ -17,7 +17,7 @@ const LeftColumn = ({ isLoggedIn, userFullName, userEmail, userAge }) => {
             alert("Please log in to create a post.");
             return;
         }
-        navigate("/userpage");
+        navigate("/userpage/" + userEmail);
     };
     const handlePostClick = () => {
         setIsPostModalOpen(true);
