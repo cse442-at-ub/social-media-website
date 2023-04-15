@@ -21,23 +21,13 @@
   overflow: hidden;
 }
 
-.left-column-container {
-  position: fixed;
-  top: 0;
-  left: 0;
+.userpage{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   height: 100vh;
-}
-
-.middle-column-container {
-  flex-grow: 1;
   overflow: auto;
-}
-
-.right-column-container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
+  position: relative;
 }
 
 /*// for the login and register page*!*!*/
