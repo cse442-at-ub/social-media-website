@@ -71,61 +71,62 @@ p{
 
 }
 
-.MyPage{
+/*.MyPage{*/
 
-    position: absolute;
-    width: 120px;
-    height: 40px;
-    left: 55px;
-    top: 18%;
+/*    position: absolute;*/
+/*    width: 120px;*/
+/*    height: 40px;*/
+/*    left: 55px;*/
+/*    top: 18%;*/
 
-    background: #D9D9D9;
-    border-radius: 34px;
-}
+/*    background: #D9D9D9;*/
+/*    border-radius: 34px;*/
+/*}*/
 
-.MyFans{
-    position: absolute;
-    width: 120px;
-    height: 40px;
-    left: 55px;
-    top: 29%;
+/*.MyFans{*/
+/*    position: absolute;*/
+/*    width: 120px;*/
+/*    height: 40px;*/
+/*    left: 55px;*/
+/*    top: 29%;*/
 
-    background: #D9D9D9;
-    border-radius: 34px;
-}
+/*    background: #D9D9D9;*/
+/*    border-radius: 34px;*/
+/*}*/
 
-.MyFollowing{
-    position: absolute;
-    width: 120px;
-    height: 40px;
-    left: 55px;
-    top: 40%;
+/*.MyFollowing{*/
+/*    position: absolute;*/
+/*    width: 120px;*/
+/*    height: 40px;*/
+/*    left: 55px;*/
+/*    top: 40%;*/
 
-    background: #D9D9D9;
-    border-radius: 34px;
-}
+/*    background: #D9D9D9;*/
+/*    border-radius: 34px;*/
+/*}*/
 
-.MyBlog{
-    position: absolute;
-    width: 120px;
-    height: 40px;
-    left: 55px;
-    top: 51%;
+/*.MyBlog{*/
+/*    position: absolute;*/
+/*    width: 120px;*/
+/*    height: 40px;*/
+/*    left: 55px;*/
+/*    top: 51%;*/
 
-    background: #D9D9D9;
-    border-radius: 34px;
-}
+/*    background: #D9D9D9;*/
+/*    border-radius: 34px;*/
+/*}*/
 
-.MyAlbum{
-    position: absolute;
-    width: 120px;
-    height: 40px;
-    left: 55px;
-    top: 62%;
+/*.MyAlbum{*/
+/*    position: absolute;*/
+/*    width: 120px;*/
+/*    height: 40px;*/
+/*    left: 55px;*/
+/*    top: 62%;*/
 
-    background: #D9D9D9;
-    border-radius: 34px;
-}
+/*    background: #D9D9D9;*/
+/*    border-radius: 34px;*/
+/*}*/
+
 
 .User{
     position: absolute;

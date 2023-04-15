@@ -1,10 +1,9 @@
 import React from 'react';
 import './userpage.css';
-import "./RightColumn.css";
 import './Fans.css'
 
 import LeftColumn from "../homepage/LeftColumn";
-import RightColumn from "./RightColumn";
+import Right_column from "./rightcolum";
 
 
 const Fans = () => {
@@ -19,7 +18,7 @@ const Fans = () => {
 
             </div>
             <div className = 'Right'>
-                <RightColumn />
+                <Right_column />
             </div>
         </div>
 

@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './userpage.css';
-import "./RightColumn.css";
+import "./Buttonswitch.css";
 
 import {useNavigate} from "react-router-dom"
 import LeftColumn from "../homepage/LeftColumn";
-import RightColumn from "./RightColumn";
 import withAuth from '../../auth.js';
 import { useParams } from 'react-router-dom';
 import axios from "axios";
+
+import Right_column from "./rightcolum";
+
 
 const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, userFirstName}) => {
     const navigate = useNavigate();
@@ -80,7 +82,7 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                 <p21>Email:{user_email}</p21>
             </div>
             <div className = 'Right'>
-                <RightColumn email = {userEmail}/>
+                <Right_column email = {userEmail}/>
             </div>
         </div>
 

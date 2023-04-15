@@ -1,7 +1,7 @@
 import './Blogs.css'
 import React, {useEffect, useState} from 'react';
 import LeftColumn from "../homepage/LeftColumn";
-import RightColumn from "./RightColumn";
+import Right_column from "./rightcolum";
 import withAuth from '../../auth.js';
 import axios from 'axios';
 import Post from "../homepage/post";
@@ -57,7 +57,7 @@ const Blogs = ({isLoggedIn}) => {
 
             </div>
             <div className = 'Right'>
-                <RightColumn />
+                <Right_column />
             </div>
         </div>
 
