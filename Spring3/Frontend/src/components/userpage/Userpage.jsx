@@ -80,7 +80,7 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                 <p21>Email:{user_email}</p21>
             </div>
             <div className = 'Right'>
-                <RightColumn />
+                <RightColumn email = {userEmail}/>
             </div>
         </div>
 
