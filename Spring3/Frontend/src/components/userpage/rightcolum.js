@@ -2,11 +2,11 @@ import React from "react";
 import "./rightcolum.css";
 import ButtonSwitcher from "./Buttonswitch";
 
-const Right_column = () => {
+const Right_column = ({email}) => {
     return (
         <div className="Right-column">
             <div className="Right-column-content">
-                <ButtonSwitcher />
+                <ButtonSwitcher email = {email}/>
             </div>
         </div>
     );

@@ -5,11 +5,13 @@ import Right_column from "./rightcolum";
 import withAuth from '../../auth.js';
 import axios from 'axios';
 import Post from "../homepage/post";
+import {useParams} from "react-router-dom";
 
 
-const Blogs = ({isLoggedIn}) => {
+const Blogs = ({isLoggedIn, userEmail}) => {
     const [postTitles, setPostTitles] = useState([]);
-
+    const { current_user_email } = useParams()
+    const [userData, setUserData] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
@@ -30,6 +32,27 @@ const Blogs = ({isLoggedIn}) => {
                 console.error(error);
             }
         }
+
+        if (isLoggedIn){
+            console.log("current people is ")
+            console.log(userEmail)
+            console.log("he is view the other user")
+            console.log(current_user_email)
+
+            axios.post('load_profile_posts.php', {
+                user_email: current_user_email
+            })
+                .then((response) => {
+                    console.log("this is the response data from userpage")
+                    console.log(response.data)
+
+                    setUserData(response.data);
+
+                }, (error) => {
+                    console.log(error);
+                    console.log("userpage failed")
+                });
+        }
         fetchData();
     }, []);
 
@@ -39,9 +62,10 @@ const Blogs = ({isLoggedIn}) => {
             <div className='UserPage'>
                 <LeftColumn   />
             </div>
+            <p33>Blog</p33>
             <div className='Blog'>
                 {postTitles.length === 0 ? (
-                    <p>You did not put any Blogs!</p>
+                    <p15>You did not put any Blogs!</p15>
                 ) : (
                     postTitles.map((post, index) => (
                             <Post
@@ -57,7 +81,7 @@ const Blogs = ({isLoggedIn}) => {
 
             </div>
             <div className = 'Right'>
-                <Right_column />
+                <Right_column email={current_user_email}/>
             </div>
         </div>
 

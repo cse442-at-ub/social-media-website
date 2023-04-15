@@ -18,6 +18,18 @@
   justify-content: center;
   align-items: flex-start;
   height: 100vh;
+
+  overflow: auto;
+  position: relative;
+}
+
+
+
+.userpage{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
   overflow: auto;
   position: relative;
 }

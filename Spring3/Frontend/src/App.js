@@ -14,6 +14,7 @@ import Fans from "./components/userpage/Fans";
 import Following from "./components/userpage/Following";
 import Blogs from "./components/userpage/Blogs";
 import Album from "./components/userpage/Album";
+import Email from "./components/userpage/Email";
 
 
 
@@ -44,10 +45,10 @@ function App() {
 
                         <Route exact path="/login" element={<Login/>}/>
                         <Route exact path="/register" element={<Register/>}/>
-                        <Route exact path="/Fans" element={<Fans/>}/>
-                        <Route exact path="/Following" element={<Following/>}/>
-                        <Route exact path="/Blogs" element={<Blogs/>}/>
-                        <Route exact path="/Album" element={<Album/>}/>
+                        <Route exact path="/Fans/:current_user_email" element={<Fans/>}/>
+                        <Route exact path="/Following/:current_user_email" element={<Following/>}/>
+                        <Route exact path="/Blogs/:current_user_email" element={<Blogs/>}/>
+                        <Route exact path="/Album/:current_user_email" element={<Album/>}/>
                         <Route exact path="/" element={
                         <div className={"homepage"}    >
 
@@ -58,9 +59,9 @@ function App() {
                         </div>
                         }/>
 
-                        {/*// added for specific user to log in link*/}
-                        <Route exact path="/userpage/:current_user_email" element={<Userpage />} />
-                        {/*<Route exact path="/userpage" element={<Userpage/>}/>*/}
+
+                        <Route exact path="/userpage/:current_user_email" element={<Email />}/>
+
 
                     </Routes>
                 </HashRouter>
