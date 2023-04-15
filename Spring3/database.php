@@ -57,6 +57,41 @@ if (mysqli_query($conn, $sql)) {
 }
 
 
+$sql = "CREATE TABLE follows(
+    id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    u_id INT(8) NOT NULL, 
+    u_email VARCHAR(200) NOT NULL,
+    follower_id INT(8) NOT NULL, 
+    follower_email VARCHAR(200) NOT NULL
+    )";
+if (mysqli_query($conn, $sql)) {
+    echo "follows table created successfully. " . "<br>";
+} else {
+    echo "Error creating follows table: " . mysqli_error($conn) . "<br>";
+}
+
+
+
+$sql = "CREATE TABLE fans(
+    id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    u_id INT(8) NOT NULL, 
+    u_email VARCHAR(200) NOT NULL,
+    fan_id INT(8) NOT NULL, 
+    fan_email VARCHAR(200) NOT NULL
+    )";
+if (mysqli_query($conn, $sql)) {
+    echo "fans table created successfully. " . "<br>";
+} else {
+    echo "Error creating fans table: " . mysqli_error($conn) . "<br>";
+}
+
+
+
+
+
+
+
+
 // to Delete table
 // $sql = "DROP TABLE users_info";
 
