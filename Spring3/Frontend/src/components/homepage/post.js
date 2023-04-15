@@ -19,7 +19,7 @@ const Post = ({ author, content, image, postDateTime,email }) => {
             </div>
             <div className="post-content">
                 <h3 className="post-title">{content}</h3>
-                <img src={`./uploads/${image}`}/>
+                {image && <img src={`./uploads/${image}`}/>}
             </div>
         </div>
     );
