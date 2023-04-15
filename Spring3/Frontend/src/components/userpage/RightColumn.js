@@ -2,13 +2,19 @@ import React from "react";
 import "./RightColumn.css";
 
 import {useNavigate} from "react-router-dom"
-const RightColumn = () => {
+
+const RightColumn = ({email}) => {
     const navigate = useNavigate();
+
+    const path = "/userpage/" + email;
+
+
     return (
+
         <div className="right-column2">
             <div className="right-column-content2">
                 <div className='UserPage'>
-                    <button type='button' className='MyPage' onClick={()=>navigate("/userpage")}>
+                    <button type='button' className='MyPage' onClick={()=>navigate(path)}>
                         <p1>My Page</p1>
                         <br/></button>
                     <button type='button' className='MyFans' onClick={()=>navigate("/Fans")}>

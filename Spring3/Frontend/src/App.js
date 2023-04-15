@@ -59,7 +59,7 @@ function App() {
                         }/>
 
                         {/*// added for specific user to log in link*/}
-                        <Route exact path="/userpage/:username" element={<Userpage />} />
+                        <Route exact path="/userpage/:current_user_email" element={<Userpage />} />
                         {/*<Route exact path="/userpage" element={<Userpage/>}/>*/}
 
                     </Routes>
