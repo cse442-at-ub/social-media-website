@@ -54,7 +54,6 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
     return (
         <div className="App123">
             <div className='UserPage'>
-                <LeftColumn />
             </div>
             <div className='User'>
                 <button type='button' className='Back' onClick={()=>navigate("/")}>
@@ -67,18 +66,32 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                     <p8>{user_first_name}</p8>
                 </div>
             </div>
-            <div className= 'FirstName'>
-                <p22>FirstName:{user_first_name}</p22>
+            <div className='information'>
+                <div className= 'FirstName'>
+                    <p22>FirstName:{user_first_name}</p22>
+                </div>
+                <div className='LastName'>
+                    <p23>LastName:{user_last_name}</p23>
+                </div>
+                <div className = 'Age'>
+                    <p20>Age:{user_age}</p20>
+                </div>
+                <div className= 'Email'>
+                    <p21>Email:{user_email}</p21>
+                </div>
             </div>
-            <div className='LastName'>
-                <p23>LastName:{user_last_name}</p23>
-            </div>
-            <div className = 'Age'>
-                <p20>Age:{user_age}</p20>
-            </div>
-            <div className= 'Email'>
-                <p21>Email:{user_email}</p21>
-            </div>
+            {/*<div className= 'FirstName'>*/}
+            {/*    <p22>FirstName:{user_first_name}</p22>*/}
+            {/*</div>*/}
+            {/*<div className='LastName'>*/}
+            {/*    <p23>LastName:{user_last_name}</p23>*/}
+            {/*</div>*/}
+            {/*<div className = 'Age'>*/}
+            {/*    <p20>Age:{user_age}</p20>*/}
+            {/*</div>*/}
+            {/*<div className= 'Email'>*/}
+            {/*    <p21>Email:{user_email}</p21>*/}
+            {/*</div>*/}
             <div className = 'Right'>
                 <Right_column email = {userEmail}/>
             </div>
