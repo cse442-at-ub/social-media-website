@@ -74,9 +74,9 @@ const ButtonSwitcher = ({email}) => {
                     <button type='button' className='MyBlog' onClick={()=>navigate(blog)}>
                         <p6>Blog</p6>
                         <br/></button>
-                    <button type='button' className='MyAlbum' onClick={()=>navigate(photo)}>
-                        <p7>Album</p7>
-                        <br/></button>
+                    {/*<button type='button' className='MyAlbum' onClick={()=>navigate(photo)}>*/}
+                    {/*    <p7>Album</p7>*/}
+                    {/*    <br/></button>*/}
                 </div>
             </div>
         </div>
