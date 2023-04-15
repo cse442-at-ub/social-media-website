@@ -1,7 +1,7 @@
 import './Following.css'
 import React from 'react';
 import LeftColumn from "../homepage/LeftColumn";
-import RightColumn from "./RightColumn";
+import Right_column from "./rightcolum";
 
 
 const Following = () => {
@@ -16,7 +16,7 @@ const Following = () => {
 
             </div>
             <div className = 'Right'>
-                <RightColumn />
+                <Right_column />
             </div>
         </div>
 
