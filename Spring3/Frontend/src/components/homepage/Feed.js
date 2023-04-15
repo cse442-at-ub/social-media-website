@@ -33,7 +33,7 @@ const Feed = ({ type, isLoggedIn, posts, updatePosts }) => {
         <div>
             {type === "Following" && !isLoggedIn ? (
                 <p className="feed-message">Please log in to see the Following feed.</p>
-            ) : followingLength === 0 ? (
+            ) : type === "Following" && followingLength === 0 ? (
                 <p className="feed-message">The user is not following anyone.</p>
             ) : (
                 posts.map((post, index) => (
