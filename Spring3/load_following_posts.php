@@ -28,9 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     $stmt = $conn->prepare("
 SELECT u.firstname AS first_name, u.lastname AS last_name, 
-       u.email, title, image_name, post_datetime 
+       u.email, p.title, p.image_name, p.post_datetime 
 FROM users_info u
-JOIN follows f ON u.id = f.u_id
+JOIN follows f ON u.email = f.u_email
 JOIN post_history p ON p.email = u.email
 WHERE u.email = ?
 ORDER BY p.post_datetime DESC
