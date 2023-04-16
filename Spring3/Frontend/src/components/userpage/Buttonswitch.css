@@ -1,0 +1,34 @@
+/*.right-column2 {*/
+/*    position: absolute;*/
+/*    width: 17%;*/
+/*    height: 100%;*/
+/*    left: 83%;*/
+/*    top: 0px;*/
+
+/*    background: #f0f0f0;*/
+/*}*/
+/*.right-column-content2 {*/
+/*    text-align: center;*/
+/*}*/
+/*.ButtonSwitcher{*/
+/*    display: flex;*/
+/*    height:100vh;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    flex-flow: row wrap;*/
+/*}*/
+
+.button{
+    width:200px;
+    height:50px;
+    margin:10px;
+    top:10%;
+    transition: background-color 0.1s ease-in-out;
+}
+.inactive{
+    background-color: #8c8c8c;
+}
+
+.active{
+    background-color: #1da1f2;
+}
