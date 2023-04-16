@@ -21,7 +21,6 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
     useEffect(() => {
         // We will simply using url to directly update our page
         // but first, this user must be login
-        if (isLoggedIn){
             console.log("current people is ")
             console.log(userEmail)
             console.log("he is view the other user")
@@ -40,7 +39,6 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                     console.log(error);
                     console.log("userpage failed")
                 });
-        }
 
     }, [current_user_email, userEmail, isLoggedIn]);
     // notice line 45 use 'current_user_email' to trigger page re-render.

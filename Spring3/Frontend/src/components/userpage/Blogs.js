@@ -16,7 +16,6 @@ const Blogs = ({isLoggedIn, userEmail}) => {
         async function fetchData() {
             try {
                 // check if logged in and then fetch data from user
-                if (isLoggedIn) {
                     console.log("in blog page now")
                     console.log("current people is ")
                     console.log(userEmail)
@@ -34,7 +33,7 @@ const Blogs = ({isLoggedIn, userEmail}) => {
                     const firstPostName = response.data.posts.map(post => post.first_name);
                     const lastPostName = response.data.posts.map(post => post.last_name);
                     setPostTitles(response.data.posts);
-                }
+
             } catch (error) {
                 console.log(error);
                 console.log("user page failed")
