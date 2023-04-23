@@ -59,10 +59,14 @@ if (mysqli_query($conn, $sql)) {
 
 $sql = "CREATE TABLE follows(
     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    u_id INT(8) NOT NULL, 
-    u_email VARCHAR(200) NOT NULL,
+    user_id INT(8) NOT NULL, 
+    user_email VARCHAR(200) NOT NULL,
     follower_id INT(8) NOT NULL, 
-    follower_email VARCHAR(200) NOT NULL
+    follower_email VARCHAR(200) NOT NULL, 
+    FOREIGN KEY (user_id) REFERENCES users_info(id),
+    FOREIGN KEY (user_email) REFERENCES users_info(email),
+    FOREIGN KEY (follower_id) REFERENCES users_info(id),
+    FOREIGN KEY (follower_email) REFERENCES users_info(email)
     )";
 if (mysqli_query($conn, $sql)) {
     echo "follows table created successfully. " . "<br>";
@@ -74,10 +78,14 @@ if (mysqli_query($conn, $sql)) {
 
 $sql = "CREATE TABLE fans(
     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    u_id INT(8) NOT NULL, 
-    u_email VARCHAR(200) NOT NULL,
+    user_id INT(8) NOT NULL, 
+    user_email VARCHAR(200) NOT NULL,
     fan_id INT(8) NOT NULL, 
-    fan_email VARCHAR(200) NOT NULL
+    fan_email VARCHAR(200) NOT NULL, 
+    FOREIGN KEY (user_id) REFERENCES users_info(id),
+    FOREIGN KEY (user_email) REFERENCES users_info(email),
+    FOREIGN KEY (fan_id) REFERENCES users_info(id),
+    FOREIGN KEY (fan_email) REFERENCES users_info(email)
     )";
 if (mysqli_query($conn, $sql)) {
     echo "fans table created successfully. " . "<br>";

@@ -49,12 +49,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user_date_of_birth = $row['date_of_birth'];
         $user_age = calculate_age($row['date_of_birth']);
 
+        // add to $response
         $response['user_email'] = $user_email;
         $response['user_first_name'] = $user_first_name;
         $response['user_last_name'] = $user_last_name;
         $response['user_full_name'] = $user_first_name . ' ' . $user_last_name;
         $response['user_date_of_birth'] = $user_date_of_birth;
         $response['user_age'] = $user_age;
+
+
+        if ($input_user_email != $curr_user_email) {
+            $sql = "SELECT * FROM follows WHERE user_email = ? and follower_email = ?";
+            $stmt = mysqli_prepare($conn, $sql);
+            $stmt->bind_param('ss', $input_user_email, $curr_user_email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0){
+
+                $response['following_status'] = "curr_user_follows_visit_user";
+                $response['is_followed'] = true;
+
+
+            } else {
+                $response['following_status'] = "curr_user_dose_not_follow_visit_user";
+                $response['is_followed'] = false;
+
+            }
+        }
+
 
 
     } else {
@@ -81,12 +103,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user_date_of_birth = $row['date_of_birth'];
         $user_age = calculate_age($row['date_of_birth']);
 
+        // add to $response
         $response['user_email'] = $user_email;
         $response['user_first_name'] = $user_first_name;
         $response['user_last_name'] = $user_last_name;
         $response['user_full_name'] = $user_first_name . ' ' . $user_last_name;
         $response['user_date_of_birth'] = $user_date_of_birth;
         $response['user_age'] = $user_age;
+
+
+
+//        status: non-login, should reject follow request
+        $response['following_status'] = "curr_user_dose_not_follow_visit_user; non-login user cannot follow anyone";
+        $response['is_followed'] = false;
+
+
 
     }
 
