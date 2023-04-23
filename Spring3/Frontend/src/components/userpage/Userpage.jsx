@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import axios from "axios";
 
 import Right_column from "./rightcolum";
+import following from "./Following";
 
 
 const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, userFirstName}) => {
@@ -16,11 +17,19 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
     // added for fetch user name url
     const { current_user_email } = useParams()
 
+    const [showButton, setShowButton] = useState(true);
+
     const [userData, setUserData] = useState(null);
     const [buttontext, setButtontext] = useState('Follow')
 
     const handleclick = () =>{
-        setButtontext('Following')
+        if (isLoggedIn === false){
+            alert("please log in before follow other people")
+        }
+        else{
+            setButtontext('Following')
+        }
+
     }
 
     useEffect(() => {
@@ -31,6 +40,7 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
             console.log("he is view the other user")
             console.log(current_user_email)
 
+
             axios.post('load_profiles.php', {
                 user_email: current_user_email
             })
@@ -40,12 +50,22 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
 
                     setUserData(response.data);
 
+                    // make additional change for the page
+                    // if user login and view other people's profile
+                    // we will show following button
+                    if (isLoggedIn === true && current_user_email === userEmail){
+                        setShowButton(false)
+                    }
+
+
+                    // if not login, click the button, show pop up
+
                 }, (error) => {
                     console.log(error);
                     console.log("userpage failed")
                 });
 
-    }, [current_user_email, userEmail, isLoggedIn]);
+    }, [current_user_email, userEmail, isLoggedIn, showButton]);
     // notice line 45 use 'current_user_email' to trigger page re-render.
     // everytime current_user_email which come from url changed, the page will reload.
 
@@ -70,9 +90,12 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                         <br/></button>
                     <p8>{user_first_name}</p8>
                 </div>
+
+                { showButton &&
                 <button type='button' className='following' onClick={handleclick}  >
                     {buttontext}
                 </button>
+                }
             </div>
             <div className='information'>
                 <div className= 'FirstName'>
