@@ -26,7 +26,18 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
 
         }
         else{
-            setButtontext('Following')
+            // suppose user already follow the user
+            if (buttontext === 'Follow'){
+                // here, I may need to send the data to backend, since I click the button
+                setButtontext('Following')
+                // also, send the data to backend
+
+
+
+
+
+            }
+
         }
 
     }
@@ -56,6 +67,11 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                         setShowButton(false)
                     }
 
+                    const isFollowed = response.data.is_followed;
+                    if (isFollowed === true){
+                        setButtontext('Following')
+                    }
+
 
                     // if not login, click the button, show pop up
 
@@ -64,7 +80,7 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                     console.log("userpage failed")
                 });
 
-    }, [current_user_email, userEmail, isLoggedIn, showButton]);
+    }, [current_user_email, userEmail, isLoggedIn, showButton, buttontext]);
     // notice line 45 use 'current_user_email' to trigger page re-render.
     // everytime current_user_email which come from url changed, the page will reload.
 
