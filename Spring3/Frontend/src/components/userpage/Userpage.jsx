@@ -17,6 +17,11 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
     const { current_user_email } = useParams()
 
     const [userData, setUserData] = useState(null);
+    const [buttontext, setButtontext] = useState('Follow')
+
+    const handleclick = () =>{
+        setButtontext('Following')
+    }
 
     useEffect(() => {
         // We will simply using url to directly update our page
@@ -65,6 +70,9 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                         <br/></button>
                     <p8>{user_first_name}</p8>
                 </div>
+                <button type='button' className='following' onClick={handleclick}  >
+                    {buttontext}
+                </button>
             </div>
             <div className='information'>
                 <div className= 'FirstName'>
