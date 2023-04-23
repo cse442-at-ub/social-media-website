@@ -1,0 +1,31 @@
+p16{
+    position: absolute;
+    width: 410px;
+    height: 50px;
+    left: 35%;
+    top: 20%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 250;
+    font-size: 30px;
+    line-height: 48px;
+
+    color: #000000;
+}
+
+p30{
+    position: absolute;
+    width: 410px;
+    height: 50px;
+    left: 35%;
+    top: 3%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 250;
+    font-size: 30px;
+    line-height: 48px;
+
+    color: #000000;
+}
