@@ -23,8 +23,6 @@ $sql = "CREATE TABLE post_history(
     email VARCHAR(200) NOT NULL,
     title VARCHAR(600) NOT NULL,
     post_datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    like_count INT(8),
-    like_id  INT(8),
     image_name VARCHAR(200), 
     comments_id INT(8)
     )";
@@ -85,9 +83,18 @@ if (mysqli_query($conn, $sql)) {
     echo "Error creating fans table: " . mysqli_error($conn) . "<br>";
 }
 
+//for like 
 
-
-
+$sql = "CREATE TABLE likes(
+    id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    post_id INT(8) NOT NULL, 
+    liker_email VARCHAR(200) NOT NULL,
+    )";
+if (mysqli_query($conn, $sql)) {
+    echo "likes table created successfully. " . "<br>";
+} else {
+    echo "Error creating likes table: " . mysqli_error($conn) . "<br>";
+}
 
 
 
