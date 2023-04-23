@@ -3,13 +3,11 @@ import './userpage.css';
 import "./Buttonswitch.css";
 
 import {useNavigate} from "react-router-dom"
-import LeftColumn from "../homepage/LeftColumn";
 import withAuth from '../../auth.js';
 import { useParams } from 'react-router-dom';
 import axios from "axios";
 
 import Right_column from "./rightcolum";
-import following from "./Following";
 
 
 const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, userFirstName}) => {
@@ -25,6 +23,7 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
     const handleclick = () =>{
         if (isLoggedIn === false){
             alert("please log in before follow other people")
+
         }
         else{
             setButtontext('Following')
@@ -71,7 +70,7 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
 
     if (!userData) {
         // render a loading spinner or placeholder content while waiting for data
-        return <div>Loading...</div>;
+        return <div>Loading</div>;
     }
 
     const { user_email, user_first_name, user_last_name, user_full_name, user_date_of_birth, user_age } = userData;
@@ -111,23 +110,10 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                     <p21>Email:{user_email}</p21>
                 </div>
             </div>
-            {/*<div className= 'FirstName'>*/}
-            {/*    <p22>FirstName:{user_first_name}</p22>*/}
-            {/*</div>*/}
-            {/*<div className='LastName'>*/}
-            {/*    <p23>LastName:{user_last_name}</p23>*/}
-            {/*</div>*/}
-            {/*<div className = 'Age'>*/}
-            {/*    <p20>Age:{user_age}</p20>*/}
-            {/*</div>*/}
-            {/*<div className= 'Email'>*/}
-            {/*    <p21>Email:{user_email}</p21>*/}
-            {/*</div>*/}
             <div className = 'Right'>
                 <Right_column email = {userEmail}/>
             </div>
         </div>
-
     );
 
 }
