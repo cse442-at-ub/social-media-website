@@ -1,0 +1,48 @@
+
+
+/*.Blog{*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: 100vh;*/
+/*    text-align: center;*/
+/*}*/
+
+.Blog {
+    flex-direction: column;
+    position: absolute;
+    left: 20%;
+    height:60%;
+    width: 55%;
+    top:20%;
+}
+p15{
+    position: absolute;
+    width: 410px;
+    height: 50px;
+    left: 17%;
+    top: 0%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 250;
+    font-size: 30px;
+    line-height: 48px;
+
+    color: #000000;
+}
+p33{
+    position: absolute;
+    width: 410px;
+    height: 50px;
+    left: 35%;
+    top: 3%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 250;
+    font-size: 30px;
+    line-height: 48px;
+
+    color: #000000;
+}

@@ -1,0 +1,60 @@
+.middle-column {
+    flex: 1 1 auto;
+    position: relative;
+}
+
+.scrollable-area {
+    height: calc(100% - 40px);
+    overflow-y: auto;
+}
+
+
+.middle-column-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.middle-column-button {
+    border: none;
+    border-radius: 20px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.middle-column-button:hover {
+    background-color: #ccc;
+}
+
+.middle-column-content {
+    text-align: center;
+}
+
+.scrollable-area {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: auto;
+    padding: 50px;
+}
+
+/* ScrollableArea content */
+.scrollable-area-content {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.feed-message {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    position: static;
+}
