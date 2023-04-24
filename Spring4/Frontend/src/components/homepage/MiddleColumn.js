@@ -82,13 +82,13 @@
 // export default withAuth(MiddleColumn);
 
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import FeedSwitcher from "./FeedSwitcher";
 import Feed from "./Feed";
 import "./MiddleColumn.css";
 import withAuth from "../../auth";
 
-const MiddleColumn = ({ isLoggedIn, useremail }) => {
+const MiddleColumn = ({ isLoggedIn, userEmail }) => {
     const [feedType, setFeedType] = useState("For You");
     const [forYouPosts, setForYouPosts] = useState([]);
     const [followingPosts, setFollowingPosts] = useState([]);
@@ -118,7 +118,7 @@ const MiddleColumn = ({ isLoggedIn, useremail }) => {
                     isLoggedIn={isLoggedIn}
                     posts={activePosts}
                     updatePosts={updatePosts}
-                    useremail = {useremail}
+                    useremail = {userEmail}
                 />
             </div>
         </div>
