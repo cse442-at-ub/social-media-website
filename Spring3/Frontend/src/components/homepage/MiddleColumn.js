@@ -88,7 +88,7 @@ import Feed from "./Feed";
 import "./MiddleColumn.css";
 import withAuth from "../../auth";
 
-const MiddleColumn = ({ isLoggedIn }) => {
+const MiddleColumn = ({ isLoggedIn, useremail }) => {
     const [feedType, setFeedType] = useState("For You");
     const [forYouPosts, setForYouPosts] = useState([]);
     const [followingPosts, setFollowingPosts] = useState([]);
@@ -118,6 +118,7 @@ const MiddleColumn = ({ isLoggedIn }) => {
                     isLoggedIn={isLoggedIn}
                     posts={activePosts}
                     updatePosts={updatePosts}
+                    useremail = {useremail}
                 />
             </div>
         </div>
