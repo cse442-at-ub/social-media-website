@@ -3,7 +3,7 @@ import axios from "axios";
 import Post from "./post";
 
 
-const Feed = ({ type, isLoggedIn, posts, updatePosts, useremail }) => {
+const Feed = ({ type, isLoggedIn, posts, updatePosts, userEmail }) => {
     const [followingLength, setFollowingLength] = useState(null);
 
     useEffect(() => {
@@ -26,7 +26,6 @@ const Feed = ({ type, isLoggedIn, posts, updatePosts, useremail }) => {
         } catch (error) {
             console.error("Error fetching data:", error);
             alert("please refresh page")
-            return;
         }
     };
 
@@ -46,7 +45,7 @@ const Feed = ({ type, isLoggedIn, posts, updatePosts, useremail }) => {
                         postDateTime={post.post_datetime}
                         email={post.email}
                         id={post.post_id}
-                        useremail = {useremail}
+                        useremail = {userEmail}
                     />
                 ))
             )}
