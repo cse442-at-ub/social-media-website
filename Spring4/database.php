@@ -35,17 +35,18 @@ if (mysqli_query($conn, $sql)) {
     echo "Error creating post_history table: " . mysqli_error($conn) . "<br>";
 }
 
+
 $sql = "CREATE TABLE users_info (
     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    firstname VARCHAR(30) NOT NULL, 
-    lastname VARCHAR(30) NOT NULL, 
-    date_of_birth DATE NOT NULL, 
-    email VARCHAR(200) NOT NULL, 
-    user_password VARCHAR(255) NOT NULL, 
+    firstname VARCHAR(30) NOT NULL,
+    lastname VARCHAR(30) NOT NULL,
+    date_of_birth DATE NOT NULL,
+    email VARCHAR(200) NOT NULL UNIQUE,
+    user_password VARCHAR(255) NOT NULL,
     auth_token VARCHAR(255),
-    user_profile_photo_filename VARCHAR(10), 
+    user_profile_photo_filename VARCHAR(10),
     follows INT(8),
-    fans INT(8), 
+    fans INT(8),
     blog_history_id INT(8)
 )";
 
@@ -57,13 +58,15 @@ if (mysqli_query($conn, $sql)) {
 }
 
 
+
 $sql = "CREATE TABLE follows(
     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    u_id INT(8) NOT NULL, 
-    u_email VARCHAR(200) NOT NULL,
-    follower_id INT(8) NOT NULL, 
+    user_id INT(8) NOT NULL,
+    user_email VARCHAR(200) NOT NULL,
+    follower_id INT(8) NOT NULL,
     follower_email VARCHAR(200) NOT NULL
-    )";
+)";
+
 if (mysqli_query($conn, $sql)) {
     echo "follows table created successfully. " . "<br>";
 } else {
@@ -74,8 +77,8 @@ if (mysqli_query($conn, $sql)) {
 
 $sql = "CREATE TABLE fans(
     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    u_id INT(8) NOT NULL, 
-    u_email VARCHAR(200) NOT NULL,
+    user_id INT(8) NOT NULL, 
+    user_email VARCHAR(200) NOT NULL,
     fan_id INT(8) NOT NULL, 
     fan_email VARCHAR(200) NOT NULL
     )";

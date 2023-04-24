@@ -35,8 +35,9 @@
     height: 100%;
     top: 0px;
 
-
 }
+
+
 /*p{*/
 /*    position: absolute;*/
 /*    width: 410px;*/
@@ -112,20 +113,24 @@
 
 
 .User{
-    position: absolute;
-    width: 17%;
-    height: 30%;
-    left: 17%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
     top: 0px;
+    left: 0;
+    right: 0;
+    height: 100px;
 
-    background-color: white;
+    border-bottom: 1px solid #ddd;
+    z-index: 1;
 }
 
 .Back{
     position: absolute;
     width: 80px;
     height: 40px;
-    left: 16%;
+    left: 22%;
     top: 10%;
 
     background: #D9D9D9;
@@ -133,9 +138,9 @@
 
 .username{
     position: absolute;
-    width: 300px;
+    width: 270px;
     height: 80px;
-    left: 100%;
+    left: 40%;
     top: 5%;
 
     background: #D9D9D9;
@@ -152,6 +157,18 @@
     background: #11C8F0;
     border-radius:50%;
 }
+
+.following{
+    position: absolute;
+    width: 120px;
+    height: 40px;
+    left: 65%;
+    top: 10%;
+
+    background: #D9D9D9;
+    border-radius: 50px;
+}
+
 .information{
     display: flex;
     flex-direction: column;
