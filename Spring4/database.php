@@ -20,7 +20,7 @@ if (mysqli_connect_errno()) {
 // for post
 $sql = "CREATE TABLE post_history(
     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(200) NOT NULL,
+    email VARCHAR(200) NOT NULL UNIQUE,
     title VARCHAR(600) NOT NULL,
     post_datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     like_count INT(8),
@@ -35,17 +35,18 @@ if (mysqli_query($conn, $sql)) {
     echo "Error creating post_history table: " . mysqli_error($conn) . "<br>";
 }
 
+
 $sql = "CREATE TABLE users_info (
     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    firstname VARCHAR(30) NOT NULL, 
-    lastname VARCHAR(30) NOT NULL, 
-    date_of_birth DATE NOT NULL, 
-    email VARCHAR(200) NOT NULL, 
-    user_password VARCHAR(255) NOT NULL, 
+    firstname VARCHAR(30) NOT NULL,
+    lastname VARCHAR(30) NOT NULL,
+    date_of_birth DATE NOT NULL,
+    email VARCHAR(200) NOT NULL UNIQUE,
+    user_password VARCHAR(255) NOT NULL,
     auth_token VARCHAR(255),
-    user_profile_photo_filename VARCHAR(10), 
+    user_profile_photo_filename VARCHAR(10),
     follows INT(8),
-    fans INT(8), 
+    fans INT(8),
     blog_history_id INT(8)
 )";
 
@@ -57,17 +58,15 @@ if (mysqli_query($conn, $sql)) {
 }
 
 
+
 $sql = "CREATE TABLE follows(
     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    user_id INT(8) NOT NULL, 
+    user_id INT(8) NOT NULL,
     user_email VARCHAR(200) NOT NULL,
-    follower_id INT(8) NOT NULL, 
-    follower_email VARCHAR(200) NOT NULL, 
-    FOREIGN KEY (user_id) REFERENCES users_info(id),
-    FOREIGN KEY (user_email) REFERENCES users_info(email),
-    FOREIGN KEY (follower_id) REFERENCES users_info(id),
-    FOREIGN KEY (follower_email) REFERENCES users_info(email)
-    )";
+    follower_id INT(8) NOT NULL,
+    follower_email VARCHAR(200) NOT NULL
+)";
+
 if (mysqli_query($conn, $sql)) {
     echo "follows table created successfully. " . "<br>";
 } else {
@@ -81,11 +80,7 @@ $sql = "CREATE TABLE fans(
     user_id INT(8) NOT NULL, 
     user_email VARCHAR(200) NOT NULL,
     fan_id INT(8) NOT NULL, 
-    fan_email VARCHAR(200) NOT NULL, 
-    FOREIGN KEY (user_id) REFERENCES users_info(id),
-    FOREIGN KEY (user_email) REFERENCES users_info(email),
-    FOREIGN KEY (fan_id) REFERENCES users_info(id),
-    FOREIGN KEY (fan_email) REFERENCES users_info(email)
+    fan_email VARCHAR(200) NOT NULL
     )";
 if (mysqli_query($conn, $sql)) {
     echo "fans table created successfully. " . "<br>";

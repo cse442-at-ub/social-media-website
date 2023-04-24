@@ -79,6 +79,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
+        $stmt->close();
+        $conn->close();
+
     } else {
         $response['status'] = 'Auth token not found';
         $response['cookie_is_set'] = false;
@@ -117,12 +120,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response['following_status'] = "curr_user_dose_not_follow_visit_user; non-login user cannot follow anyone";
         $response['is_followed'] = false;
 
-
+        $stmt->close();
+        $conn->close();
 
     }
 
-    $stmt->close();
-    $conn->close();
+
 
     echo json_encode($response);
 }
