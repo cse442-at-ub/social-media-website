@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Post from "./post";
 
-const Feed = ({ type, isLoggedIn, posts, updatePosts }) => {
+
+const Feed = ({ type, isLoggedIn, posts, updatePosts, useremail }) => {
     const [followingLength, setFollowingLength] = useState(null);
 
     useEffect(() => {
-        if (posts.length === 0) {
+        if (posts && posts.length === 0) {
             fetchData();
         }
     }, [type]);
@@ -36,7 +37,7 @@ const Feed = ({ type, isLoggedIn, posts, updatePosts }) => {
             ) : type === "Following" && followingLength === 0 ? (
                 <p className="feed-message">The user is not following anyone.</p>
             ) : (
-                posts.map((post, index) => (
+                posts && posts.map((post, index) => (
                     <Post
                         key={index}
                         author={`${post.first_name} ${post.last_name}`}
@@ -44,6 +45,8 @@ const Feed = ({ type, isLoggedIn, posts, updatePosts }) => {
                         image={post.post_image}
                         postDateTime={post.post_datetime}
                         email={post.email}
+                        id={post.post_id}
+                        useremail = {useremail}
                     />
                 ))
             )}

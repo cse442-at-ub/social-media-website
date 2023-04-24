@@ -6,9 +6,10 @@ import withAuth from '../../auth.js';
 const PostModal = ({ onClose, isLoggedIn }) => {
     const [text, setText] = useState("");
     const [image, setImage] = useState(null);
-
+    const [charCount, setCharCount] = useState(0);
     const handleTextChange = (event) => {
         setText(event.target.value);
+        setCharCount(event.target.value.length);
     };
 
     const handleImageChange = (event) => {
@@ -18,11 +19,16 @@ const PostModal = ({ onClose, isLoggedIn }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        if (charCount > 500) {
+            alert("Text must be no more than 500 characters.");
+            return;
+        }
+
         if (!isLoggedIn) {
             alert("Please log in to create a post.");
             return;
         }
-        
+
         const formData = new FormData();
         formData.append("Text", text);
         if (image) {
@@ -37,6 +43,7 @@ const PostModal = ({ onClose, isLoggedIn }) => {
         })
             .then((response) => {
                 console.log(response);
+                alert("Your post has been submitted. Please refresh the page.");
             }, (error) => {
                 console.log(error);
             });
@@ -49,7 +56,8 @@ const PostModal = ({ onClose, isLoggedIn }) => {
                     <h2>Create Post</h2>
                     <label>
                         Text:
-                        <textarea value={text} onChange={handleTextChange} />
+                        <textarea value={text} onChange={handleTextChange} maxLength="500" />
+                        <div>{charCount}/500</div>
                     </label>
                     <label>
                         Image:

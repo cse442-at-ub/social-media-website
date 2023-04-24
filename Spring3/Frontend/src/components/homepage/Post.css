@@ -58,3 +58,23 @@
 .post-author-link:hover {
     text-decoration: underline;
 }
+
+.post-image {
+    max-width: 500px;
+    height: auto;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.like-button {
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.like-button:hover {
+    color: #007bff;
+}
