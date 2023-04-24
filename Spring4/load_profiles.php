@@ -29,21 +29,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $row = $stmt->get_result()->fetch_assoc();
         $curr_user_email = $row['email'];
+        $response['test '] = $row['email'];
+
 
         if ($input_user_email == $curr_user_email){
             $response['self_page'] = true;
         } else {
             $response['self_page'] = false;
-            $curr_user_email = $input_user_email;
         }
 
         $sql = "SELECT firstname, lastname, date_of_birth FROM users_info WHERE email = ?";
         $stmt = mysqli_prepare($conn, $sql);
-        $stmt->bind_param('s', $curr_user_email);
+        $stmt->bind_param('s', $input_user_email);
         $stmt->execute();
 
         $row = $stmt->get_result()->fetch_assoc();
-        $user_email = $curr_user_email;
+        $user_email = $input_user_email;
         $user_first_name = $row['firstname'];
         $user_last_name = $row['lastname'];
         $user_date_of_birth = $row['date_of_birth'];
@@ -58,7 +59,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response['user_age'] = $user_age;
 
 
+
+
+
+
         if ($input_user_email != $curr_user_email) {
+            $response['is_followed'] = true;
             $sql = "SELECT * FROM follows WHERE user_email = ? and follower_email = ?";
             $stmt = mysqli_prepare($conn, $sql);
             $stmt->bind_param('ss', $input_user_email, $curr_user_email);
