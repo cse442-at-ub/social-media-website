@@ -15,7 +15,7 @@ const Fans = () => {
                 <LeftColumn />
             </div>
             <div className='Fan'>
-                <p31>Fans</p31>
+                <p31>Followers</p31>
                 <p13>No one is following You !</p13>
 
             </div>

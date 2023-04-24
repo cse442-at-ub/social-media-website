@@ -66,7 +66,7 @@ const ButtonSwitcher = ({email}) => {
                         <p1>Page</p1>
                         <br/></button>
                     <button type='button' className='MyFans' onClick={()=>navigate(fan)}>
-                        <p2>Fans</p2>
+                        <p2>Followers</p2>
                         <br/></button>
                     <button type='button' className='MyFollowing' onClick={()=>navigate(follow)}>
                         <p3>Following</p3>
