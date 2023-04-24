@@ -39,6 +39,7 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
             //         .then((response) => {
             //             console.log("this is the response data from userpage")
             //             console.log(response.data);
+            //             console.log("follow saved")
             //             // here, suppose the follow has been added
             //
             //         })
