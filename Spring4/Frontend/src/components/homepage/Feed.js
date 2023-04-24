@@ -3,7 +3,7 @@ import axios from "axios";
 import Post from "./post";
 
 
-const Feed = ({ type, isLoggedIn, posts, updatePosts, userEmail }) => {
+const Feed = ({ type, isLoggedIn, posts, updatePosts, useremail }) => {
     const [followingLength, setFollowingLength] = useState(null);
 
     useEffect(() => {
@@ -45,7 +45,7 @@ const Feed = ({ type, isLoggedIn, posts, updatePosts, userEmail }) => {
                         postDateTime={post.post_datetime}
                         email={post.email}
                         id={post.post_id}
-                        useremail = {userEmail}
+                        useremail = {useremail}
                     />
                 ))
             )}
