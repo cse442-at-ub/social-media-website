@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $servername = "localhost";
         $username = "root";
         $db_password = null;
-        $dbname = "spring4_database";
+        $dbname = "spring3_database";
         // Create connection
         $conn = mysqli_connect($servername, $username, $db_password, $dbname);
 
