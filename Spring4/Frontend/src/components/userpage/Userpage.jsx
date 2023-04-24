@@ -27,11 +27,25 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
         }
         else{
             // suppose user already follow the user
-            if (buttontext === 'Follow'){
+            if (buttontext === 'Follow' && isLoggedIn === true){
                 // here, I may need to send the data to backend, since I click the button
                 setButtontext('Following')
                 // also, send the data to backend
-
+                // send axios post to backend to add follower
+                // change the name to be " ***.php "
+            //     axios.post('hhh.php', {
+            //         user_email: current_user_email
+            //     })
+            //         .then((response) => {
+            //             console.log("this is the response data from userpage")
+            //             console.log(response.data);
+            //             // here, suppose the follow has been added
+            //
+            //         })
+            //         .catch((error) => {
+            //             console.log(error);
+            //         });
+            // }
 
 
 
