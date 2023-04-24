@@ -27,26 +27,27 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
         }
         else{
             // suppose user already follow the user
-            if (buttontext === 'Follow' && isLoggedIn === true){
-                // here, I may need to send the data to backend, since I click the button
-                setButtontext('Following')
-                // also, send the data to backend
-                // send axios post to backend to add follower
-                // change the name to be " ***.php "
-            //     axios.post('hhh.php', {
-            //         user_email: current_user_email
-            //     })
-            //         .then((response) => {
-            //             console.log("this is the response data from userpage")
-            //             console.log(response.data);
-            //             console.log("follow saved")
-            //             // here, suppose the follow has been added
-            //
-            //         })
-            //         .catch((error) => {
-            //             console.log(error);
-            //         });
-            // }
+                if (buttontext === 'Follow' && isLoggedIn === true){
+                    // here, I may need to send the data to backend, since I click the button
+                    setButtontext('Following')
+                    // also, send the data to backend
+                    // send axios post to backend to add follower
+                    // change the name to be " ***.php "
+                    axios.post('handle_add_follow.php', {
+                        user_email: current_user_email
+                    })
+                        .then((response) => {
+                            console.log("this is the response data from userpage")
+                            console.log(response.data);
+                            console.log("follow saved")
+                            // here, suppose the follow has been added
+
+
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                }
 
 
 
@@ -55,7 +56,7 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
 
         }
 
-    }
+
 
     useEffect(() => {
         // We will simply using url to directly update our page
@@ -101,7 +102,7 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
 
     if (!userData) {
         // render a loading spinner or placeholder content while waiting for data
-        return <div>Loading</div>;
+        return <div>Loading...</div>
     }
 
     const { user_email, user_first_name, user_last_name, user_full_name, user_date_of_birth, user_age } = userData;
