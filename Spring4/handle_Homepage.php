@@ -77,12 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // echo ("stored failed");
     }
 
-
-
-
-
-   
-
     // $stmt->close();
     $conn->close();
 
