@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = null;
-$dbname = "spring3_database";
+$dbname = "spring4_database";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -91,7 +91,7 @@ if (mysqli_query($conn, $sql)) {
 $sql = "CREATE TABLE likes(
     id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     post_id INT(8) NOT NULL, 
-    liker_email VARCHAR(200) NOT NULL,
+    liker_email VARCHAR(200) NOT NULL
     )";
 if (mysqli_query($conn, $sql)) {
     echo "likes table created successfully. " . "<br>";

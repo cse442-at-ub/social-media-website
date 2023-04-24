@@ -3,12 +3,12 @@ header('Access-Control-Allow-Origin: *');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $received_data = json_decode(file_get_contents('php://input'), true);
-    $post_id = $received_data ["post_id"];
-    $likers_email = $received_data ["likers_email"];
+    $post_id = $received_data ["postId"];
+    $likers_email = $received_data ["userEmail"];
     $servername = "localhost";
     $username = "root";
     $password = null;
-    $dbname = "spring3_database";
+    $dbname = "spring4_database";
 
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
     $username = "root";
     $db_password = null;
-    $dbname = "spring3_database";
+    $dbname = "spring4_database";
     // Create connection
     $conn = mysqli_connect($servername, $username, $db_password, $dbname);
     // checking if duplicated (zhexi)

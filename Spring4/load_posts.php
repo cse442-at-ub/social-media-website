@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $servername = "localhost";
     $username = "root";
     $password = null;
-    $dbname = "spring3_database";
+    $dbname = "spring4_database";
 
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
