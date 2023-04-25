@@ -26,38 +26,61 @@ ORDER BY post_datetime DESC";
 
 
     $result = $stmt->get_result();
-    //    $posts is an associative array containing the data for a single post,
-//    each post contains keys 'post_title', 'post_image', and 'post_datetime'.
-//    $posts = array(
-//        array(
-//            'post_title' => 'Post 1',
-//            'post_image' => 101,
-//            'post_datetime' => '2023-04-01 12:00:00'
-//        ),
-//        array(
-//            'post_title' => 'Post 2',
-//            'post_image' => 102,
-//            'post_datetime' => '2023-04-02 15:30:00'
-//        ),
-//    );
-    $posts = array();
-    while ($row = $result->fetch_assoc()) {
-        $posts[] = array(
-            'first_name' => $row['first_name'],
-            'last_name' => $row['last_name'],
-            'email' => $row['email'],
-            'post_title' => $row['title'],
-            'post_image' => $row['image_name'],
-            'post_datetime' => $row['post_datetime'],
-            'post_id' => $row['post_id']
-        );
-    }
-    $response['posts'] = $posts;
+
+//     $posts = array();
+//     while ($row = $result->fetch_assoc()) {
+//         $posts[] = array(
+//             'first_name' => $row['first_name'],
+//             'last_name' => $row['last_name'],
+//             'email' => $row['email'],
+//             'post_title' => $row['title'],
+//             'post_image' => $row['image_name'],
+//             'post_datetime' => $row['post_datetime'],
+//             'post_id' => $row['post_id']
+//         );
+//     }
+//     $response['posts'] = $posts;
 
 
 
-    $stmt->close();
-    $conn->close();
+//     $stmt->close();
+//     $conn->close();
 
-    echo json_encode($response);
+//     echo json_encode($response);
+
+$posts = array();
+while ($row_posts = $result_posts->fetch_assoc()) {
+    // Get number of likes for this post
+    $sql_likes = "
+        SELECT COUNT(*) AS num_likes
+        FROM likes
+        WHERE post_id = ?
+    ";
+    $stmt_likes = mysqli_prepare($conn, $sql_likes);
+    $stmt_likes->bind_param("i", $row_posts['post_id']);
+    $stmt_likes->execute();
+    $result_likes = $stmt_likes->get_result();
+    $row_likes = $result_likes->fetch_assoc();
+    $num_likes = $row_likes['num_likes'];
+
+    // Add post with like count to posts array
+    $posts[] = array(
+        'first_name' => $row_posts['first_name'],
+        'last_name' => $row_posts['last_name'],
+        'email' => $row_posts['email'],
+        'post_title' => $row_posts['title'],
+        'post_image' => $row_posts['image_name'],
+        'post_datetime' => $row_posts['post_datetime'],
+        'post_id' => $row_posts['post_id'],
+        'num_likes' => $num_likes
+    );
+}
+$response['posts'] = $posts;
+
+$stmt_posts->close();
+$conn->close();
+
+echo json_encode($response);
+
+
 }
