@@ -78,3 +78,8 @@
 .like-button:hover {
     color: #007bff;
 }
+.like-count {
+    margin-left: 8px;
+    font-size: 0.9em;
+    color: #8c8c8c;
+}
