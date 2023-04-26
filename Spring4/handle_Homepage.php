@@ -39,9 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare(
         "INSERT INTO post_history (
                           email, 
-                          title, like_count, like_id, image_name, comments_id
+                          title,  image_name, comments_id
                           ) VALUES (
-                                    ?, ?, NULL, NULL, NULL, NULL)");
+                                    ?, ?,  NULL, NULL)");
 
     $stmt->bind_param('ss', $email, $text);
     $stmt->execute();
