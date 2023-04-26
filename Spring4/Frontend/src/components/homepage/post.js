@@ -6,19 +6,25 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import  { useState } from "react";
 import axios from "axios";
 
-const Post = ({ author, content, image, postDateTime,email, id, useremail}) => {
+const Post = ({ author, content, image, postDateTime,email, id, useremail, like_count}) => {
     const [liked, setLiked] = useState(false);
-
     const toggleLike = async () => {
+        if (email === useremail){
+        alert("you can not like your post")
+            return
+        }
         setLiked(!liked);
         // 在这里向后端发送点赞状态
         console.log(id)
         console.log(useremail)
+        console.log(!liked)
+
         try {
 
             const response = await axios.post("handle_like.php", {
                 postId: id,
                 userEmail: useremail,
+                decide: !liked,
             });
 
             if (response.status === 200) {
@@ -59,6 +65,7 @@ const Post = ({ author, content, image, postDateTime,email, id, useremail}) => {
                     onClick={toggleLike}
                     color={liked ? "#007bff" : ""}
                 />
+                <span className="like-count">{like_count}</span>
             </div>
         </div>
     );
