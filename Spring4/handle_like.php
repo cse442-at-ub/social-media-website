@@ -5,14 +5,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $received_data = json_decode(file_get_contents('php://input'), true);
     $post_id = $received_data ["postId"];
     $likers_email = $received_data ["userEmail"];
-    $decide = $received_data ["decide"];
-    $servername = "localhost";
-    $username = "root";
-    $password = null;
-    $dbname = "spring3_database";
 
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+
     
     $servername = "localhost";
     $username = "root";
@@ -21,8 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Create connection
     $conn = mysqli_connect($servername, $username, $db_password, $dbname);
     // checking if duplicated (zhexi)
-    
-    if ($decide == true) {
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM likes WHERE post_id = ? AND liker_email = ?");
+    $stmt->bind_param('is', $post_id, $likers_email);
+    $stmt->execute();
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    $stmt->close();
+
+    $decide = ($count == 0);
+
+    if ($decide ) {
         
         $stmt = $conn->prepare(
             "INSERT INTO likes (
@@ -34,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
 
         echo json_encode(['added' => true]);
-    } else if ($decide == false){
+    } else {
         $stmt = $conn->prepare("DELETE FROM likes WHERE post_id = ? AND liker_email = ?");
         $stmt->bind_param('is', $post_id, $likers_email);
         $stmt->execute();
