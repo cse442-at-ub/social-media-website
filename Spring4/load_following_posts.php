@@ -30,12 +30,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 SELECT u.firstname AS first_name, u.lastname AS last_name, 
        u.email, p.title, p.image_name, p.post_datetime 
 FROM users_info u
-JOIN follows f ON u.email = f.u_email
+JOIN follows f ON u.email = f.user_email
 JOIN post_history p ON p.email = u.email
-WHERE u.email = ?
+WHERE u.email = f.user_email
 ORDER BY p.post_datetime DESC
 ");
-    $stmt->bind_param('s', $email);
+//    $stmt->bind_param('s', $email);
 
     $stmt->execute();
 
