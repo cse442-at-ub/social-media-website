@@ -49,7 +49,7 @@ ORDER BY post_datetime DESC";
 //     echo json_encode($response);
 
 $posts = array();
-while ($row_posts = $result_posts->fetch_assoc()) {
+while ($row_posts = $result->fetch_assoc()) {
     // Get number of likes for this post
     $sql_likes = "
         SELECT COUNT(*) AS num_likes
