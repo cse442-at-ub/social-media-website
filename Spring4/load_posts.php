@@ -77,7 +77,7 @@ while ($row_posts = $result->fetch_assoc()) {
 }
 $response['posts'] = $posts;
 
-$stmt_posts->close();
+$stmt->close();
 $conn->close();
 
 echo json_encode($response);
