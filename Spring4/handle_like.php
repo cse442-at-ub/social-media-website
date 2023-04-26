@@ -15,8 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Create connection
     $conn = mysqli_connect($servername, $username, $db_password, $dbname);
     // checking if duplicated (zhexi)
+    // Check if the row already exists
     $stmt = $conn->prepare("SELECT COUNT(*) FROM likes WHERE post_id = ? AND liker_email = ?");
-    $stmt->bind_param('is', $post_id, $likers_email);
+    $stmt->bind_param('ss', $post_id, $likers_email);
     $stmt->execute();
     $stmt->bind_result($count);
     $stmt->fetch();

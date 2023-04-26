@@ -6,6 +6,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $response = array("status" => "success");
 
 
+    if (isset($_COOKIE['auth_token'])) {
+        $response['Auth_token'] = $_COOKIE['auth_token'];
+    } else {
+        $response['status'] = 'Auth token not found';
+    }
+
+
     $servername = "localhost";
     $username = "root";
     $password = null;
@@ -13,6 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+    $stmt = $conn->prepare("SELECT email FROM users_info WHERE auth_token = ?");
+    $stmt->bind_param('s', $_COOKIE['auth_token']);
+    $stmt->execute();
+    $row = $stmt->get_result()->fetch_assoc();
+    $local_user_email = $row['email'];
 
 
     $sql = "
@@ -26,27 +39,6 @@ ORDER BY post_datetime DESC";
 
 
     $result = $stmt->get_result();
-
-//     $posts = array();
-//     while ($row = $result->fetch_assoc()) {
-//         $posts[] = array(
-//             'first_name' => $row['first_name'],
-//             'last_name' => $row['last_name'],
-//             'email' => $row['email'],
-//             'post_title' => $row['title'],
-//             'post_image' => $row['image_name'],
-//             'post_datetime' => $row['post_datetime'],
-//             'post_id' => $row['post_id']
-//         );
-//     }
-//     $response['posts'] = $posts;
-
-
-
-//     $stmt->close();
-//     $conn->close();
-
-//     echo json_encode($response);
 
 $posts = array();
 while ($row_posts = $result->fetch_assoc()) {
@@ -63,6 +55,19 @@ while ($row_posts = $result->fetch_assoc()) {
     $row_likes = $result_likes->fetch_assoc();
     $num_likes = $row_likes['num_likes'];
 
+
+    $sql_like_or_cancel = "
+            SELECT COUNT(*) AS num_rows
+            FROM likes
+            WHERE post_id = ? AND liker_email = ?
+        ";
+    $stmt_like_or_cancel = mysqli_prepare($conn, $sql_like_or_cancel);
+    $stmt_like_or_cancel->bind_param("is", $row_posts['post_id'], $local_user_email);
+    $stmt_like_or_cancel->execute();
+    $result_like_or_cancel = $stmt_like_or_cancel->get_result();
+    $row_like_or_cancel = $result_like_or_cancel->fetch_assoc();
+    $like_or_cancel = ($row_like_or_cancel['num_rows'] > 0);
+
     // Add post with like count to posts array
     $posts[] = array(
         'first_name' => $row_posts['first_name'],
@@ -72,7 +77,8 @@ while ($row_posts = $result->fetch_assoc()) {
         'post_image' => $row_posts['image_name'],
         'post_datetime' => $row_posts['post_datetime'],
         'post_id' => $row_posts['post_id'],
-        'num_likes' => $num_likes
+        'num_likes' => $num_likes,
+        'like_or_cancel' => $like_or_cancel
     );
 }
 $response['posts'] = $posts;
