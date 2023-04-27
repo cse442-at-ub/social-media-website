@@ -48,7 +48,7 @@ const Following = ({isLoggedIn, userEmail}) => {
         console.log(current_user_email)
 
 
-        axios.post('load_profile_followers_page.php', {
+        axios.post('load_profile_following_page.php', {
             user_email: current_user_email
         })
             .then((response) => {
