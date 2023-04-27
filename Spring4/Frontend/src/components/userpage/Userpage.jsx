@@ -37,16 +37,16 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                         user_email: current_user_email
                     })
                         .then((response) => {
-                            console.log("this is the response data from userpage")
+                            console.log("this is the response data from userpage in follow button")
                             console.log(response.data);
                             console.log("follow saved")
-
+                            console.log('follow_status:', response.data.follow_status);
                             // check if follow this person failed
 
-                            // const follow_status = response.data.follow_status;
-                            // if (follow_status !== 'success '){
-                            //     alert("fail to insert into follows table")
-                            // }
+                            const follow_status = response.data.follow_status;
+                            if (follow_status !== "success"){
+                                alert("fail to insert into follows table")
+                            }
 
 
 
