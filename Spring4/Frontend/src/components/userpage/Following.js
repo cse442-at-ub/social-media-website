@@ -73,17 +73,22 @@ const Following = ({isLoggedIn, userEmail}) => {
 
 
     return (
-        <div className="middle-column">
+        <div>
             <div className='UserPage'>
                     <LeftColumn />
             </div>
-
+                <div className="middle-column">
                     <div className='Blog'>
                         {/*<p32>Following</p32>*/}
                         {/*<p14>You did not follow any user !</p14>*/}
 
                         { following_data  && following_data.length === 0 ? (
-                            <p15>You did not follow any user !</p15>
+                            <>
+
+                            {/*<p32>Following</p32>*/}
+                            <p14>You did not follow any user !</p14>
+
+                            </>
                         ) : (
                             following_data && following_data.map((post, index) => (
                                 <Following_post
@@ -95,10 +100,12 @@ const Following = ({isLoggedIn, userEmail}) => {
                         )}
 
                     </div>
+                </div>
 
             <div className = 'Right'>
                 <Right_column email={current_user_email}/>
             </div>
+
         </div>
 
 
