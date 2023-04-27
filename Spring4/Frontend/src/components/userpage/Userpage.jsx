@@ -40,7 +40,14 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                             console.log("this is the response data from userpage")
                             console.log(response.data);
                             console.log("follow saved")
-                            // here, suppose the follow has been added
+
+                            // check if follow this person failed
+
+                            // const follow_status = response.data.follow_status;
+                            // if (follow_status !== 'success '){
+                            //     alert("fail to insert into follows table")
+                            // }
+
 
 
                         })

@@ -48,11 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         if ($stmt->affected_rows <= 0) {
             $response["status"] = "Error: " . $stmt->error;
-            $response['follow status'] = 'fail to insert into follows table';
+            $response['follow_status'] = 'fail to insert into follows table';
 
         }
 
-        $response['follow status'] = 'success';
+        $response['follow_status'] = 'success';
 
 
 
