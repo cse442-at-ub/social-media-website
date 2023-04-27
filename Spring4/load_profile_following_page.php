@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare("
 SELECT u.firstname AS first_name, u.lastname AS last_name, u.email AS email
 FROM users_info u
-JOIN follows f ON u.email = f.follower_email
+JOIN follows f ON u.email = f.user_email
 WHERE f.follower_email = ?
 ");
     $stmt->bind_param('s', $user_email);
