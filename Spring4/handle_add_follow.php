@@ -60,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
 //        non login user should not able to follow
         $response['status'] = 'Auth token not found';
+        $response['follow_status'] = 'follow request denied, please login';
         $response['cookie_is_set'] = false;
     }
 
@@ -69,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    echo $response;
+    echo json_encode($response);
 
 
 }
