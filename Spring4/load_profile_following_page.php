@@ -1,4 +1,11 @@
 <?php
+
+//this method  * This script fetches and returns the list of users that the
+//given user is following.
+//
+//The script expects a POST request with a JSON payload containing the email of the user
+//whose following list needs to be fetched (user_email).
+
 header('Access-Control-Allow-Origin: *');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
