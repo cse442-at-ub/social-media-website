@@ -15,7 +15,9 @@ const Fans = () => {
                 <LeftColumn />
             </div>
             <div className='Fan'>
-                <p31>Followers</p31>
+                <div className="gradient-border" id="box">
+                    Follower
+                </div>
                 <p13>No one is following You !</p13>
 
             </div>

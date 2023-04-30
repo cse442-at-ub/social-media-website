@@ -48,7 +48,9 @@ const Blogs = ({isLoggedIn, userEmail}) => {
             <div className='UserPage'>
                 <LeftColumn   />
             </div>
-            <p33>Blog</p33>
+            <div className="gradient-border" id="box">
+                Blog
+            </div>
             <div className='Blog'>
                 {postTitles.length === 0 ? (
                     <p15>You did not put any Blogs!</p15>

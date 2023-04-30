@@ -77,7 +77,9 @@ const Following = ({isLoggedIn, userEmail}) => {
             <div className='UserPage'>
                     <LeftColumn />
             </div>
-            <p32>Following</p32>
+            <div className="gradient-border" id="box">
+                Following
+            </div>
                     <div className='Blog'>
                         {/*<p32>Following</p32>*/}
                         {/*<p14>You did not follow any user !</p14>*/}

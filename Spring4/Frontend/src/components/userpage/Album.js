@@ -13,7 +13,9 @@ const Album = () => {
                 <LeftColumn />
             </div>
             <div className='Album'>
-                <p30>Album</p30>
+                <div className="gradient-border" id="box">
+                    Album
+                </div>
                 <p16>You did not put any photos !</p16>
 
             </div>
