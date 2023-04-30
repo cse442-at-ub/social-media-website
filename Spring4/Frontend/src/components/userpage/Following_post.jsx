@@ -1,5 +1,6 @@
 import React from "react";
 import "../homepage/Post.css";
+//import "./Following_post.css"
 import {Link} from "react-router-dom"
 
 // this file will help to display the page content in similar format as post.js

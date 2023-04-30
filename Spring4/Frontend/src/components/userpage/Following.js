@@ -77,7 +77,7 @@ const Following = ({isLoggedIn, userEmail}) => {
             <div className='UserPage'>
                     <LeftColumn />
             </div>
-                <div className="middle-column">
+            <p32>Following</p32>
                     <div className='Blog'>
                         {/*<p32>Following</p32>*/}
                         {/*<p14>You did not follow any user !</p14>*/}
@@ -100,7 +100,6 @@ const Following = ({isLoggedIn, userEmail}) => {
                         )}
 
                     </div>
-                </div>
 
             <div className = 'Right'>
                 <Right_column email={current_user_email}/>
