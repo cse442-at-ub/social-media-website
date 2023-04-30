@@ -9,28 +9,6 @@ import withAuth from "../../auth";
 import axios from "axios";
 import Following_post from "./Following_post";
 
-
-// const Following = () => {
-//     const { current_user_email } = useParams()
-//     return (
-//         <div className="App45">
-//             <div className='UserPage'>
-//                 <LeftColumn />
-//             </div>
-//             <div className='Following'>
-//                 <p32>Following</p32>
-//                 <p14>You did not follow any user !</p14>
-//
-//             </div>
-//             <div className = 'Right'>
-//                 <Right_column email={current_user_email}/>
-//             </div>
-//         </div>
-//
-//     );
-//
-// }
-
 const Following = ({isLoggedIn, userEmail}) => {
 
     const { current_user_email } = useParams()
