@@ -51,8 +51,8 @@ const ButtonSwitcher = ({email}) => {
     const navigate = useNavigate();
 
     const path = "/userpage/" + email;
-    const fan = '/Fans/' + email;
-    const follow = '/Following/' + email;
+    const followers = '/Followers/' + email;
+    const following = '/Following/' + email;
     const blog = '/Blogs/' + email;
     const photo = '/Album/' + email;
 
@@ -65,10 +65,10 @@ const ButtonSwitcher = ({email}) => {
                     <button type='button' className='MyPage' onClick={()=>navigate(path)}>
                         <p1>Page</p1>
                         <br/></button>
-                    <button type='button' className='MyFans' onClick={()=>navigate(fan)}>
+                    <button type='button' className='MyFans' onClick={()=>navigate(followers)}>
                         <p2>Followers</p2>
                         <br/></button>
-                    <button type='button' className='MyFollowing' onClick={()=>navigate(follow)}>
+                    <button type='button' className='MyFollowing' onClick={()=>navigate(following)}>
                         <p3>Following</p3>
                         <br/></button>
                     <button type='button' className='MyBlog' onClick={()=>navigate(blog)}>

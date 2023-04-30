@@ -10,7 +10,7 @@ import MiddleColumn from "./components/homepage/MiddleColumn";
 import RightColumn from "./components/homepage/RightColumn";
 import Userpage from "./components/userpage/Userpage";
 
-import Fans from "./components/userpage/Fans";
+import Followers from "./components/userpage/Followers";
 import Following from "./components/userpage/Following";
 import Blogs from "./components/userpage/Blogs";
 import Album from "./components/userpage/Album";
@@ -45,7 +45,7 @@ function App() {
 
                         <Route exact path="/login" element={<Login/>}/>
                         <Route exact path="/register" element={<Register/>}/>
-                        <Route exact path="/Fans/:current_user_email" element={<Fans/>}/>
+                        <Route exact path="/Followers/:current_user_email" element={<Followers/>}/>
                         <Route exact path="/Following/:current_user_email" element={<Following/>}/>
                         <Route exact path="/Blogs/:current_user_email" element={<Blogs/>}/>
                         <Route exact path="/Album/:current_user_email" element={<Album/>}/>

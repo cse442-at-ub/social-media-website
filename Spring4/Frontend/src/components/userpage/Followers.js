@@ -9,7 +9,7 @@ import withAuth from "../../auth";
 import axios from "axios";
 import Following_post from "./Following_post";
 
-const Fans = ({isLoggedIn, userEmail}) => {
+const Followers = ({isLoggedIn, userEmail}) => {
 
     const { current_user_email } = useParams()
 
@@ -94,4 +94,4 @@ const Fans = ({isLoggedIn, userEmail}) => {
 
 
 
-export default withAuth(Fans);
+export default withAuth(Followers);
