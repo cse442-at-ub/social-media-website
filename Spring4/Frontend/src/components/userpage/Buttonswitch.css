@@ -18,17 +18,86 @@
 /*    flex-flow: row wrap;*/
 /*}*/
 
-.button{
-    width:200px;
-    height:50px;
-    margin:10px;
-    top:10%;
-    transition: background-color 0.1s ease-in-out;
-}
-.inactive{
-    background-color: #8c8c8c;
+.MyPage{
+    font-size: 1em;
+    padding: .5em 1em;
+    border-radius: 6px;
+    box-shadow: 0 5px 0 0 #2e8b57;
+    background: #8fbc8f;
+    color: #fff;
+    transition: all .1s ease-out;
 }
 
-.active{
-    background-color: #1da1f2;
+.MyPage:hover {
+    background: #73b173;
+    box-shadow: 0 4px 0 0 #2e8b57;
+    transform: translateY(1px);
+}
+
+.MyPage:hover:active {
+    box-shadow: 0 1px 0 0 #2e8b57;
+    transform: translateY(4px);
+}
+
+.MyFans{
+    font-size: 1em;
+    padding: .5em 1em;
+    border-radius: 6px;
+    box-shadow: 0 5px 0 0 #2e8b57;
+    background: #8fbc8f;
+    color: #fff;
+    transition: all .1s ease-out;
+}
+
+.MyFans:hover {
+    background: #73b173;
+    box-shadow: 0 4px 0 0 #2e8b57;
+    transform: translateY(1px);
+}
+
+.MyFans:hover:active {
+    box-shadow: 0 1px 0 0 #2e8b57;
+    transform: translateY(4px);
+}
+
+.MyFollowing{
+    font-size: 1em;
+    padding: .5em 1em;
+    border-radius: 6px;
+    box-shadow: 0 5px 0 0 #2e8b57;
+    background: #8fbc8f;
+    color: #fff;
+    transition: all .1s ease-out;
+}
+
+.MyFollowing:hover {
+    background: #73b173;
+    box-shadow: 0 4px 0 0 #2e8b57;
+    transform: translateY(1px);
+}
+
+.MyFollowing:hover:active {
+    box-shadow: 0 1px 0 0 #2e8b57;
+    transform: translateY(4px);
+}
+
+.MyBlog{
+    font-size: 1em;
+    padding: .5em 1em;
+    border-radius: 6px;
+    box-shadow: 0 5px 0 0 #2e8b57;
+    background: #8fbc8f;
+    color: #fff;
+    transition: all .1s ease-out;
+}
+
+.MyBlog:hover {
+    background: #73b173;
+    box-shadow: 0 4px 0 0 #2e8b57;
+    transform: translateY(1px);
+}
+
+.MyBlog:hover:active {
+    box-shadow: 0 1px 0 0 #2e8b57;
+    transform: translateY(4px);
 }
