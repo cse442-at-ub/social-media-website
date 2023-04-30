@@ -14,13 +14,13 @@ const Fans = () => {
             <div className='UserPage'>
                 <LeftColumn />
             </div>
-            <div className='Fan'>
+
                 <div className="gradient-border" id="box">
                     Follower
                 </div>
                 <p13>No one is following You !</p13>
 
-            </div>
+
             <div className = 'Right'>
                 <Right_column email={current_user_email}/>
             </div>

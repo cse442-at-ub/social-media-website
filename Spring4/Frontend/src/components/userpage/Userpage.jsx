@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import axios from "axios";
 
 import Right_column from "./rightcolum";
+import "../homepage/Post.css";
 
 
 const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, userFirstName}) => {
@@ -116,17 +117,23 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
 
     return (
         <div className="App123">
-            <div className='UserPage'>
-            </div>
             <div className='User'>
                 <button type='button' className='Back' onClick={()=>navigate("/")}>
                     <p4>Back</p4>
                     <br/></button>
-                <div className='username'>
-                    <button type='button' className='Image'>
-                        <p5>Image</p5>
-                        <br/></button>
-                    <p8>{user_first_name}</p8>
+                <div className= "post-author-link">
+                    {/*<button type='button' className='Image'>*/}
+                    {/*    <p5>Image</p5>*/}
+                    {/*    <br/></button>*/}
+                    {/*<p8>{user_first_name}</p8>*/}
+                    <img
+                        className="post-avatar"
+                        src = {`https://i.pravatar.cc/50?u=${user_first_name}`}
+                        alt = {user_first_name}
+                    />
+                    <div className="post-author-info">
+                        <span className="post-author">{user_first_name}</span>
+                    </div>
                 </div>
 
                 { showButton &&
@@ -135,20 +142,26 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                 </button>
                 }
             </div>
+
+            {/*<div className='information'>*/}
+            {/*        <p22>FirstName:{user_first_name}</p22>*/}
+
+            {/*        <p23>LastName:{user_last_name}</p23>*/}
+
+            {/*        <p20>Age:{user_age}</p20>*/}
+
+            {/*        <p21>Email:{user_email}</p21>*/}
+            {/*</div>*/}
             <div className='information'>
-                <div className= 'FirstName'>
-                    <p22>FirstName:{user_first_name}</p22>
-                </div>
-                <div className='LastName'>
-                    <p23>LastName:{user_last_name}</p23>
-                </div>
-                <div className = 'Age'>
-                    <p20>Age:{user_age}</p20>
-                </div>
-                <div className= 'Email'>
-                    <p21>Email:{user_email}</p21>
+                <div className='userpage-info'>
+                    <p className='info-item'>FirstName: {user_first_name}</p>
+                    <p className='info-item'>LastName: {user_last_name}</p>
+                    <p className='info-item'>Age: {user_age}</p>
+                    <p className='info-item'>Email: {user_email}</p>
                 </div>
             </div>
+
+
             <div className = 'Right'>
                 <Right_column email = {userEmail}/>
             </div>
