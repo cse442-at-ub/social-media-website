@@ -62,8 +62,8 @@ const ButtonSwitcher = ({email}) => {
         <div className="right-column2">
             <div className="right-column-content2">
                 <div className='UserPage'>
-                    <button type='button' className='MyPage' onClick={()=>navigate(path)}>
-                        <p1>Page</p1>
+                    <button type='button' className='MyPage' onClick={()=>navigate(blog)}>
+                        <p6>Blog</p6>
                         <br/></button>
                     <button type='button' className='MyFans' onClick={()=>navigate(followers)}>
                         <p2>Followers</p2>
@@ -71,12 +71,9 @@ const ButtonSwitcher = ({email}) => {
                     <button type='button' className='MyFollowing' onClick={()=>navigate(following)}>
                         <p3>Following</p3>
                         <br/></button>
-                    <button type='button' className='MyBlog' onClick={()=>navigate(blog)}>
-                        <p6>Blog</p6>
+                    <button type='button' className='MyBlog' onClick={()=>navigate(path)}>
+                        <p1>Personal Info</p1>
                         <br/></button>
-                    {/*<button type='button' className='MyAlbum' onClick={()=>navigate(photo)}>*/}
-                    {/*    <p7>Album</p7>*/}
-                    {/*    <br/></button>*/}
                 </div>
             </div>
         </div>
