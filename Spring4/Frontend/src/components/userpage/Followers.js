@@ -56,7 +56,7 @@ const Followers = ({isLoggedIn, userEmail}) => {
                 <LeftColumn />
             </div>
             <div className="gradient-border" id="box">
-                Follower
+                Followers
             </div>
             <div className='Blog'>
 
