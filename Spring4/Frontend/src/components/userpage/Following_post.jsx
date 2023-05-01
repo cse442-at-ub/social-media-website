@@ -1,5 +1,5 @@
 import React from "react";
-import "../homepage/Post.css";
+import "./Following_post_styple.css";
 //import "./Following_post.css"
 import {Link} from "react-router-dom"
 
@@ -11,17 +11,17 @@ const Following_post = ({ author,email}) => {
     // this page will dilay author
 
     return (
-        < div className= "post">
-            <div className="post-header">
-                <Link to = {`/userpage/${email}`} className= "post-author-link">
+        < div className= "following_post">
+            <div className="following_post-header">
+                <Link to = {`/userpage/${email}`} className= "following_post-author-link">
                     <img
-                        className="post-avatar"
+                        className="following_post-avatar"
                         src = {`https://i.pravatar.cc/50?u=${author}`}
                         alt = {author}
                     />
 
-                    <div className="post-author-info">
-                        <span className="post-author">{author}</span>
+                    <div className="following_post-author-info">
+                        <span className="following_post-author">{author}</span>
                     </div>
 
                 </Link>
