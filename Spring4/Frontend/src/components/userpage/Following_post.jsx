@@ -8,7 +8,7 @@ import {Link} from "react-router-dom"
 
 const Following_post = ({ author,email}) => {
 
-    // this page will dilay author and emial and
+    // this page will dilay author
 
     return (
         < div className= "post">

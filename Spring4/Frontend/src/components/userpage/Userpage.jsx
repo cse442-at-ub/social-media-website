@@ -122,10 +122,6 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                     <p4>Back</p4>
                     <br/></button>
                 <div className= "post-author-link">
-                    {/*<button type='button' className='Image'>*/}
-                    {/*    <p5>Image</p5>*/}
-                    {/*    <br/></button>*/}
-                    {/*<p8>{user_first_name}</p8>*/}
                     <img
                         className="post-avatar"
                         src = {`https://i.pravatar.cc/50?u=${user_first_name}`}
@@ -142,16 +138,6 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                 </button>
                 }
             </div>
-
-            {/*<div className='information'>*/}
-            {/*        <p22>FirstName:{user_first_name}</p22>*/}
-
-            {/*        <p23>LastName:{user_last_name}</p23>*/}
-
-            {/*        <p20>Age:{user_age}</p20>*/}
-
-            {/*        <p21>Email:{user_email}</p21>*/}
-            {/*</div>*/}
             <div className='information'>
                 <div className='userpage-info'>
                     <p className='info-item'>FirstName: {user_first_name}</p>
