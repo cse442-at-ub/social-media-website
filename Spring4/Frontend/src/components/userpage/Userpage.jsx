@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 import axios from "axios";
 
 import Right_column from "./rightcolum";
-import "../homepage/Post.css";
+import "./Following_post_styple.css";
 
 
 const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, userFirstName}) => {
@@ -121,14 +121,14 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                 <button type='button' className='Back' onClick={()=>navigate("/")}>
                     <p4>Back</p4>
                     <br/></button>
-                <div className= "post-author-link">
+                <div className= "following_post-author-link">
                     <img
-                        className="post-avatar"
+                        className="following_post-avatar"
                         src = {`https://i.pravatar.cc/50?u=${user_first_name}`}
                         alt = {user_first_name}
                     />
-                    <div className="post-author-info">
-                        <span className="post-author">{user_first_name}</span>
+                    <div className="following_post-author-info">
+                        <span className="following_post-author">{user_first_name}</span>
                     </div>
                 </div>
 

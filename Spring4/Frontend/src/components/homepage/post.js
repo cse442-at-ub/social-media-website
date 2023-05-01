@@ -43,7 +43,7 @@ const Post = ({ author, content, image, postDateTime,email, id, useremail, like_
     return (
         <div className="post">
             <div className="post-header">
-                <Link to={`/userpage/${email}`} className="post-author-link">
+                <Link to={`/Blogs/${email}`} className="post-author-link">
                     <img
                         className="post-avatar"
                         src={`https://i.pravatar.cc/50?u=${author}`}
