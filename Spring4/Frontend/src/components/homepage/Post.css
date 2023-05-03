@@ -83,3 +83,60 @@
     font-size: 0.9em;
     color: #8c8c8c;
 }
+
+/* 在 post.css 中添加以下内容 */
+.toggle-comments {
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 8px;
+}
+
+.toggle-comments:hover {
+    text-decoration: underline;
+}
+
+.comments {
+    margin-top: 16px;
+}
+
+.comment-form {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.comment-input {
+    flex-grow: 1;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+.submit-comment {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.submit-comment:hover {
+    background-color: #0056b3;
+}
+
+.comment-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment {
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
