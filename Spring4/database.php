@@ -99,6 +99,17 @@ if (mysqli_query($conn, $sql)) {
     echo "Error creating likes table: " . mysqli_error($conn) . "<br>";
 }
 
+$sql = "CREATE TABLE comments(
+    id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    post_id INT(8) NOT NULL, 
+    comment_email VARCHAR(200) NOT NULL, 
+    comment VARCHAR(200) NOT NULL
+    )";
+if (mysqli_query($conn, $sql)) {
+    echo "comments table created successfully. " . "<br>";
+} else {
+    echo "Error creating comments table: " . mysqli_error($conn) . "<br>";
+}
 
 
 

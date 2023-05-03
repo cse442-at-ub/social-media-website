@@ -68,6 +68,22 @@ while ($row_posts = $result->fetch_assoc()) {
     $row_like_or_cancel = $result_like_or_cancel->fetch_assoc();
     $like_or_cancel = ($row_like_or_cancel['num_rows'] > 0);
 
+    $user_comments = array();
+    // Get comments for this post
+    $stmt3 = $conn->prepare("SELECT comment_email, comment FROM comments WHERE post_id = ?");
+    $stmt3->bind_param('i', $row_posts['post_id']);
+    $stmt3->execute();
+    $comment_result = $stmt3->get_result();
+    while ($comment_row = $comment_result->fetch_assoc()) {
+        // Find firstname for this comment's email
+        $stmt4 = $conn->prepare("SELECT firstname FROM users_info WHERE email = ?");
+        $stmt4->bind_param('s', $comment_row['comment_email']);
+        $stmt4->execute();
+        $firstname_row = $stmt4->get_result()->fetch_assoc();
+        $firstname = $firstname_row['firstname'];
+        $user_comments[] = $firstname . ': ' . $comment_row['comment'];
+    }
+    
     // Add post with like count to posts array
     $posts[] = array(
         'first_name' => $row_posts['first_name'],
@@ -78,7 +94,8 @@ while ($row_posts = $result->fetch_assoc()) {
         'post_datetime' => $row_posts['post_datetime'],
         'post_id' => $row_posts['post_id'],
         'num_likes' => $num_likes,
-        'like_or_cancel' => $like_or_cancel
+        'like_or_cancel' => $like_or_cancel,
+        'comments'=> $user_comments
     );
 }
 $response['posts'] = $posts;
