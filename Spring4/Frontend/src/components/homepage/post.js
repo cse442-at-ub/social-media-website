@@ -15,13 +15,20 @@ const Post = ({ author, content, image, postDateTime,email, id, useremail, like_
         })
     );
     const [newComment, setNewComment] = useState("");
+    const [commentLength, setCommentLength] = useState(0);
+
 
     const toggleComments = () => {
         setShowComments(!showComments);
     };
 
     const handleCommentChange = (event) => {
-        setNewComment(event.target.value);
+        const inputLength = event.target.value.length;
+
+        if (inputLength <= 100) {
+            setNewComment(event.target.value);
+            setCommentLength(inputLength);
+        }
     };
 
     const handleCommentSubmit = async (event) => {
@@ -29,7 +36,7 @@ const Post = ({ author, content, image, postDateTime,email, id, useremail, like_
         if (newComment.trim() !== "") {
             const newCommentData = { name: username, comment: newComment };
             console.log(newComment)
-            setComments([...comments, newCommentData]);
+
 
             console.log(newComment)
             // 在这里向后端发送评论数据
@@ -42,6 +49,7 @@ const Post = ({ author, content, image, postDateTime,email, id, useremail, like_
 
                 if (response.status === 200) {
                     // 处理成功的响应
+                    setComments([...comments, newCommentData]);
                     setNewComment("");
                 }
             } catch (error) {
@@ -125,12 +133,13 @@ const Post = ({ author, content, image, postDateTime,email, id, useremail, like_
                             className="comment-input"
                             value={newComment}
                             onChange={handleCommentChange}
-                            placeholder="Write a comment...(less than 100 words)"
+                            placeholder="Write a comment..."
                         />
                         <button type="submit" className="submit-comment">
                             Send
                         </button>
                     </form>
+                    <div className="comment-length-counter">{commentLength}/100</div>
                     <ul className="comment-list">
                         {comments.map((comment, index) => (
                             <li key={index} className="comment">
