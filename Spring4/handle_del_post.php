@@ -37,30 +37,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $stmt = $conn->prepare("DELETE FROM post_history WHERE id = ? and email = ?;");
 
-            $stmt->bind_param('ss', $received_post_id, $received_email);
+            $stmt->bind_param('is', $received_post_id, $received_email);
             $stmt->execute();
-            // todo: need to handle a case: if deleted row does not exist
+            // handle a case: if deleted row does not exist
+            if ($stmt->affected_rows > 0) {
+                // Delete related rows from comments
+                $stmt = $conn->prepare("DELETE FROM comments WHERE post_id = ?;");
+                $stmt->bind_param('i', $received_post_id);
+                $stmt->execute();
 
-
-
-            // todo: need to delete related rows from comments
-
-
-            // todo: need to delete related rows from likes
-
-
-
-
-
-
+                // Delete related rows from likes
+                $stmt = $conn->prepare("DELETE FROM likes WHERE post_id = ?;");
+                $stmt->bind_param('i', $received_post_id);
+                $stmt->execute();
+            } else {
+                $response['status'] = "failed: the post #" . $received_post_id . " not found";
+            }
 
         } else {
             $response['self_page'] = false;
 
             $response['status'] = "failed: user is not in self page";
-
-
-
         }
 
 
