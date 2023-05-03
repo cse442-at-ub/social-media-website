@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-        // insert row data into post_history
+        // delete row data into post_history
         $stmt = $conn->prepare("DELETE FROM follows WHERE user_email = ? AND follower_email = ?;");
 
         $stmt->bind_param('ss', $follower_email, $visited_email);
