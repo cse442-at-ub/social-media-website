@@ -17,8 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($received_old_password)) {
         // authentication failed if User did not enter the old password
         $response = array("info_status" => "old password is empty");
-        $response = array("error_message" => "old password is needed for authentication");
-
 
     } else {
 
@@ -86,7 +84,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         } else {
             $response = array("info_status" => "old password is incorrect");
-            $response = array("error_message" => "old password is wrong");
         }
 
 
