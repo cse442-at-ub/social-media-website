@@ -4,8 +4,8 @@ import LeftColumn from "../homepage/LeftColumn";
 import Right_column from "./rightcolum";
 import withAuth from '../../auth.js';
 import axios from 'axios';
-//import Blog2 from "./Blog2";
-import Post from "../homepage/post";
+import Blog2 from "./Blog2";
+//import Post from "../homepage/post";
 import {useParams} from "react-router-dom";
 
 
@@ -81,7 +81,7 @@ const Blogs = ({isLoggedIn, userEmail, id, userFirstName}) => {
                 ) : (
                     postTitles && postTitles.map((post, index) => (
                         <div key={index} className="post-with-delete-button">
-                        <Post
+                        <Blog2
                             key={index}
                             author={`${post.first_name} ${post.last_name}`}
                             email={post.email}
