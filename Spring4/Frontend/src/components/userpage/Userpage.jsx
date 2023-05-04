@@ -16,12 +16,23 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
     // added for fetch user name url
     const { current_user_email } = useParams()
 
-    const [showButton, setShowButton] = useState(true);
+    const [show_following_Button, setShow_following_Button] = useState(true);
+    const [buttontext, setButtontext] = useState('Follow')
+    const [show_edit_button, setShow_edit_button] = useState(false)
+    const [edit_button_text, set_edit_Buttontext] = useState('Edit')
 
     const [userData, setUserData] = useState(null);
-    const [buttontext, setButtontext] = useState('Follow')
 
-    const handleclick = () =>{
+
+    const handle_edit_click = () =>{
+        // send user to edit profile page
+        // when done, logout them out and send them back to ' login' or homepage
+
+    }
+
+
+
+    const handle_following_click = () =>{
         if (isLoggedIn === false){
             alert("please log in before follow other people")
 
@@ -84,11 +95,11 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
 
                     setUserData(response.data);
 
-                    // make additional change for the page
-                    // if user login and view other people's profile
-                    // we will show following button
+                    // if login and is current user
+                    // do not show the following button, but show edit
                     if (isLoggedIn === true && current_user_email === userEmail){
-                        setShowButton(false)
+                        setShow_following_Button(false)
+                        setShow_edit_button(true)
                     }
 
                     const isFollowed = response.data.is_followed;
@@ -104,7 +115,7 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                     console.log("userpage failed")
                 });
 
-    }, [current_user_email, userEmail, isLoggedIn, showButton, buttontext]);
+    }, [current_user_email, userEmail, isLoggedIn, show_following_Button, buttontext, show_edit_button, set_edit_Buttontext]);
     // notice line 45 use 'current_user_email' to trigger page re-render.
     // everytime current_user_email which come from url changed, the page will reload.
 
@@ -113,7 +124,7 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
         return <div>Loading...</div>
     }
 
-    const { user_email, user_first_name, user_last_name, user_full_name, user_date_of_birth, user_age } = userData;
+    const { user_email, user_first_name, user_last_name, user_age } = userData;
 
     return (
         <div className="App123">
@@ -132,8 +143,15 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                     </div>
                 </div>
 
-                { showButton &&
-                <button type='button' className='following' onClick={handleclick}  >
+                {/*add another button on same position*/}
+                { show_edit_button &&
+                    <button type='button' className='following' onClick={handle_edit_click}  >
+                        {edit_button_text}
+                    </button>
+                }
+
+                { show_following_Button &&
+                <button type='button' className='following' onClick={handle_following_click}  >
                     {buttontext}
                 </button>
                 }
