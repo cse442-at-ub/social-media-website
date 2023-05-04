@@ -6,7 +6,7 @@ import {toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const Edit_profile = (props) => {
-    const [email, setEmail] = useState('');
+    const [old_pass, set_old_pass] = useState('');
     const [pass, setPass] = useState('');
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
@@ -22,18 +22,18 @@ export const Edit_profile = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("here is input data sending to backend")
-        console.log(email)
+        console.log("edit profile send data to backend")
+        console.log("old password")
+        console.log(old_pass)
+        console.log("end of old password")
         console.log(pass);
         console.log(firstname);
         console.log(lastname)
-        console.log("added date of birth ")
         console.log(date)
-        console.log("end of input data")
         // sending the post request
-        axios.post('handle_register.php', {
+        axios.post('handle_edit_profile.php', {
 
-            user_email: email,
+            user_old_password: old_pass,
             user_password: pass,
             user_first_name: firstname,
             user_last_name: lastname,
@@ -44,6 +44,11 @@ export const Edit_profile = (props) => {
                 console.log(response.data)
 
                 const {  repeated_email } = response.data;
+
+                // here, I also want to know if 'old pass' is correct or not
+                // if not, I want backend to send me a signal, so I can inform user
+
+
                 console.log("here is the repeated email")
                 console.log(repeated_email)
 
@@ -56,7 +61,7 @@ export const Edit_profile = (props) => {
 
             }, (error) => {
                 console.log(error);
-                toast.error("register failed")
+                toast.error("edit profile failed")
             });
 
     }
@@ -71,24 +76,28 @@ export const Edit_profile = (props) => {
             />
             <div className="user_login">
                 <div className="auth-form-container">
-                    <h2>Register</h2>
-                    < form className="register-form" onSubmit={handleSubmit}>
+                    <h2>Edit Profile</h2>
+                    <form className="register-form" onSubmit={handleSubmit}>
                         <label htmlFor="firstname">First name</label>
                         <input value={firstname} onChange={(e) => setFirstname(e.target.value)} placeholder="your first name" id="first name" name="firstname" />
+
                         <label htmlFor="lastname">Last name</label>
-                        <input value={lastname} onChange={(e) => setLastname(e.target.value)} placeholder="your last name" id="last name" name="lastname" />
+                        <input value={lastname} onChange={(e) => setLastname(e.target.value)} placeholder="your last name" id="last name" name="lastname"/>
 
-                        {/*added date of birth */}
                         <label htmlFor="date">Date of Birth</label>
-                        <input  value = {date}onChange={(e) => setDate(e.target.value)}type="date" placeholder="Enter BirthDate" id="date" name="birthdate" />
+                        <input value={date} onChange={(e) => setDate(e.target.value)} type="date" placeholder="Enter BirthDate" id="date" name="birthdate" />
 
+                        {/* user must enter old password to identify himself*/}
+                        {/*Required Field !!! Must not be empty*/}
+                        <label htmlFor="password">Old Password</label>
+                        <input value={old_pass} onChange={(e) => set_old_pass(e.target.value)} type="password" placeholder="Enter old password to verify" id="password" name="password" required />
 
-                        <label htmlFor="email">Email</label>
-                        <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
                         <label htmlFor="password">Password</label>
-                        <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
-                        <button type="submit">Register your account</button>
+                        <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Enter new password" id="password" name="password"/>
+
+                        <button type="submit">Update your info</button>
                     </form>
+
 
 
                     <button className="link-btn" onClick={() => navigate("/login")}>Already have an account? Login here.</button>

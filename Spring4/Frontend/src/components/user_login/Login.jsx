@@ -63,9 +63,9 @@ export const Login = (props) => {
                     <h1>Welcome to chat union</h1>
                     <form className="login-form" onSubmit={handleSubmit}>
                         <label htmlFor="email">Email</label>
-                        <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
+                        <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" required />
                         <label htmlFor="password">Password</label>
-                        <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
+                        <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" required />
 
                         <button type="submit">Log In</button>
                     </form>

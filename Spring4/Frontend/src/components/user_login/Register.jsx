@@ -72,23 +72,23 @@ export const Register = (props) => {
             <div className="user_login">
                 <div className="auth-form-container">
                     <h2>Register</h2>
-                    < form className="register-form" onSubmit={handleSubmit}>
+                    <form className="register-form" onSubmit={handleSubmit}>
                         <label htmlFor="firstname">First name</label>
-                        <input value={firstname} onChange={(e) => setFirstname(e.target.value)} placeholder="your first name" id="first name" name="firstname" />
+                        <input value={firstname} onChange={(e) => setFirstname(e.target.value)} placeholder="your first name" id="first name" name="firstname" required />
                         <label htmlFor="lastname">Last name</label>
-                        <input value={lastname} onChange={(e) => setLastname(e.target.value)} placeholder="your last name" id="last name" name="lastname" />
+                        <input value={lastname} onChange={(e) => setLastname(e.target.value)} placeholder="your last name" id="last name" name="lastname" required />
 
                         {/*added date of birth */}
                         <label htmlFor="date">Date of Birth</label>
-                        <input  value = {date}onChange={(e) => setDate(e.target.value)}type="date" placeholder="Enter BirthDate" id="date" name="birthdate" />
-
+                        <input value={date} onChange={(e) => setDate(e.target.value)} type="date" placeholder="Enter BirthDate" id="date" name="birthdate" required />
 
                         <label htmlFor="email">Email</label>
-                        <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
+                        <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="email" name="email" required />
                         <label htmlFor="password">Password</label>
-                        <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
+                        <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" required />
                         <button type="submit">Register your account</button>
                     </form>
+
 
 
                     <button className="link-btn" onClick={() => navigate("/login")}>Already have an account? Login here.</button>

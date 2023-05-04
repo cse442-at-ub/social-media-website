@@ -64,7 +64,7 @@ function App() {
                         <Route exact path="/Blogs/:current_user_email" element={<Blogs/>}/>
                         <Route exact path="/Album/:current_user_email" element={<Album/>}/>
                         {/* edit profile test */}
-                        <Route exact path="/edit_profile" element={<Edit_profile/>}/>
+                        <Route exact path="/Edit_profile/:current_user_email" element={<Edit_profile/>}/>
 
 
 
