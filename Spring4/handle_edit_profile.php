@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $received_data = file_get_contents('php://input');
     $received_data = json_decode($received_data, true);
 
-    $response = array("status" => "success");
+    $response = array("info_status" => "success");
 
     // Assuming you have already extracted the values from the POST request
     $received_old_password = $received_data['user_old_password'];
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($received_old_password)) {
         // authentication failed if User did not enter the old password
-        $response = array("status" => "old password is empty");
+        $response = array("info_status" => "old password is empty");
         $response = array("error_message" => "old password is needed for authentication");
 
 
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_COOKIE['auth_token'])) {
             $response['cookie_is_set'] = true;
         } else {
-            $response['status'] = 'Auth token not found';
+            $response['info_status'] = 'Auth token not found';
             $response['cookie_is_set'] = false;
         }
 
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
         } else {
-            $response = array("status" => "old password is incorrect");
+            $response = array("info_status" => "old password is incorrect");
             $response = array("error_message" => "old password is wrong");
         }
 
