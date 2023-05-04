@@ -1,8 +1,11 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $received_data = json_decode(file_get_contents('php://input'), true);
+
+    $email = $received_data ["user_email"];
+
     $response = array("status" => "success");
 
     if (isset($_COOKIE['auth_token'])) {
@@ -20,11 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-    $stmt = $conn->prepare("SELECT email FROM users_info WHERE auth_token = ?");
-    $stmt->bind_param('s', $_COOKIE['auth_token']);
-    $stmt->execute();
-    $row = $stmt->get_result()->fetch_assoc();
-    $email = $row['email'];
+//    $stmt = $conn->prepare("SELECT email FROM users_info WHERE auth_token = ?");
+//    $stmt->bind_param('s', $_COOKIE['auth_token']);
+//    $stmt->execute();
+//    $row = $stmt->get_result()->fetch_assoc();
+//    $email = $row['email'];
+
+
 
 
     $stmt = $conn->prepare("
@@ -35,8 +40,6 @@ JOIN users_info ON users_info.email = post_history.email
 WHERE post_history.email = ?
 ORDER BY post_datetime DESC
 ");
-
-
     $stmt->bind_param('s', $email);
 
     $stmt->execute();
@@ -79,7 +82,7 @@ ORDER BY post_datetime DESC
             WHERE post_id = ? AND liker_email = ?
         ";
         $stmt_like_or_cancel = mysqli_prepare($conn, $sql_like_or_cancel);
-        $stmt_like_or_cancel->bind_param("is", $row_posts['post_id'], $local_user_email);
+        $stmt_like_or_cancel->bind_param("is", $row_posts['post_id'], $email);
         $stmt_like_or_cancel->execute();
         $result_like_or_cancel = $stmt_like_or_cancel->get_result();
         $row_like_or_cancel = $result_like_or_cancel->fetch_assoc();
