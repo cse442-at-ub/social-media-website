@@ -4,12 +4,12 @@ import LeftColumn from "../homepage/LeftColumn";
 import Right_column from "./rightcolum";
 import withAuth from '../../auth.js';
 import axios from 'axios';
-import Blog2 from "./Blog2";
-//import Post from "../homepage/post";
+//import Blog2 from "./Blog2";
+import Post from "../homepage/post";
 import {useParams} from "react-router-dom";
 
 
-const Blogs = ({isLoggedIn, userEmail, id}) => {
+const Blogs = ({isLoggedIn, userEmail, id, userFirstName}) => {
     const [postTitles, setPostTitles] = useState([]);
     const { current_user_email } = useParams()
 
@@ -81,13 +81,19 @@ const Blogs = ({isLoggedIn, userEmail, id}) => {
                 ) : (
                     postTitles && postTitles.map((post, index) => (
                         <div key={index} className="post-with-delete-button">
-                        <Blog2
+                        <Post
                             key={index}
                             author={`${post.first_name} ${post.last_name}`}
                             email={post.email}
                             content={post.post_title}
                             image={post.post_image}
                             postDateTime={post.post_datetime}
+                            id={post.post_id}
+                            useremail = {userEmail}
+                            like_count = {post.num_likes}
+                            isliked = {post.like_or_cancel}
+                            username ={userFirstName}
+                            commentdata = {post.comments}
                         />
                             <button
                                 className="delete-button"
