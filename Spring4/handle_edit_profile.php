@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!empty($received_first_name)) {
                 // User updates the first name
                 $stmt = $conn->prepare("UPDATE users_info SET firstname = ? WHERE email = ?");
-                $stmt->bind_param('ss', $received_new_password, $email);
+                $stmt->bind_param('ss', $received_first_name, $email);
                 $stmt->execute();
 
             }
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!empty($received_last_name)) {
                 // User updates the last name
                 $stmt = $conn->prepare("UPDATE users_info SET lastname = ? WHERE email = ?");
-                $stmt->bind_param('ss', $received_new_password, $email);
+                $stmt->bind_param('ss', $received_last_name, $email);
                 $stmt->execute();
 
             }
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!empty($received_date_of_birth)) {
                 // User updates the date of birth
                 $stmt = $conn->prepare("UPDATE users_info SET date_of_birth = ? WHERE email = ?");
-                $stmt->bind_param('ss', $received_new_password, $email);
+                $stmt->bind_param('ss', $received_date_of_birth, $email);
                 $stmt->execute();
 
             }
