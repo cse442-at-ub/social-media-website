@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import './App.css';
 import { Login } from "./components/user_login/Login";
 import { Register } from "./components/user_login/Register";
+import { Edit_profile } from "./components/user_login/edit_profile"
+
 
 // blow is for the using navigate
 import { Routes, Route, HashRouter} from "react-router-dom";
@@ -35,20 +37,16 @@ function App() {
         <div className="App">
             {
 
-                // <div>
-                //     <LeftColumn buttons={leftButtons} />
-                //     <MiddleColumn />
-                //     <RightColumn />
-                // </div>
                 <HashRouter>
                     <Routes>
 
                         <Route exact path="/login" element={<Login/>}/>
                         <Route exact path="/register" element={<Register/>}/>
-                        <Route exact path="/Followers/:current_user_email" element={<Followers/>}/>
-                        <Route exact path="/Following/:current_user_email" element={<Following/>}/>
-                        <Route exact path="/Blogs/:current_user_email" element={<Blogs/>}/>
-                        <Route exact path="/Album/:current_user_email" element={<Album/>}/>
+
+
+
+
+                        {/* homepage */}
                         <Route exact path="/" element={
                         <div className={"homepage"}    >
 
@@ -59,8 +57,16 @@ function App() {
                         </div>
                         }/>
 
-
+                        {/* userpage */}
                         <Route exact path="/userpage/:current_user_email" element={<Email />}/>
+                        <Route exact path="/Followers/:current_user_email" element={<Followers/>}/>
+                        <Route exact path="/Following/:current_user_email" element={<Following/>}/>
+                        <Route exact path="/Blogs/:current_user_email" element={<Blogs/>}/>
+                        <Route exact path="/Album/:current_user_email" element={<Album/>}/>
+                        {/* edit profile test */}
+                        <Route exact path="/edit_profile" element={<Edit_profile/>}/>
+
+
 
 
                     </Routes>

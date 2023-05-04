@@ -27,6 +27,10 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
     const handle_edit_click = () =>{
         // send user to edit profile page
         // when done, logout them out and send them back to ' login' or homepage
+        const edit_profile_path = "/edit_profile" + userEmail
+
+        navigate(edit_profile_path)
+
 
     }
 
