@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-        $stmt = $conn->prepare("SELECT email,  FROM users_info WHERE auth_token = ?");
+        $stmt = $conn->prepare("SELECT email, user_password FROM users_info WHERE auth_token = ?");
         $stmt->bind_param('s', $_COOKIE['auth_token']);
         $stmt->execute();
         $row = $stmt->get_result()->fetch_assoc();
@@ -49,8 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // User updates a new password
                 // clean cookie
 
+                $hashed_new_password = password_hash($received_new_password, PASSWORD_DEFAULT);
                 $stmt = $conn->prepare("UPDATE users_info SET user_password = ? WHERE email = ?");
-                $stmt->bind_param('ss', $received_new_password, $email);
+                $stmt->bind_param('ss', $hashed_new_password, $email);
                 $stmt->execute();
 
                 $stmt = $conn->prepare("UPDATE users_info SET auth_token = NULL WHERE email = ?");
