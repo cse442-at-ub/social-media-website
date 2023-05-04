@@ -67,16 +67,44 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                             console.log(error);
                         });
                 }
+                // end of if
+                else if (buttontext === 'Following' && isLoggedIn === true){
+                    // click following again, will unfollow the user
+
+                    setButtontext('Follow')
+                    // alert("unfollow " + current_user_email + " success")
 
 
+                    // next, send the request to backend
+                    axios.post('handle_remove_follow.php', {
+                        user_email: current_user_email
+                    })
+                        .then((response) => {
+                            console.log("this is the response data from userpage in unfollow button")
+                            console.log(response.data);
+                            console.log("remove follow saved")
+                            console.log('follow_status:', response.data.follow_status);
+                            // check if follow this person failed
+
+                            const follow_status = response.data.follow_status;
+                            if (follow_status !== "success"){
+                                alert("fail to remove from follows table")
+                            }
 
 
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+
+
+                }
+                // end of else if
             }
 
         }
 
-
-
+    // major function for update the page
     useEffect(() => {
         // We will simply using url to directly update our page
         // but first, this user must be login
