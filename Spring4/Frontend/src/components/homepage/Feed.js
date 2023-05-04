@@ -3,7 +3,7 @@ import axios from "axios";
 import Post from "./post";
 
 
-const Feed = ({ type, isLoggedIn, posts, updatePosts, useremail }) => {
+const Feed = ({ type, isLoggedIn, posts, updatePosts, useremail, username }) => {
     const [followingLength, setFollowingLength] = useState(null);
 
     useEffect(() => {
@@ -48,6 +48,8 @@ const Feed = ({ type, isLoggedIn, posts, updatePosts, useremail }) => {
                         useremail = {useremail}
                         like_count = {post.num_likes}
                         isliked = {post.like_or_cancel}
+                        username ={username}
+                        commentdata = {post.comments}
                     />
                 ))
             )}

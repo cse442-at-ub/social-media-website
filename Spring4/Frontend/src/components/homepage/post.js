@@ -6,7 +6,59 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import  { useState } from "react";
 import axios from "axios";
 
-const Post = ({ author, content, image, postDateTime,email, id, useremail, like_count, isliked}) => {
+const Post = ({ author, content, image, postDateTime,email, id, useremail, like_count, isliked, username, commentdata}) => {
+    const [showComments, setShowComments] = useState(false);
+    const [comments, setComments] = useState(
+        commentdata.map((item) => {
+            const [name, comment] = item.split(":");
+            return { name, comment };
+        })
+    );
+    const [newComment, setNewComment] = useState("");
+    const [commentLength, setCommentLength] = useState(0);
+
+
+    const toggleComments = () => {
+        setShowComments(!showComments);
+    };
+
+    const handleCommentChange = (event) => {
+        const inputLength = event.target.value.length;
+
+        if (inputLength <= 100) {
+            setNewComment(event.target.value);
+            setCommentLength(inputLength);
+        }
+    };
+
+    const handleCommentSubmit = async (event) => {
+        event.preventDefault();
+        if (newComment.trim() !== "") {
+            const newCommentData = { name: username, comment: newComment };
+            console.log(newComment)
+
+
+            console.log(newComment)
+            // 在这里向后端发送评论数据
+            try {
+                const response = await axios.post("handle_comment.php", {
+                    postId: id,
+                    comment: newComment,
+                    userEmail: useremail,
+                });
+
+                if (response.status === 200) {
+                    // 处理成功的响应
+                    setComments([...comments, newCommentData]);
+                    setNewComment("");
+                }
+            } catch (error) {
+                // 处理错误的响应
+                alert("Error submitting comment, please try again");
+            }
+        }
+    };
+
     const [liked, setLiked] = useState(isliked);
     const [likeCount, setLikeCount] = useState(like_count)
     const toggleLike = async () => {
@@ -69,7 +121,34 @@ const Post = ({ author, content, image, postDateTime,email, id, useremail, like_
                     color={liked ? "#007bff" : ""}
                 />
                 <span className="like-count">{likeCount}</span>
+                <button className="toggle-comments" onClick={toggleComments}>
+                    {showComments ? "Hide Comments" : "Show Comments"}
+                </button>
             </div>
+            {showComments && (
+                <div className="comments">
+                    <form onSubmit={handleCommentSubmit} className="comment-form">
+                        <input
+                            type="text"
+                            className="comment-input"
+                            value={newComment}
+                            onChange={handleCommentChange}
+                            placeholder="Write a comment..."
+                        />
+                        <button type="submit" className="submit-comment">
+                            Send
+                        </button>
+                    </form>
+                    <div className="comment-length-counter">{commentLength}/100</div>
+                    <ul className="comment-list">
+                        {comments.map((comment, index) => (
+                            <li key={index} className="comment">
+                                <strong>{comment.name}:</strong> {comment.comment}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
         </div>
     );
 };

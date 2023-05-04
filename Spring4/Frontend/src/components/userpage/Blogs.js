@@ -9,7 +9,7 @@ import Blog2 from "./Blog2";
 import {useParams} from "react-router-dom";
 
 
-const Blogs = ({isLoggedIn, userEmail, id}) => {
+const Blogs = ({isLoggedIn, userEmail, id, userFirstName}) => {
     const [postTitles, setPostTitles] = useState([]);
     const { current_user_email } = useParams()
 
@@ -88,6 +88,12 @@ const Blogs = ({isLoggedIn, userEmail, id}) => {
                             content={post.post_title}
                             image={post.post_image}
                             postDateTime={post.post_datetime}
+                            id={post.post_id}
+                            useremail = {userEmail}
+                            like_count = {post.num_likes}
+                            isliked = {post.like_or_cancel}
+                            username ={userFirstName}
+                            commentdata = {post.comments}
                         />
                             <button
                                 className="delete-button"
