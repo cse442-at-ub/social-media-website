@@ -40,24 +40,39 @@ export const Edit_profile = (props) => {
             user_date_of_birth: date
         })
             .then((response) => {
-                console.log("this is the response data")
+                console.log("this is the response data in edit profile")
                 console.log(response.data)
+                console.log("info status would be")
+                console.log(response.data.info_status)
 
-                const {  repeated_email } = response.data;
-
-                // here, I also want to know if 'old pass' is correct or not
-                // if not, I want backend to send me a signal, so I can inform user
+                const info_status = response.data.info_status
 
 
-                console.log("here is the repeated email")
-                console.log(repeated_email)
 
-                if (repeated_email === true){
-                    toast.error("email repeated, please choose another email")
+                // check response anc use pop up
+                if (info_status === "old password is empty" ) {
+                    toast.error("your old password is empty")
                 }
-                else{
-                    toast.success("register success")
+                else if (info_status === "old password is incorrect"){
+                    toast.error("your old password is incorrect")
                 }
+                else if (info_status === "success"){
+                    // when success, send him back to homepage
+                    toast.success("Info Updated", {
+                        autoClose: 1000, // Display duration in milliseconds (e.g., 3000 ms = 3 seconds)
+                    });
+                    toast.success("redirect to login.....", {
+                        autoClose: 1000, // Display duration in milliseconds (e.g., 3000 ms = 3 seconds)
+                    });
+
+                    setTimeout(() => {
+                        navigate("/login");
+                    }, 2000); // Adjust the delay time (in milliseconds) as needed
+                }
+
+
+
+
 
             }, (error) => {
                 console.log(error);

@@ -48,10 +48,22 @@ export const Register = (props) => {
                 console.log(repeated_email)
 
                 if (repeated_email === true){
-                    toast.error("email repeated, please choose another email")
+                    toast.error("Email repeated, please choose another email")
                 }
                 else{
-                    toast.success("register success")
+
+                    // when success, send him back to homepage
+                    toast.success("Register success", {
+                        autoClose: 1000, // Display duration in milliseconds (e.g., 3000 ms = 3 seconds)
+                    });
+                    toast.success("redirect to login.....", {
+                        autoClose: 1000, // Display duration in milliseconds (e.g., 3000 ms = 3 seconds)
+                    });
+
+                    setTimeout(() => {
+                        navigate("/login");
+                    }, 2000); // Adjust the delay time (in milliseconds) as needed
+
                 }
 
             }, (error) => {
