@@ -9,7 +9,7 @@ import Blog2 from "./Blog2";
 import {useParams} from "react-router-dom";
 
 
-const Blogs = ({isLoggedIn, userEmail}) => {
+const Blogs = ({isLoggedIn, userEmail, id}) => {
     const [postTitles, setPostTitles] = useState([]);
     const { current_user_email } = useParams()
 
@@ -23,17 +23,19 @@ const Blogs = ({isLoggedIn, userEmail}) => {
                     console.log(userEmail)
                     console.log("he is viewing the other user")
                     console.log(current_user_email)
-                    const response = await axios.post('load_profile_posts.php', {
+                    const response = await axios.post('load_personal_posts.php', {
                         user_email: current_user_email
                     });
                     console.log("this is the response data from blog")
-                    console.log(response.data)
+                    console.log(response)
 
-                    const post = response.data.post
-                    const postTitles = response.data.posts.map(post => post.post_title);
-                    const postDate = response.data.posts.map(post => post.post_datetime);
-                    const firstPostName = response.data.posts.map(post => post.first_name);
-                    const lastPostName = response.data.posts.map(post => post.last_name);
+                    // const post = response.data.posts
+                    // const ID = response.data.posts.map(post=>post.post_id)
+                    // const postTitles = response.data.posts.map(post => post.post_title);
+                    // const postDate = response.data.posts.map(post => post.post_datetime);
+                    // const firstPostName = response.data.posts.map(post => post.first_name);
+                    // const lastPostName = response.data.posts.map(post => post.last_name);
+
                     setPostTitles(response.data.posts);
 
             } catch (error) {
@@ -44,14 +46,15 @@ const Blogs = ({isLoggedIn, userEmail}) => {
         fetchData();
     }, [current_user_email, isLoggedIn, setPostTitles, userEmail]);
 
-    const handleDelete = async (postId) => {
+    const handleDelete = async (Post_ID) => {
         try {
-            console.log(postId)
+            console.log(Post_ID)
             console.log(current_user_email)
             // Replace this with your actual API call
-            const response2 = await axios.post('handle_del_post.php', { post_id: postId, user_email: current_user_email });
+            const response2 = await axios.post('handle_del_post.php', { post_id: Post_ID, user_email: current_user_email });
             if (response2.status === 200) {
                 // 处理成功的响应
+                window.location.reload();
 
             }
             // Remove the post from the local state after successful deletion
@@ -73,10 +76,10 @@ const Blogs = ({isLoggedIn, userEmail}) => {
                 Blog
             </div>
             <div className='Blog'>
-                {postTitles.length === 0 ? (
+                {postTitles && postTitles.length === 0 ? (
                     <p15>You did not put any Blogs!</p15>
                 ) : (
-                    postTitles.map((post, index) => (
+                    postTitles && postTitles.map((post, index) => (
                         <div key={index} className="post-with-delete-button">
                         <Blog2
                             key={index}
