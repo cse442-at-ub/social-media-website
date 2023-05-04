@@ -4,14 +4,16 @@ import LeftColumn from "../homepage/LeftColumn";
 import Right_column from "./rightcolum";
 import withAuth from '../../auth.js';
 import axios from 'axios';
-import Post from "../homepage/post";
+import Blog2 from "./Blog2";
+//import Post from "../homepage/post";
 import {useParams} from "react-router-dom";
 
 
 const Blogs = ({isLoggedIn, userEmail}) => {
     const [postTitles, setPostTitles] = useState([]);
     const { current_user_email } = useParams()
-    // const [userData, setUserData] = useState(null);
+
+    const [userData, setUserData] = useState(null);
     useEffect(() => {
         async function fetchData() {
             try {
@@ -42,6 +44,25 @@ const Blogs = ({isLoggedIn, userEmail}) => {
         fetchData();
     }, [current_user_email, isLoggedIn, setPostTitles, userEmail]);
 
+    const handleDelete = async (postId) => {
+        try {
+            console.log(postId)
+            console.log(current_user_email)
+            // Replace this with your actual API call
+            const response2 = await axios.post('handle_del_post.php', { post_id: postId, user_email: current_user_email });
+            if (response2.status === 200) {
+                // 处理成功的响应
+
+            }
+            // Remove the post from the local state after successful deletion
+            // setPostTitles((prevPostTitles) =>
+            //     prevPostTitles.filter((post) => post.post_id !== postId)
+            // );
+        } catch (error) {
+            console.error('Error deleting post:', error);
+        }
+    };
+
 
     return (
         <div className="App13">
@@ -56,7 +77,8 @@ const Blogs = ({isLoggedIn, userEmail}) => {
                     <p15>You did not put any Blogs!</p15>
                 ) : (
                     postTitles.map((post, index) => (
-                        <Post
+                        <div key={index} className="post-with-delete-button">
+                        <Blog2
                             key={index}
                             author={`${post.first_name} ${post.last_name}`}
                             email={post.email}
@@ -64,6 +86,13 @@ const Blogs = ({isLoggedIn, userEmail}) => {
                             image={post.post_image}
                             postDateTime={post.post_datetime}
                         />
+                            <button
+                                className="delete-button"
+                                onClick={() => handleDelete(post.post_id)}
+                            >
+                                Delete
+                            </button>
+                        </div>
                     ))
                 )}
 

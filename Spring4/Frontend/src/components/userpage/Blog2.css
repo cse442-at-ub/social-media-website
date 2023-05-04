@@ -1,0 +1,86 @@
+.post2 {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    padding: 12px;
+    width: 100%;
+}
+
+.post2-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.post2-avatar {
+    border-radius: 50%;
+    height: 50px;
+    margin-right: 12px;
+    width: 50px;
+}
+
+.post2-author-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.post2-author {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.post2-date {
+    color: #8c8c8c;
+    font-size: 0.9em;
+    margin-left: auto;
+}
+
+.post2-content {
+    font-size: 1em;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.post2-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.pos2-author-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.post2-author-link:hover {
+    text-decoration: underline;
+}
+
+.post2-image {
+    max-width: 500px;
+    height: auto;
+}
+
+.post2-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.like2-button {
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.like2-button:hover {
+    color: #007bff;
+}
+.like2-count {
+    margin-left: 8px;
+    font-size: 0.9em;
+    color: #8c8c8c;
+}
