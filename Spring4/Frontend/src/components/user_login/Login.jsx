@@ -37,8 +37,21 @@ export const Login = (props) => {
                 if (status === 'success'){
                     console.log("this is the data part in the response")
                     console.log(response.data)
-                    navigate('/')
+
+
+                    // when success, send him back to homepage
+                    toast.success("Login success", {
+                        autoClose: 1000, // Display duration in milliseconds (e.g., 3000 ms = 3 seconds)
+                    });
+                    toast.success("redirect to Homepage.....", {
+                        autoClose: 1000, // Display duration in milliseconds (e.g., 3000 ms = 3 seconds)
+                    });
+
+                    setTimeout(() => {
+                        navigate("/");
+                    }, 2000); // Adjust the delay time (in milliseconds) as needed
                 }
+
                 else if (status === 'invalid user password'){
                     toast.error("your password is incorrect")
                     // window.alert("invalid user password")
