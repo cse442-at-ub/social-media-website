@@ -84,6 +84,9 @@ export const Login = (props) => {
                     </form>
 
                     <button className="link-btn" onClick={()=>navigate("/register")}>Don't have an account? Register here.</button>
+                    {/*/!* forget password*!/*/}
+                    {/*<button className="link-btn" onClick={()=>navigate("/reset_password")}>Forget your password?</button>*/}
+                    {/*/!*end of forget password*!/*/}
                     <button type="button" onClick={goBack}>Back Home</button>
                 </div>
             </div>
