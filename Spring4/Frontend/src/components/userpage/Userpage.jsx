@@ -14,6 +14,7 @@ import "./Following_post_styple.css";
 const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, userFirstName}) => {
     const navigate = useNavigate();
     // added for fetch user name url
+    // ok
     const { current_user_email } = useParams()
 
     const [show_following_Button, setShow_following_Button] = useState(true);
