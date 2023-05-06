@@ -1,0 +1,103 @@
+/*.right-column2 {*/
+/*    position: absolute;*/
+/*    width: 17%;*/
+/*    height: 100%;*/
+/*    left: 83%;*/
+/*    top: 0px;*/
+
+/*    background: #f0f0f0;*/
+/*}*/
+/*.right-column-content2 {*/
+/*    text-align: center;*/
+/*}*/
+/*.ButtonSwitcher{*/
+/*    display: flex;*/
+/*    height:100vh;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    flex-flow: row wrap;*/
+/*}*/
+
+.MyPage{
+    font-size: 1em;
+    padding: .5em 1em;
+    border-radius: 6px;
+    box-shadow: 0 5px 0 0 #2e8b57;
+    background: #8fbc8f;
+    color: #fff;
+    transition: all .1s ease-out;
+}
+
+.MyPage:hover {
+    background: #73b173;
+    box-shadow: 0 4px 0 0 #2e8b57;
+    transform: translateY(1px);
+}
+
+.MyPage:hover:active {
+    box-shadow: 0 1px 0 0 #2e8b57;
+    transform: translateY(4px);
+}
+
+.MyFans{
+    font-size: 1em;
+    padding: .5em 1em;
+    border-radius: 6px;
+    box-shadow: 0 5px 0 0 #2e8b57;
+    background: #8fbc8f;
+    color: #fff;
+    transition: all .1s ease-out;
+}
+
+.MyFans:hover {
+    background: #73b173;
+    box-shadow: 0 4px 0 0 #2e8b57;
+    transform: translateY(1px);
+}
+
+.MyFans:hover:active {
+    box-shadow: 0 1px 0 0 #2e8b57;
+    transform: translateY(4px);
+}
+
+.MyFollowing{
+    font-size: 1em;
+    padding: .5em 1em;
+    border-radius: 6px;
+    box-shadow: 0 5px 0 0 #2e8b57;
+    background: #8fbc8f;
+    color: #fff;
+    transition: all .1s ease-out;
+}
+
+.MyFollowing:hover {
+    background: #73b173;
+    box-shadow: 0 4px 0 0 #2e8b57;
+    transform: translateY(1px);
+}
+
+.MyFollowing:hover:active {
+    box-shadow: 0 1px 0 0 #2e8b57;
+    transform: translateY(4px);
+}
+
+.MyBlog{
+    font-size: 1em;
+    padding: .5em 1em;
+    border-radius: 6px;
+    box-shadow: 0 5px 0 0 #2e8b57;
+    background: #8fbc8f;
+    color: #fff;
+    transition: all .1s ease-out;
+}
+
+.MyBlog:hover {
+    background: #73b173;
+    box-shadow: 0 4px 0 0 #2e8b57;
+    transform: translateY(1px);
+}
+
+.MyBlog:hover:active {
+    box-shadow: 0 1px 0 0 #2e8b57;
+    transform: translateY(4px);
+}
