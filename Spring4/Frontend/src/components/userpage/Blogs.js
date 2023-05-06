@@ -94,6 +94,7 @@ const Blogs = ({isLoggedIn, userEmail, id, userFirstName}) => {
                             isliked = {post.like_or_cancel}
                             username ={userFirstName}
                             commentdata = {post.comments}
+                            isLoggedIn = {isLoggedIn}
                         />
                             <button
                                 className="delete-button"

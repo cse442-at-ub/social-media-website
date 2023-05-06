@@ -6,7 +6,7 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import  { useState } from "react";
 import axios from "axios";
 
-const Post = ({ author, content, image, postDateTime,email, id, useremail, like_count, isliked, username, commentdata}) => {
+const Post = ({ author, content, image, postDateTime,email, id, useremail, like_count, isliked, username, commentdata, isLoggedIn}) => {
     const [showComments, setShowComments] = useState(false);
     const [comments, setComments] = useState(
         commentdata.map((item) => {
@@ -33,6 +33,10 @@ const Post = ({ author, content, image, postDateTime,email, id, useremail, like_
 
     const handleCommentSubmit = async (event) => {
         event.preventDefault();
+        if (!isLoggedIn) {
+            alert("Please log in to commenting the post.");
+            return;
+        }
         if (newComment.trim() !== "") {
             const newCommentData = { name: username, comment: newComment };
             console.log(newComment)
@@ -62,6 +66,10 @@ const Post = ({ author, content, image, postDateTime,email, id, useremail, like_
     const [liked, setLiked] = useState(isliked);
     const [likeCount, setLikeCount] = useState(like_count)
     const toggleLike = async () => {
+        if (!isLoggedIn) {
+            alert("Please log in to like the post.");
+            return;
+        }
         if (email === useremail){
             alert("you can not like your post")
             return
