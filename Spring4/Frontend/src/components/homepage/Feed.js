@@ -50,6 +50,7 @@ const Feed = ({ type, isLoggedIn, posts, updatePosts, useremail, username }) => 
                         isliked = {post.like_or_cancel}
                         username ={username}
                         commentdata = {post.comments}
+                        isLoggedIn = {isLoggedIn}
                     />
                 ))
             )}
