@@ -41,11 +41,18 @@ https://www.geeksforgeeks.org/how-to-transfer-files-using-sftp/
 
 # To run this project
 
-First move into to the foler "Sping4" 
-which is our lastest updated.
+First move into to the folder "Spring4" 
+which is our latest updated.
 
 ## Use "package.json" located in Spring4/Frontend/package.json to run npm install before build.
+## To connect database: create a database name ($dbname = "spring3_database";) which is matched with php file. 
+## After build page complete, put all php file to the build page. 
+
 ## For the Rest, please follow following steps provided by React readme as instructions.
+
+
+
+
 
 # Getting Started with Create React App
 
