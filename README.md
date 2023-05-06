@@ -44,7 +44,8 @@ https://www.geeksforgeeks.org/how-to-transfer-files-using-sftp/
 First move into to the foler "Sping4" 
 which is our lastest updated.
 
-## Use "package.json" located in Spring4/Frontend/package.json to run npm install before build.
+### Use "package.json" located in Spring4/Frontend/package.json to run npm install before build.
+# For the Rest, please follow following steps provided by React readme as instructions.
 
 # Getting Started with Create React App
 
