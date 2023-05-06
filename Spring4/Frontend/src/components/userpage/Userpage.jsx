@@ -204,7 +204,7 @@ const Userpage = ({isLoggedIn, userFullName, userLastName, userEmail, userAge, u
                 <Right_column email = {userEmail}/>
             </div>
         </div>
-    );
+    )
 
 }
 export default withAuth(Userpage);
