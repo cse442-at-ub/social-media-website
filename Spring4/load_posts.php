@@ -25,7 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $stmt->bind_param('s', $_COOKIE['auth_token']);
     $stmt->execute();
     $row = $stmt->get_result()->fetch_assoc();
-    $local_user_email = $row['email'];
+//    $local_user_email = $row['email'];
+    $local_user_email = $row ? $row['email'] : null;
+
 
 
     $sql = "

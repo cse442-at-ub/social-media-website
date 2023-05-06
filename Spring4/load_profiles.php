@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
 
         $row = $stmt->get_result()->fetch_assoc();
-        $curr_user_email = $row['email'];
+        $curr_user_email = $row ? $row['email'] : null;
         $response['test '] = $row['email'];
 
 

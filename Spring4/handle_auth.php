@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $stmt->execute();
 
     $row = $stmt->get_result()->fetch_assoc();
-    $user_email = $row['email'];
+    $user_email = $row ? $row['email'] : null;
     $user_first_name = $row['firstname'];
     $user_last_name = $row['lastname'];
     // try calculate_age

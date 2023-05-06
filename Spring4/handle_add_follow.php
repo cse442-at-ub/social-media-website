@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $row = $stmt->get_result()->fetch_assoc();
         $visited_id = $row['id'];
-        $visited_email = $row['email'];
+        $visited_email = $row ? $row['email'] : null;
 
         $stmt = $conn->prepare("SELECT id AS follower_id FROM users_info WHERE email = ?");
         $stmt->bind_param('s', $follower_email);

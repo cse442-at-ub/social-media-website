@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param('s', $_COOKIE['auth_token']);
     $stmt->execute();
     $row = $stmt->get_result()->fetch_assoc();
-    $email = $row['email'];
+    $email = $row ? $row['email'] : null;
 
     // insert row data into post_history
     $stmt = $conn->prepare(

@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $stmt->bind_param('s', $_COOKIE['auth_token']);
     $stmt->execute();
     $row = $stmt->get_result()->fetch_assoc();
-    $email = $row['email'];
+    $email = $row ? $row['email'] : null;
 
     $stmt = $conn->prepare("
 SELECT u.firstname AS first_name, u.lastname AS last_name, 
