@@ -39,7 +39,12 @@ https://www.buffalo.edu/ubit/service-guides/file-storage-and-sharing/accessing-m
 How to Transfer Files using SFTP?
 https://www.geeksforgeeks.org/how-to-transfer-files-using-sftp/
 
+# To run this project
 
+First move into to the foler "Sping4" 
+which is our lastest updated.
+
+### Use "package.json" located in Spring4/Frontend/package.json to build before run npm install.
 
 # Getting Started with Create React App
 
