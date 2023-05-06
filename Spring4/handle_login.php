@@ -38,9 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $cookie_value = bin2hex(random_bytes(16));
 //            echo '$cookie_value: ' . $cookie_value;
             $expiration = time() + (60 * 60 * 24 * 7);
-            $secure = true;
-            $httponly = true;
-            setcookie($cookie_name, $cookie_value, $expiration, $secure, $httponly);
 
             setcookie($cookie_name, $cookie_value, $expiration);
 
